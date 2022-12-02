@@ -1,0 +1,25 @@
+:root{
+  --color-form:#A78D48;
+}
+body{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: 0px;
+}
+
+header{
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 0 110px;
+}
+
+.logo{
+  width: 150px;
+  height: 15s0px;
+}
+h2{
+  font-size: 40px;
+  margin-left: -90px;
+}
