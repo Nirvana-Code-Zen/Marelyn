@@ -2,7 +2,12 @@ import React from 'react'
 import '../Login/Login.css'
 
 export default function Login(){
-  
+    const btn = document.querySelector('.btn-entrar')
+    const btnEntrar = ()=>{
+      btn.addEventListener('click',()=>{
+        console.log('Soy un botn ')
+      })
+    }
     return <div className="form-login">
      <h4>Login</h4>
      <form>
@@ -18,8 +23,8 @@ export default function Login(){
        <div>
        </div>
        <div className="btns">
-          <input type="submit" value='Crear usuario' className='btn-create' />
-          <input type="submit" value='Entrar'  className='btn-entrar'/>
+          <input type="submit" value='Crear usuario' className='btn-create' onClick={btnEntrar} />
+          <input type="submit" value='Entrar'  className='btn-entrar' onClick={btnEntrar}/>
         </div>
      </form>
    </div>
