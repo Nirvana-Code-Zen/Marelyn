@@ -8,7 +8,7 @@ function App () {
       <div className='container-app'>
         <header className='header' >
           <img src="./src/assets/logo-Marelyn.png" alt="logo-marelyn" className='logo' />
-          <h2>Zapateria Marelyn</h2>
+          <h2>Zapateria </h2>
         </header>
         <Login></Login>
       </div>
