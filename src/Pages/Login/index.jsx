@@ -19,7 +19,7 @@ export default function Login () {
          <label className='text-form'>Contraseña </label>
          <input type="password" name="password" required className='inputs'/>
        </div>
-       <label> <a href="">Olvidaste tu contraseña?</a> </label>
+       <label className='passwords'> <a href="">Olvidaste tu contraseña?</a> </label>
        <div>
        </div>
        <div className="btns">
