@@ -1,10 +1,8 @@
-import React from 'react'
+import Login from '../Pages/Login'
+
 import './App.css'
 
-import Login  from '../Pages/Login'
-
-
-function App() {
+function App () {
   return (
     <div className="App">
       <div className='container-app'>
