@@ -10,7 +10,6 @@ const Routing = () => {
         <Route path='/' component={Home} />
         <Route path="sing-up" />
         <Route path="login" />
-        <Route path="login" />
         <Route path="restore-password" />
       </Scope>
       <Scope base='/products/'>
