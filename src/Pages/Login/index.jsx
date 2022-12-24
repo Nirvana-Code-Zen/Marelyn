@@ -1,11 +1,8 @@
 import '../Login/Login.css'
 
 export default function Login () {
-  const btn = document.querySelector('.btn-entrar')
   const btnEntrar = () => {
-    btn.addEventListener('click', () => {
-      console.log('Soy un botn ')
-    })
+    console.log('Soy un boton')
   }
 
   return <div className="form-login">
