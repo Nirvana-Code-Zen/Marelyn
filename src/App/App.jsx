@@ -1,5 +1,12 @@
+import { ThemeProvider } from 'styled-components'
 import Routing from '../routing'
 
-const App = () => <Routing />
+import theme from '../Global-styles/theme'
+
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <Routing />
+  </ThemeProvider>
+)
 
 export default App

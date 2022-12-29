@@ -1,29 +1,37 @@
+import Form, { Input } from '../../Global-styles/Components/Forms'
+import H4 from '../../Global-styles/Components/Titles'
+
 export default function Login () {
-  const btnEntrar = () => {
+  const btnEntrar = e => {
+    e.preventDefault()
     console.log('Soy un boton')
   }
-  const createUsuari = () => {
+
+  const createUsuari = e => {
+    e.preventDefault()
     console.log('Necesito terminar la funcion de crear')
   }
 
-  return <div className="">
-     <h4 className='width'>Login</h4>
-     <form>
-       <div className="">
-         <label className=''>Correo </label>
-         <input type="text" name="name" required className=''/>
+  return (
+  <div>
+    <H4>Login</H4>
+     <Form>
+       <div>
+         <label>Correo </label>
+         <Input type="text" name="name" required className=''/>
        </div>
-       <div className="">
-         <label className='text-form'>Contraseña </label>
-         <input type="password" name="password" required className=''/>
+       <div>
+         <label>Contraseña </label>
+         <Input type="password" name="password" required className=''/>
        </div>
        <label className='password'> <a href="">Olvidaste tu contraseña?</a> </label>
        <div>
        </div>
        <div className="btns">
-        <button className='borderRadius button' onClick={createUsuari}>Crear usuaios</button>
         <button className='borderRadius button' onClick={btnEntrar}>Entrar</button>
+        <button className='borderRadius button' onClick={createUsuari}>Crear usuario</button>
       </div>
-     </form>
+     </Form>
    </div>
+  )
 }

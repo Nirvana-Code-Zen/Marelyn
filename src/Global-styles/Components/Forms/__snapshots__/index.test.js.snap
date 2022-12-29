@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Form /> Styled Component Should be Form styles ready 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: auto;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  gap: 25px;
+}
+
+<form
+  className="c0"
+/>
+`;
+
+exports[`<Form /> Styled Component Should be FormGroup styles ready 1`] = `
+.c0 label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`<Form /> Styled Component Should be Input styles ready 1`] = `
+.c0 {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 0 3px 1px #a78d48;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+<input
+  className="c0"
+/>
+`;
