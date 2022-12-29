@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint src/ --ext .js --ext .jsx --fix",
-    "test": "jest src/Global-styles/test/globla-styles.test.js",
+    "test": "jest src/Global-styles/test/sizing.test.js",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "lint:css": "stylelint '**/*.css' --fix"
