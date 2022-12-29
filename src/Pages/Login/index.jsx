@@ -21,8 +21,8 @@ export default function Login () {
        <div>
        </div>
        <div className="btns">
-        <input type="submit" value='Crear usuario' className='borderRadius' onClick={createUsuari} />
-        <input type="submit" value='Entrar' className='borderRadius' onClick={btnEntrar}/>
+        <button className='borderRadius button' onClick={createUsuari}>Crear usuaios</button>
+        <button className='borderRadius button' onClick={btnEntrar}>Entrar</button>
       </div>
      </form>
    </div>

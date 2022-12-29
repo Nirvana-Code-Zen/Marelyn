@@ -23,10 +23,12 @@ h1 {
 
 h2 {
   font-size: 40px;
+  color: white;
 }
 
 h4 {
   font-size: 30px;
+  text-align:center;
 }
 
 a {
@@ -38,6 +40,7 @@ a {
 form {
   display: flex;
   justify-content: center;
+  margin:auto;
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -65,6 +68,23 @@ input[type='text'], input[type='password'] {
 .rounded {
   border-radius: 100%;
 }
+
+.bordes{
+  border: 1px solid red;
+}
+
+.btns{
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.button{
+  width: 140px;
+  height: 30px;
+  margin: 10px;
+}
+
 `
 
 export default GlobalStyles
