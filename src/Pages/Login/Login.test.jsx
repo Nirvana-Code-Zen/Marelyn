@@ -23,4 +23,12 @@ describe('<Login/>', () => {
 
     expect(console.log).toHaveBeenCalledWith('Soy un boton')
   })
+
+  test('Should be create usuari', () => {
+    console.log = jest.fn()
+    const button = screen.getByText('Crear usuario')
+    fireEvent.click(button)
+
+    expect(console.log).toHaveBeenCalledWith('Necesito terminar la funcion de crear')
+  })
 })

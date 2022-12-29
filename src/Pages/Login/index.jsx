@@ -1,28 +1,29 @@
-import '../Login/Login.css'
-
 export default function Login () {
   const btnEntrar = () => {
     console.log('Soy un boton')
   }
+  const createUsuari = () => {
+    console.log('Necesito terminar la funcion de crear')
+  }
 
-  return <div className="form-login">
-     <h4>Login</h4>
+  return <div className="">
+     <h4 className='width'>Login</h4>
      <form>
-       <div className="input-login">
-         <label className='text-form'>Correo </label>
-         <input type="text" name="name" required className='inputs'/>
+       <div className="">
+         <label className=''>Correo </label>
+         <input type="text" name="name" required className=''/>
        </div>
-       <div className="input-login">
+       <div className="">
          <label className='text-form'>Contraseña </label>
-         <input type="password" name="password" required className='inputs'/>
+         <input type="password" name="password" required className=''/>
        </div>
-       <label className='passwords'> <a href="">Olvidaste tu contraseña?</a> </label>
+       <label className='password'> <a href="">Olvidaste tu contraseña?</a> </label>
        <div>
        </div>
        <div className="btns">
-          <input type="submit" value='Crear usuario' className='btn-create' onClick={btnEntrar} />
-          <input type="submit" value='Entrar' className='btn-entrar' onClick={btnEntrar}/>
-        </div>
+        <button className='borderRadius button' onClick={createUsuari}>Crear usuaios</button>
+        <button className='borderRadius button' onClick={btnEntrar}>Entrar</button>
+      </div>
      </form>
    </div>
 }
