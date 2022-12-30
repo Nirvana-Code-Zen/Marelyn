@@ -1,3 +1,4 @@
+import Button from '../../Components/Button'
 import Form, { GroupForm, Input } from '../../Global-styles/Components/Forms'
 
 const SingUp = () => {
@@ -34,6 +35,7 @@ const SingUp = () => {
         </GroupForm>
         <GroupForm>
         </GroupForm>
+        <Button>Crear</Button>
       </Form>
     </>
   )
