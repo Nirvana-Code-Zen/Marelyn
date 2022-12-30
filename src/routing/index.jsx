@@ -1,7 +1,7 @@
 import { Route, Switch } from 'wouter'
 
 import Home from '../Pages/Home'
-import SingUp from '../Pages/SingUp'
+import SingUp from '../Pages/Singup'
 import Scope from '../routing/Scope.jsx'
 
 const Routing = () => {
