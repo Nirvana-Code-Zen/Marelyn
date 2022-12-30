@@ -1,9 +1,9 @@
-import style from 'styled-components'
+import style from "styled-components";
 
 export default style.button`
-  padding: .5rem 2rem;
-  background: ${props => props.background || props.theme.colors.primary};
-  color: #FFFFFF;
+  padding: .3rem 1rem;
+  background: ${(props) => props.theme.colors.secondary};
+  color: '#fff';
   border-radius: 3px;
   border: none;
   outline: none;
@@ -27,7 +27,7 @@ export default style.button`
   }
 
   &:hover {
-    background-color: ${props => props.theme.colors.black};
+    background-color: ${(props) => props.theme.colors.black};
   }
 
   &:hover .arrow {
@@ -37,7 +37,7 @@ export default style.button`
   & .arrow {
     margin-top: 1px;
     width: 10px;
-    background: ${props => props.theme.colors.primary};
+    background: ${(props) => props.theme.colors.primary};
     height: 2px;
     position: relative;
     transition: 0.2s;
@@ -60,4 +60,4 @@ export default style.button`
   &:hover .arrow:before {
     right: 0;
   }
-`
+`;
