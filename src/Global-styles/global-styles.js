@@ -1,90 +1,55 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: var(--primary-font);
+    box-sizing: border-box;
+  }
 
-:root {
-  --primary-color: #a78d48;
+  h1 {
+    font-size: 50px;
+  }
 
-  --primary-font: "Nanum Gothic", sans-serif;
-}
+  h2 {
+    font-size: 40px;
+  }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  font-family: var(--primary-font);
-  box-sizing: border-box;
-}
+  a {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+  }
 
-h1 {
-  font-size: 50px;
-}
+  .boxshadow {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
 
-h2 {
-  font-size: 40px;
-  color: white;
-}
+  .borderRadius {
+    border-radius: 10px;
+  }
 
-h4 {
-  font-size: 30px;
-  text-align:center;
-}
+  .rounded {
+    border-radius: 100%;
+  }
 
-a {
-  text-decoration: none;
-  font-size: 20px;
-  color: black;
-}
+  .bordes{
+    border: 1px solid red;
+  }
 
-form {
-  display: flex;
-  justify-content: center;
-  margin:auto;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  gap: 25px;
-}
+  .btns{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
 
-input[type='text'], input[type='password'] {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 10px;
-  border: 1px solid var(--primary-color);
-  box-shadow: 0 0 3px 1px var(--primary-color);
-  font-size: 1.1rem;
-  outline: none;
-}
-
-.boxshadow {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-}
-
-.borderRadius {
-  border-radius: 10px;
-}
-
-.rounded {
-  border-radius: 100%;
-}
-
-.bordes{
-  border: 1px solid red;
-}
-
-.btns{
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-}
-
-.button{
-  width: 140px;
-  height: 30px;
-  margin: 10px;
-}
-
+  .button{
+    width: 140px;
+    height: 30px;
+    margin: 10px;
+  }
 `
 
 export default GlobalStyles

@@ -1,6 +1,7 @@
 import { Route, Switch } from 'wouter'
 
 import Home from '../Pages/Home'
+import SingUp from '../Pages/Singup'
 import Scope from '../routing/Scope.jsx'
 
 const Routing = () => {
@@ -8,7 +9,7 @@ const Routing = () => {
     <Switch>
       <Scope base='/'>
         <Route path='/' component={Home} />
-        <Route path="sing-up" />
+        <Route path="sign-up" component={SingUp} />
         <Route path="login" />
         <Route path="restore-password" />
       </Scope>
