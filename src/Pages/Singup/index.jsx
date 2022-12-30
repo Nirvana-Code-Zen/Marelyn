@@ -35,7 +35,7 @@ const SingUp = () => {
         </GroupForm>
         <GroupForm>
         </GroupForm>
-        <Button>Crear</Button>
+        <Button onClick={() => {}}>Crear</Button>
       </Form>
     </>
   )
