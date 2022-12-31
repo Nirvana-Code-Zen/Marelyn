@@ -19,9 +19,15 @@ const SingUp = () => {
 
     const validation = Object.values(validateData(data, validationFormat))
     if (validation.length) {
+      setSuccessMessage('')
       return validation.forEach(message => setErrorMessage((prevMessage) => `${prevMessage || ''} * ${message}\n`))
     }
 
+    if (data.contrasena !== data.confirmar_contrasena) {
+      return setErrorMessage('* Contraseñas son distintas')
+    }
+
+    setErrorMessage(null)
     setSuccessMessage('Usuario creado correctamente')
   }
 
