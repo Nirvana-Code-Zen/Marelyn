@@ -23,6 +23,7 @@ module.exports = {
     'react'
   ],
   rules: {
+    'no-useless-escape': 'off',
     'react/react-in-jsx-scope': 'off'
   }
 }

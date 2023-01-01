@@ -28,4 +28,8 @@ export const Input = styled.input`
   outline: none;
 `
 
+export const Select = styled.select``
+
+export const Option = styled.option``
+
 export default Form
