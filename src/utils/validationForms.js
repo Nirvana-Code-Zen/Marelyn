@@ -1,5 +1,4 @@
 export const createUserValidator = {
-  tipo_cuenta: /\w+/,
   usuario: /\w+/,
   nombre: /\w+/,
   apellido_materno: /\w+/,

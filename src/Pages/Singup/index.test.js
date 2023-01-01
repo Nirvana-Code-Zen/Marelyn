@@ -19,7 +19,6 @@ describe('<SingUp />', () => {
   })
 
   test('Should be rendered', () => {
-    screen.getByText('Tipo de cuenta')
     screen.getByText('Nombre de usuario')
     screen.getByText('Apellido Paterno')
     screen.getByText('Apellido Materno')

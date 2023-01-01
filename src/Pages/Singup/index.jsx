@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import Button from '../../Components/Button'
 import ErrorMessage from '../../Components/ErrorMessage'
-import Form, { GroupForm, Input, Select, Option } from '../../Global-styles/Components/Forms'
+import Form, { GroupForm, Input } from '../../Global-styles/Components/Forms'
 
 import { collectFormData, validateData } from '../../utils'
 import { createUserValidator } from '../../utils/validationForms'
@@ -41,14 +41,6 @@ const SingUp = () => {
         )}
 
         {successMessage}
-        <GroupForm>
-          <label htmlFor="tipo_cuenta">Tipo de cuenta</label>
-          <Select name='tipo_cuenta'>
-            <Option value='admin'>Administrador</Option>
-            <Option value='employee'>Empleado</Option>
-            <Option value='client'>Cliente</Option>
-          </Select>
-        </GroupForm>
         <GroupForm>
           <label htmlFor="userName">Nombre de usuario</label>
           <Input id="userName" type="text" name="usuario"/>
