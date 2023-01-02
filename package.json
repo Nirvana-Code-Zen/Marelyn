@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "lint": "eslint src/ --ext .js --ext .jsx --fix",
     "test": "jest ",
-    "test:watch": "jest --watchAll",
+    "test:watch": "jest --watchAll src/Pages/SignupOptions",
     "test:coverage": "jest --coverage",
     "lint:css": "stylelint '**/*.css' --fix"
   },
