@@ -45,7 +45,7 @@ exports[`<Form /> Styled Component Should be Input styles ready 1`] = `
   padding: 1rem;
   border-radius: 10px;
   border: none;
-  box-shadow: 0 0 3px 1px #a78d48;
+  box-shadow: 0 0 3px 1px #d4a413;
   font-size: 1.1rem;
   outline: none;
 }

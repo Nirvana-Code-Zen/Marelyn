@@ -38,18 +38,6 @@ const GlobalStyles = createGlobalStyle`
   .bordes{
     border: 1px solid red;
   }
-
-  .btns{
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .button{
-    width: 140px;
-    height: 30px;
-    margin: 10px;
-  }
 `
 
 export default GlobalStyles

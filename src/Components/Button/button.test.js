@@ -1,26 +1,29 @@
+
 import { ThemeProvider } from 'styled-components'
 import { fireEvent, render, screen } from '@testing-library/react'
 import theme from '../../Global-styles/theme'
 
-import Login from './index'
+import Button from './index'
 
-describe('<Login/>', () => {
+describe('<Button/>', () => {
   beforeEach(() => {
     render(
-      <ThemeProvider theme={theme}>
-        <Login/>
-      </ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <Button onClick={() => { console.log('Soy un boton') }}>
+            Entrar
+          </Button>
+        </ThemeProvider>
     )
     jest.spyOn(console, 'log')
   })
 
   test('Should be rendered', () => {
-    screen.getByText('Login')
+    screen.getByTestId('button')
   })
 
   test('Should be submit works', () => {
     console.log = jest.fn()
-    const button = screen.getByText('Entrar')
+    const button = screen.getByTestId('button')
     fireEvent.click(button)
 
     expect(console.log).toHaveBeenCalledWith('Soy un boton')

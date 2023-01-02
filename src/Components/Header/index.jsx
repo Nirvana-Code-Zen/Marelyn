@@ -1,12 +1,13 @@
-import styles from './header.module.css'
 
-const Header = () => {
-  return (
-    <header className={styles.header} >
-      <img src="./src/assets/logo-Marelyn.png" alt="logo-marelyn" className='w-9' />
-      <h2>Zapateria Marelyn</h2>
-    </header>
-  )
-}
+// import HeaderStyles from './HeaderStyles'
 
-export default Header
+// const Header = () =>{
+//   return(
+//     <HeaderStyles className='' >
+//       <img src="../src/assets/logo-Marely.png" alt="logo-marelyn" />
+
+//     </HeaderStyles>
+//   )
+// }
+
+// export default Header
