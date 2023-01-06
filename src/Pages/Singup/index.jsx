@@ -1,10 +1,11 @@
 import Button from '../../Components/Button'
-import Form, { GroupForm, Input } from '../../Global-styles/Components/Forms'
+import { GroupForm, Input } from '../../Global-styles/Components/Forms'
+import SignupStyled from '../Singup/SignupStyled'
 
 const SingUp = () => {
   return (
     <>
-      <Form>
+      <SignupStyled>
         <GroupForm>
           <label htmlFor="mail">Tipo de cuenta</label>
           <Input id="mail" type="text"/>
@@ -36,7 +37,7 @@ const SingUp = () => {
         <GroupForm>
         </GroupForm>
         <Button onClick={() => {}}>Crear</Button>
-      </Form>
+      </SignupStyled>
     </>
   )
 }

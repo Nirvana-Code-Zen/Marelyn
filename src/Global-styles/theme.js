@@ -6,11 +6,12 @@ export default {
     secondary: '#155db1',
     secondary_complement: '#2196f3',
     error: '#D50000',
-    text_buttons: 'white'
+    hover_button: '#155db180',
+    text_hover: '#fffffff'
   },
   fonts: {
-    text: '"Nanum Gothic", sans-serif',
-    titles: '"Source Sans Pro", sans-serif'
+    text: '"Maven Pro", sans-serif',
+    titles: '"Didact Gothic", sans-serif'
   },
   width_sizing: {
     wTen: '0.625rem', /* 10px */

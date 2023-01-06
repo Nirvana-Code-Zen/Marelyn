@@ -1,13 +1,14 @@
 
-// import HeaderStyles from './HeaderStyles'
+import H1 from '../../Global-styles/Components/Titles'
+import HeaderStyles from './HeaderStyles'
 
-// const Header = () =>{
-//   return(
-//     <HeaderStyles className='' >
-//       <img src="../src/assets/logo-Marely.png" alt="logo-marelyn" />
+const Header = () => {
+  return (
+    <HeaderStyles className='' >
+      <img src="../src/assets/logo-Marely.png" alt="logo-marelyn" />
+      <H1>Zapateria Marelyn</H1>
+    </HeaderStyles>
+  )
+}
 
-//     </HeaderStyles>
-//   )
-// }
-
-// export default Header
+export default Header

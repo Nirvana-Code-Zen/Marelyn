@@ -1,6 +1,6 @@
-import style from 'styled-components'
+import styled from 'styled-components'
 
-export default style.header`
+export default styled.header`
   position: relative;
   background: linear-gradient(45deg, rgb(168 141 72), rgb(32 33 36));
   width: 100%;
@@ -9,5 +9,10 @@ export default style.header`
   align-content: center;
   align-items: center;
   justify-content: center;
-  
+
+  & img {
+    position: absolute;
+    left: 1rem;
+    height: 100%;
+  }
 `
