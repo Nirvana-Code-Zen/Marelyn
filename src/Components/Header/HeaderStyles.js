@@ -1,4 +1,6 @@
-.header {
+import styled from 'styled-components'
+
+export default styled.header`
   position: relative;
   background: linear-gradient(45deg, rgb(168 141 72), rgb(32 33 36));
   width: 100%;
@@ -7,11 +9,10 @@
   align-content: center;
   align-items: center;
   justify-content: center;
-}
 
-.logo {
-  position: absolute;
-  left: 2rem;
-  width: 120px;
-  height: 150px;
-}
+  & img {
+    position: absolute;
+    left: 1rem;
+    height: 100%;
+  }
+`

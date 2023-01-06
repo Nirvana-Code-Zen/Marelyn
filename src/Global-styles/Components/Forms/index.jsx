@@ -6,26 +6,80 @@ const Form = styled.form`
   margin:auto;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  gap: 25px;
+  width: ${props => props.$width || '80%'};
+  height: 350px;
+  gap: 20px;
+
+  & label {
+    font-family: ${props => props.theme.fonts.titles};
+    letter-spacing: 2px;
+
+    & a {
+      font-size: 13px;
+      text-align:right;
+      font-weight: bold;
+    }
+  }
 `
 
 export const GroupForm = styled.div`
+  position: relative;
+
+  & .bar:before {
+    left: 50%
+  } 
+
+  & .bar:after {
+    right: 50%
+  }
+
+  & .bar:before, & .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: ${props => props.theme.colors.secondary};
+    transition: 0.2s ease all;
+  }
+
   & label {
-    display: inline-block;
-    margin-bottom: 10px;
-    font-size: 1.3rem;
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    display: flex;
   }
 `
 
 export const Input = styled.input`
-  width: 100%;
-  padding: 1rem;
-  border-radius: 10px;
+  font-size: 17px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 200px;
   border: none;
-  box-shadow: 0 0 3px 1px ${props => props.theme.colors.primary};
-  font-size: 1.1rem;
-  outline: none;
+  border-bottom: 1px solid ${props => props.theme.colors.primary};
+  background: transparent;
+
+  &:focus {
+    outline: none;
+    border-bottom: none;
+  }
+
+  &:focus ~ label .label-char,
+  &:valid ~ label .label-char {
+    transform: translateY(-20px);
+    font-size: 16px;
+    color: ${props => props.theme.colors.secondary};
+  }
+
+  &:focus ~ .bar:before,
+  &:focus ~ .bar:after { 
+    width: 50%;
+  }
 `
 
 export default Form
