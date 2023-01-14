@@ -1,7 +1,42 @@
+import { useRef } from 'react'
+import { useLocation } from 'wouter'
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from 'firebase/auth'
+
 import SignUpOptionsStyled, { SignUpHeader, SignUpTitle } from './indexStyled'
 import Button from '../../Components/Button'
 
 const SignUpOptions = () => {
+  const [location, setLocation] = useLocation()
+  const { current: providerMethod } = useRef({
+    facebook: FacebookAuthProvider,
+    google: GoogleAuthProvider
+  })
+
+  const goToSignUp = () => {
+    setLocation(`${location}email`)
+  }
+
+  const signInProvider = async (signInMethod) => {
+    const ProviderOption = providerMethod[signInMethod]
+
+    try {
+      const provider = new ProviderOption()
+      const auth = getAuth()
+      await signInWithPopup(auth, provider)
+      setLocation(`${location}dashboard`)
+    } catch (error) {
+      ProviderOption.credentialFromError(error)
+    }
+  }
+
+  const signInWithGoogle = async () => {
+    signInProvider('google')
+  }
+
+  const signInWithFacebook = () => {
+    signInProvider('facebook')
+  }
+
   return (
     <SignUpOptionsStyled>
       <SignUpHeader>
@@ -11,9 +46,9 @@ const SignUpOptions = () => {
         </svg>
         <SignUpTitle>Registrate</SignUpTitle>
       </SignUpHeader>
-      <Button onClick={() => {}} background='#2e89ff'>Registrate con Facebook</Button>
-      <Button onClick={() => {}} background='#e84334'>Registrate con Google</Button>
-      <Button onClick={() => {}}>Registrate con Email</Button>
+      <Button onClick={signInWithFacebook} background='#2e89ff'>Registrate con Facebook</Button>
+      <Button onClick={signInWithGoogle} background='#e84334'>Registrate con Google</Button>
+      <Button onClick={goToSignUp}>Registrate con Email</Button>
     </SignUpOptionsStyled>
   )
 }

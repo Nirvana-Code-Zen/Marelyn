@@ -11,6 +11,7 @@ const Routing = () => {
       <Route path='/' component={Home} />
       <Route path="/login" component={Home}/>
       <Route path="/restore-password" component={Home}/>
+      <Route path="/dashboard" component={() => <h1>Dashboard</h1>}/>
       <Scope base='/sign-up'>
         <Route path="/" component={SignUpOptions} />
         <Route path="/email" component={SignUp} />
