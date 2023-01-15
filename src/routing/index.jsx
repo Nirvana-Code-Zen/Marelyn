@@ -2,8 +2,8 @@ import { Route, Switch } from 'wouter'
 
 import Home from '../Pages/Home'
 import SignUpOptions from '../Pages/SignupOptions'
-import SignUp from '../Pages/Singup'
-import Scope from '../routing/Scope.jsx'
+import SignUp from '../Pages/SingupEmail'
+import Scope from '../routing/Scope'
 
 const Routing = () => {
   return (

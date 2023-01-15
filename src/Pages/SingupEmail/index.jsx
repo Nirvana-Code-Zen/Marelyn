@@ -46,8 +46,8 @@ const SingUp = () => {
           <Input id="userName" type="text" name="usuario"/>
         </GroupForm>
         <GroupForm>
-          <label htmlFor="firstname">Nombre(s)</label>
-          <Input id="firstname" type="text" name="nombre"/>
+          <label htmlFor="mail">Nombre de usuario</label>
+          <Input id="mail" type="text"/>
         </GroupForm>
         <GroupForm>
           <label htmlFor="lastName">Apellido Paterno</label>

@@ -17,7 +17,9 @@ jest.mock('wouter', () => {
 
 jest.mock('firebase/auth', () => ({
   GoogleAuthProvider: jest.fn(),
-  FacebookAuthProvider: jest.fn()
+  FacebookAuthProvider: jest.fn(),
+  getAuth: jest.fn(),
+  signInWithPopup: jest.fn()
 }))
 
 describe('<SignUpOptions />', () => {
@@ -31,19 +33,19 @@ describe('<SignUpOptions />', () => {
 
   test('Should render Google button ', async () => {
     const facebookBtn = screen.getByText('Registrate con Facebook')
-    const facebook = jest.spyon(firebase, 'FacebookAuthProvider')
+    const facebook = jest.spyOn(firebase, 'FacebookAuthProvider')
 
     fireEvent.click(facebookBtn)
-    expect(facebook).tohavebeencalled()
+    expect(facebook).toHaveBeenCalled()
   })
 
   test('Should render Facebook button ', () => {
-    const googlebutton = screen.getByText('registrate con google')
-    const google = jest.spyon(firebase, 'GoogleAuthProvider')
+    const googlebutton = screen.getByText('Registrate con Google')
+    const google = jest.spyOn(firebase, 'GoogleAuthProvider')
 
     fireEvent.click(googlebutton)
 
-    expect(google).tohavebeencalled()
+    expect(google).toHaveBeenCalled()
   })
 
   test('Should render Email button ', () => {
