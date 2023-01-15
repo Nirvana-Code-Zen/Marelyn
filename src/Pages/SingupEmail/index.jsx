@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import Button from '../../Components/Button'
 import ErrorMessage from '../../Components/ErrorMessage'
 import Form, { GroupForm, Input } from '../../Global-styles/Components/Forms'
@@ -13,7 +14,16 @@ const SingUp = () => {
   const [errorMessage, setErrorMessage] = useState(null)
   const [successMessage, setSuccessMessage] = useState(null)
 
-  const createUserHandle = evt => {
+  const createUser = async (email, password) => {
+    const auth = getAuth()
+    try {
+      await createUserWithEmailAndPassword(auth, email, password)
+    } catch (error) {
+      throw new Error(error)
+    }
+  }
+
+  const createUserHandle = async evt => {
     evt.preventDefault()
     const data = collectFormData(formRef.current)
 
@@ -27,8 +37,13 @@ const SingUp = () => {
       return setErrorMessage('* Contraseñas son distintas')
     }
 
-    setErrorMessage(null)
-    setSuccessMessage('Usuario creado correctamente')
+    try {
+      setErrorMessage(null)
+      await createUser(data.email, data.password)
+      setSuccessMessage('Usuario creado correctamente')
+    } catch (error) {
+      setErrorMessage(error.message)
+    }
   }
 
   return (
