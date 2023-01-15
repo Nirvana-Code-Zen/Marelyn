@@ -4,6 +4,17 @@ import theme from '../../Global-styles/theme'
 import SignUp from './index'
 
 describe('<SingUp />', () => {
+  const inputLabel = {
+    name: 'Nombre de usuario'.split(''),
+    surName: 'Apellido paterno'.split(''),
+    lastName: 'Apellido materno'.split(''),
+    email: 'Correo'.split(''),
+    password: 'Contraseña'.split(''),
+    confirmPassword: 'Confirmar contraseña'.split('')
+  }
+
+  const forEachCB = char => char !== ' ' && screen.getAllByText(char)
+
   beforeAll(() => {
     render(
       <ThemeProvider theme={theme}>
@@ -13,12 +24,11 @@ describe('<SingUp />', () => {
   })
 
   test('Should be rendered', () => {
-    screen.getByText('Tipo de cuenta')
-    screen.getByText('Nombre de usuario')
-    screen.getByText('Apellido Paterno')
-    screen.getByText('Apellido Materno')
-    screen.getByText('Correo')
-    screen.getByText('Contraseña')
-    screen.getByText('Confirma contraseña')
+    inputLabel.name.forEach(forEachCB)
+    inputLabel.surName.forEach(forEachCB)
+    inputLabel.lastName.forEach(forEachCB)
+    inputLabel.email.forEach(forEachCB)
+    inputLabel.password.forEach(forEachCB)
+    inputLabel.confirmPassword.forEach(forEachCB)
   })
 })

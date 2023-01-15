@@ -1,63 +1,40 @@
-import style from 'styled-components'
+import styled from 'styled-components'
 
-export default style.button`
-  padding: .5rem 2rem;
-  background: ${props => props.background || props.theme.colors.primary};
-  color: #FFFFFF;
-  border-radius: 3px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-
-  box-sizing: border-box;
-  border: 0;
-  border-radius: 20px;
-  color: #FFF;
-  padding: 1em 1.8em;
+export default styled.button`
   display: flex;
-  transition: 0.2s background;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  gap: 0.6em;
-  font-weight: bold;
-
-  & .arrow-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
+  padding: 15px 38px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  color: #FFFFFF;
+  background-color: ${props => props.theme.colors.secondary};
+  font-size: 16px;
+  font-family: ${props => props.theme.fonts.titles};
+  letter-spacing: 3px;
+  transition: all 0.15s linear;
+  cursor: pointer;
+  margin: auto;
+  margin-top: 40px;
+  
   &:hover {
-    background-color: ${props => props.theme.colors.black};
+    background-color: transparent;
+    border-color: ${props => props.theme.colors.secondary};
+    color: ${props => props.theme.colors.secondary};
+    transform: translateY(-5px) scale(1.05);
   }
 
-  &:hover .arrow {
-    background-color: #FFF;
+  &:active {
+    background-color: transparent;
+    border-color: ${props => props.theme.colors.secondary};
+    color: ${props => props.theme.colors.secondary};
+    transform: translateY(5px) scale(0.95);
+  }
+  &:disabled {
+    background-color: ${props => props.theme.colors.secondary};
+    color: ${props => props.theme.colors.text_hover};
+    border-color:  ${props => props.theme.colors.secondary};
   }
 
-  & .arrow {
-    margin-top: 1px;
-    width: 10px;
-    background: ${props => props.theme.colors.primary};
-    height: 2px;
-    position: relative;
-    transition: 0.2s;
-  }
-
-  & .arrow::before {
-    content: "";
-    box-sizing: border-box;
-    position: absolute;
-    border: 0 solid #FFF;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    top: -3px;
-    right: 3px;
-    transition: 0.2s;
-    padding: 3px;
-    transform: rotate(-45deg);
-  }
-
-  &:hover .arrow:before {
-    right: 0;
-  }
 `

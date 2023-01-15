@@ -23,7 +23,7 @@ exports[`<SignUpOptionsStyled/> Should be global styles ready 1`] = `
 }
 
 .c0 svg {
-  color: #a78d48;
+  color: #d4a413;
   margin-bottom: 20px;
   margin-right: 5px;
 }

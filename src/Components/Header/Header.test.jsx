@@ -1,11 +1,16 @@
 import { render, screen, waitFor } from '@testing-library/react'
+import { ThemeProvider } from 'styled-components'
+import theme from '../../Global-styles/theme'
 
 import Header from './index'
 
 describe('<Header />', () => {
   let getByAltTextImg = null
   beforeEach(() => {
-    const { getByAltText } = render(<Header />)
+    const { getByAltText } = render(
+    <ThemeProvider theme={theme}>
+      <Header/>
+    </ThemeProvider>)
     getByAltTextImg = getByAltText
   })
 

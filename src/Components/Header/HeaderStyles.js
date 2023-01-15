@@ -9,10 +9,16 @@ export default styled.header`
   align-content: center;
   align-items: center;
   justify-content: center;
+  font-family: ${props => props.theme.fonts.titles};
 
   & img {
     position: absolute;
-    left: 1rem;
+    left: 4.5rem;
     height: 100%;
   }
+
+  & h1 {
+    color: white;
+  }
+
 `

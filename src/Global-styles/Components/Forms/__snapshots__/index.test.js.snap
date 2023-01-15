@@ -18,8 +18,23 @@ exports[`<Form /> Styled Component Should be Form styles ready 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 100%;
-  gap: 25px;
+  width: 80%;
+  height: 350px;
+  gap: 20px;
+}
+
+.c0 label {
+  font-family: "Didact Gothic",sans-serif;
+  -webkit-letter-spacing: 2px;
+  -moz-letter-spacing: 2px;
+  -ms-letter-spacing: 2px;
+  letter-spacing: 2px;
+}
+
+.c0 label a {
+  font-size: 13px;
+  text-align: right;
+  font-weight: bold;
 }
 
 <form
@@ -28,10 +43,42 @@ exports[`<Form /> Styled Component Should be Form styles ready 1`] = `
 `;
 
 exports[`<Form /> Styled Component Should be FormGroup styles ready 1`] = `
+.c0 {
+  position: relative;
+}
+
+.c0 .bar:before {
+  left: 50%;
+}
+
+.c0 .bar:after {
+  right: 50%;
+}
+
+.c0 .bar:before,
+.c0 .bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #155db1;
+  -webkit-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+}
+
 .c0 label {
-  display: inline-block;
-  margin-bottom: 10px;
-  font-size: 1.3rem;
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 <div
@@ -41,17 +88,35 @@ exports[`<Form /> Styled Component Should be FormGroup styles ready 1`] = `
 
 exports[`<Form /> Styled Component Should be Input styles ready 1`] = `
 .c0 {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 10px;
+  font-size: 17px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 200px;
   border: none;
-<<<<<<< HEAD
-  box-shadow: 0 0 3px 1px #a78d48;
-=======
-  box-shadow: 0 0 3px 1px #d4a413;
->>>>>>> login_page
-  font-size: 1.1rem;
+  border-bottom: 1px solid #d4a413;
+  background: transparent;
+}
+
+.c0 .name {
+  border: 1px solid red;
+}
+
+.c0:focus {
   outline: none;
+  border-bottom: none;
+}
+
+.c0:focus ~ label .label-char {
+  -webkit-transform: translateY(-20px);
+  -ms-transform: translateY(-20px);
+  transform: translateY(-20px);
+  font-size: 16px;
+  color: #155db1;
+}
+
+.c0:focus ~ .bar:before,
+.c0:focus ~ .bar:after {
+  width: 50%;
 }
 
 <input

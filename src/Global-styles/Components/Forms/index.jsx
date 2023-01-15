@@ -24,7 +24,7 @@ const Form = styled.form`
 
 export const GroupForm = styled.div`
   position: relative;
-
+ 
   & .bar:before {
     left: 50%
   } 
@@ -63,14 +63,17 @@ export const Input = styled.input`
   border: none;
   border-bottom: 1px solid ${props => props.theme.colors.primary};
   background: transparent;
+  
+  & .name{
+    border: 1px solid red;
+  }
 
   &:focus {
     outline: none;
     border-bottom: none;
   }
 
-  &:focus ~ label .label-char,
-  &:valid ~ label .label-char {
+  &:focus ~ label .label-char {
     transform: translateY(-20px);
     font-size: 16px;
     color: ${props => props.theme.colors.secondary};

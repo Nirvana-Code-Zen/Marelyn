@@ -1,5 +1,5 @@
 import Form, { GroupForm, Input } from '../../Global-styles/Components/Forms'
-import { H4 } from '../../Global-styles/Components/Titles'
+import { H2 } from '../../Global-styles/Components/Titles'
 import Button from '../../Components/Button'
 
 import './login.css'
@@ -16,24 +16,41 @@ export default function Login () {
   }
 
   return (
-  <div>
-    <H4>Login</H4>
+  <>
+    <H2>Login</H2>
      <Form $width='400px' className='boxshadow'>
        <GroupForm>
-        <Input type="text" name="email" required className=''/>
+        <Input
+        type="text"
+        name="email"
+        required='' />
         <span className='bar'></span>
         <label>
           {inputLabels.email.map((char, index) => (
-            <span key={index} className="label-char" style={{ '--index': index }}>{char}</span>
+            <span
+              key={index}
+              className="label-char"
+              style={{ '--index': index }}>
+              {char}
+            </span>
           ))}
         </label>
        </GroupForm>
        <GroupForm>
-        <Input type="password" name="password" required className=''/>
+        <Input
+        type="password"
+        name="password"
+        required=''
+        />
         <span className='bar'></span>
         <label>
           {inputLabels.password.map((char, index) => (
-            <span key={index} className="label-char" style={{ '--index': index }} >{char}</span>
+            <span
+              key={index}
+              className="label-char"
+              style={{ '--index': index }}>
+              {char}
+            </span>
           ))}
         </label>
        </GroupForm>
@@ -42,6 +59,6 @@ export default function Login () {
       <Button onClick={btnEntrar} $width_sizing='wTen'>Entrar</Button>
       </div>
      </Form>
-   </div>
+   </>
   )
 }

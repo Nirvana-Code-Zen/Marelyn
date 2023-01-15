@@ -10,11 +10,11 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1 {
-    font-size: 50px;
+    font-size: 55px;
   }
 
   h2 {
-    font-size: 40px;
+    font-size: 45px;
   }
 
 
@@ -35,9 +35,6 @@ const GlobalStyles = createGlobalStyle`
     border-radius: 100%;
   }
 
-  .bordes{
-    border: 1px solid red;
-  }
 `
 
 export default GlobalStyles
