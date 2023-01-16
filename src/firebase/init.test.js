@@ -1,20 +1,12 @@
 import { initializeApp } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
+import { getFirestore } from 'firebase/firestore'
+
 import initFirebase from './init'
 
 const initializeAppResponse = {
   connextion: true
 }
-
-jest.mock('../env', () => ({}))
-
-jest.mock('firebase/app', () => ({
-  initializeApp: jest.fn(() => initializeAppResponse)
-}))
-
-jest.mock('firebase/analytics', () => ({
-  getAnalytics: jest.fn()
-}))
 
 describe('Firebase SDK', () => {
   test('Should connect to Firebase', () => {
@@ -39,5 +31,10 @@ describe('Firebase SDK', () => {
   test('Should connect to analytics', () => {
     expect(getAnalytics).toHaveBeenCalledTimes(1)
     expect(getAnalytics).toHaveBeenCalledWith(initializeAppResponse)
+  })
+
+  test('Should connect to firestore', () => {
+    expect(getFirestore).toHaveBeenCalledTimes(1)
+    expect(getFirestore).toHaveBeenCalledWith(initializeAppResponse)
   })
 })

@@ -15,13 +15,6 @@ jest.mock('wouter', () => {
   }
 })
 
-jest.mock('firebase/auth', () => ({
-  GoogleAuthProvider: jest.fn(),
-  FacebookAuthProvider: jest.fn(),
-  getAuth: jest.fn(),
-  signInWithPopup: jest.fn()
-}))
-
 describe('<SignUpOptions />', () => {
   beforeEach(() => {
     render(

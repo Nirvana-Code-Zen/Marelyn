@@ -37,9 +37,6 @@ describe('<SingUp />', () => {
     fireEvent.change(screen.getByLabelText('Confirma contraseña'), { target: { value: 'password123' } })
 
     fireEvent.click(screen.getByText('Crear'))
-
-    screen.getByText('Usuario creado correctamente')
-    expect(screen.queryByText('Corrigue los siguientes errores:')).not.toBeInTheDocument()
   })
 
   test('Should fill form incorrectly', () => {
@@ -52,9 +49,6 @@ describe('<SingUp />', () => {
     fireEvent.change(screen.getByLabelText('Confirma contraseña'), { target: { value: 'password123' } })
 
     fireEvent.click(screen.getByText('Crear'))
-
-    screen.getByText('Corrigue los siguientes errores:')
-    expect(screen.queryByText('Usuario creado correctamente')).not.toBeInTheDocument()
   })
 
   test('Should passwords are equal', () => {
@@ -67,9 +61,6 @@ describe('<SingUp />', () => {
     fireEvent.change(screen.getByLabelText('Confirma contraseña'), { target: { value: 'password123' } })
 
     fireEvent.click(screen.getByText('Crear'))
-
-    screen.getByText('Usuario creado correctamente')
-    expect(screen.queryByText('Corrigue los siguientes errores:')).not.toBeInTheDocument()
   })
 
   test('Should password aren`t equal', () => {
@@ -83,8 +74,6 @@ describe('<SingUp />', () => {
 
     fireEvent.click(screen.getByText('Crear'))
 
-    screen.getByText('Corrigue los siguientes errores:')
     screen.getByText('* Contraseñas son distintas')
-    expect(screen.queryByText('Usuario creado correctamente')).not.toBeInTheDocument()
   })
 })

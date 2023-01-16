@@ -54,9 +54,3 @@ exports[`<Form /> Styled Component Should be Input styles ready 1`] = `
   className="c0"
 />
 `;
-
-exports[`<Form /> Styled Component Should be Select styles ready 1`] = `
-<select
-  className=""
-/>
-`;

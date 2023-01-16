@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 const ErrorMessage = ({ children }) => (
   <ErrorMessageStyle>
-    <p>Corrigue los siguientes errores:</p>
     {children}
   </ErrorMessageStyle>
 )

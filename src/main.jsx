@@ -4,9 +4,6 @@ import App from './App/App'
 import GlobalStyles from './Global-styles/global-styles'
 import Sizing from './Global-styles/sizing'
 
-import initFirebase from './firebase/init'
-
-initFirebase()
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <GlobalStyles />

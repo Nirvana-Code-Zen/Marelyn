@@ -2,7 +2,7 @@ import style from 'styled-components'
 
 export default style.button`
   padding: .3rem 1rem;
-  background: ${(props) => props.theme.colors.secondary};
+  background: ${(props) => props.background || props.theme.colors.primary};
   color: '#fff';
   border-radius: 3px;
   border: none;
@@ -37,7 +37,6 @@ export default style.button`
   & .arrow {
     margin-top: 1px;
     width: 10px;
-    background: ${(props) => props.theme.colors.primary};
     height: 2px;
     position: relative;
     transition: 0.2s;

@@ -1,11 +1,18 @@
-import { useRef } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { useLocation } from 'wouter'
+import { collection, addDoc } from 'firebase/firestore'
 import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from 'firebase/auth'
+
+import { FirebaseContext } from '../../firebase/init'
 
 import SignUpOptionsStyled, { SignUpHeader, SignUpTitle } from './indexStyled'
 import Button from '../../Components/Button'
+import ErrorMessage from '../../Components/ErrorMessage'
 
 const SignUpOptions = () => {
+  const firestore = useContext(FirebaseContext)
+  const [errorMessage, setErrorMessage] = useState(null)
+
   const [location, setLocation] = useLocation()
   const { current: providerMethod } = useRef({
     facebook: FacebookAuthProvider,
@@ -22,12 +29,23 @@ const SignUpOptions = () => {
     try {
       const provider = new ProviderOption()
       const auth = getAuth()
-      await signInWithPopup(auth, provider)
+      const { user } = await signInWithPopup(auth, provider)
+
+      await saveUserData(user)
+
       setLocation(`${location}dashboard`)
     } catch (error) {
-      ProviderOption.credentialFromError(error)
+      setErrorMessage(error)
     }
   }
+
+  const saveUserData = async (user) =>
+    await addDoc(collection(firestore, 'Users'), {
+      account_type: 'cliente',
+      name: user.displayName,
+      username: user.displayName,
+      email: user.email
+    })
 
   const signInWithGoogle = async () => {
     signInProvider('google')
@@ -49,6 +67,7 @@ const SignUpOptions = () => {
       <Button onClick={signInWithFacebook} background='#2e89ff'>Registrate con Facebook</Button>
       <Button onClick={signInWithGoogle} background='#e84334'>Registrate con Google</Button>
       <Button onClick={goToSignUp}>Registrate con Email</Button>
+      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </SignUpOptionsStyled>
   )
 }
