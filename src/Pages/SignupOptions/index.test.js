@@ -24,7 +24,7 @@ describe('<SignUpOptions />', () => {
     )
   })
 
-  test('Should render Google button ', async () => {
+  test('Should Facebook be redirect to dashboard', async () => {
     const facebookBtn = screen.getByText('Registrate con Facebook')
     const facebook = jest.spyOn(firebase, 'FacebookAuthProvider')
 
@@ -32,13 +32,16 @@ describe('<SignUpOptions />', () => {
     expect(facebook).toHaveBeenCalled()
   })
 
-  test('Should render Facebook button ', () => {
+  test('Should Gooogle be redirect to dashboard', () => {
+    const mockUseLocation = useLocation()[1]
     const googlebutton = screen.getByText('Registrate con Google')
     const google = jest.spyOn(firebase, 'GoogleAuthProvider')
 
     fireEvent.click(googlebutton)
 
     expect(google).toHaveBeenCalled()
+    expect(mockUseLocation).toHaveBeenCalled()
+    expect(mockUseLocation).toHaveBeenCalledWith('dashboard')
   })
 
   test('Should render Email button ', () => {

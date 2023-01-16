@@ -25,5 +25,10 @@ jest.mock('firebase/auth', () => ({
   GoogleAuthProvider: jest.fn(),
   FacebookAuthProvider: jest.fn(),
   getAuth: jest.fn(),
-  signInWithPopup: jest.fn().mockReturnValue({})
+  signInWithPopup: jest.fn().mockReturnValue({
+    user: {
+      displayName: 'Jhon Doe',
+      email: 'jhon@doe.com'
+    }
+  })
 }))
