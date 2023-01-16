@@ -1,4 +1,4 @@
-import style from "styled-components";
+import style from 'styled-components'
 
 export default style.button`
   padding: .3rem 1rem;
@@ -60,4 +60,4 @@ export default style.button`
   &:hover .arrow:before {
     right: 0;
   }
-`;
+`
