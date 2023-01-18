@@ -6,7 +6,7 @@ export default styled.button`
   justify-content: center;
   align-items: center;
   padding: 15px 38px;
-  border-radius: 16px;
+  border-radius: 15px;
   border: 1px solid transparent;
   color: #FFFFFF;
   background-color: ${props => props.theme.colors.secondary};

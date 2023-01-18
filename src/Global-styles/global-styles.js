@@ -23,6 +23,9 @@ const GlobalStyles = createGlobalStyle`
     color: black;
   }
 
+  p{
+    font-size:18px;
+  }
   .boxshadow {
     box-shadow:0 4px 7px 4px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }

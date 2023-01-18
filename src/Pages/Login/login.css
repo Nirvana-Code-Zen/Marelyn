@@ -8,3 +8,11 @@
   transition: 0.2s ease all;
   transition-delay: calc(var(--index) * 0.05s);
 }
+
+.content-social {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  gap: 30px;
+  cursor: pointer;
+}

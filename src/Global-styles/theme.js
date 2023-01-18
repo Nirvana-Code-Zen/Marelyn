@@ -22,7 +22,8 @@ export default {
     wTwentyFour: '1.5rem', /* 24px */
     wTwentyEight: '1.75rem', /* 28//px */
     wThirtyTwo: '36rem', /* 32px */
-    wSixty: '160px'
+    wSixty: '160px',
+    wThirteenthTundred: '300px'
   },
   width_porcentages: {
     wOneSixth: '16%',
