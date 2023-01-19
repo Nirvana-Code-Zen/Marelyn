@@ -5,7 +5,7 @@ export default styled.button`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 15px 38px;
+  padding: 10px 28px;
   border-radius: 15px;
   border: 1px solid transparent;
   color: #FFFFFF;

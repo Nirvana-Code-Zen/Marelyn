@@ -4,15 +4,14 @@ const Form = styled.form`
   display: flex;
   box-shadow: border-box;
   justify-content: ${props => props.$justify || 'center'};
-  margin: ${props => props.$margin || 'auto'};
+  margin: ${props => props.$margin};
   margin-top: ${props => props.$top || '0'} ;
   flex-wrap: ${props => props.$wrap || 'wrap'};
   flex-direction: ${props => props.$direction || 'column'};
   align-items: center;
   width: ${props => props.$width || props.theme.width_porcentages};
-  height: ${props => props.$height || '350px'};
+  height: ${props => props.$height || '300px'};
   padding: ${props => props.$padding};
-
 
   & p {
     font-family: ${props => props.theme.fonts.titles};
@@ -32,9 +31,10 @@ const Form = styled.form`
 
 export const GroupForm = styled.div`
   position: relative;
+  margin-left: ${props => props.$margin || '0px'};
  
   & .bar:before {
-    left: 50%
+    left: 50%;
   } 
 
   & .bar:after {
@@ -70,11 +70,12 @@ export const Input = styled.input`
   font-size: 17px;
   padding: 10px 10px 10px 5px;
   display: block;
-  width: 245px;
+  width: 230px;
   border: none;
   border-bottom: 1px solid ${props => props.theme.colors.primary};
   background: transparent;
 
+  
   &:focus {
     outline: none;
     border-bottom: none;
@@ -89,6 +90,7 @@ export const Input = styled.input`
   &:focus ~ .bar:before,
   &:focus ~ .bar:after { 
     width: 50%;
+
   }
 `
 
@@ -99,8 +101,13 @@ export const Select = styled.select`
   font-size: 18px;
   background: ${props => props.theme.colors.secondary};
   color: white;
+  cursor: pointer;
   padding: 5px;
+  outline: none;
   border-radius:5px;
+  margin: ${props => props.$margin};
+  
+
 `
 
 export default Form

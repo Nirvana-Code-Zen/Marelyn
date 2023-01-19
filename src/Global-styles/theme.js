@@ -7,7 +7,8 @@ export default {
     secondary_complement: '#2196f3',
     error: '#D50000',
     hover_button: '#155db180',
-    text_hover: '#fffffff'
+    text_hover: '#fffffff',
+    title: '#0c2461'
   },
   fonts: {
     text: '"Maven Pro", sans-serif',

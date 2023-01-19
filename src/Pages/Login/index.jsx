@@ -22,7 +22,13 @@ export default function Login () {
   return (
   <>
     <H2>Iniciar sesion</H2>
-     <Form $width='400px' $height='500px' className='boxshadow' $justify='space-evenly'>
+     <Form
+     $width='400px'
+     $height='530px'
+     className='boxshadow'
+     $justify='space-evenly'
+     $margin='auto'
+     >
        <GroupForm >
         <Input
         type="text"
@@ -31,6 +37,7 @@ export default function Login () {
         tabIndex='0'
         onFocus={ () => setActiveEmail(true) }
         onBlur={ () => setActivePassword(false)}
+        $margin='20px 0'
          />
         <span className='bar'></span>
         <label className={activeEmail ? 'active' : ''}>
@@ -68,10 +75,10 @@ export default function Login () {
       </div>
        <p>O inicia sesion usando</p>
       <div className='content-social'>
-        <a href="https://www.facebook.com/">
+        <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
           <img src="src/assets/facebook.png" alt="facebook" />
         </a>
-        <a href="https://mail.google.com/">
+        <a href="https://mail.google.com/" target="_blank" rel="noreferrer">
           <img src="src/assets/gmail.png" alt="gmail" />
         </a>
 

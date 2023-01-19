@@ -1,6 +1,7 @@
 import Button from '../../Components/Button'
 import Form, { GroupForm, Input, Select } from '../../Global-styles/Components/Forms'
 import Header from '../../Components/Header'
+import { H2 } from '../../Global-styles/Components/Titles'
 
 import '../Singup/signUp.css'
 import PropTypes from 'prop-types'
@@ -25,12 +26,13 @@ const SingUp = () => {
   return (
     <>
       <Header />
+      <H2>Registro</H2>
       <Form
-        $width='80%'
+        $width='70%'
         $direction='row'
         $wrap='wrap'
         $margin='auto'
-        $top='100px'
+        $top='120px '
         className='boxshadow'
         $justify='space-evenly'
         $padding='0px 40px'
@@ -41,7 +43,7 @@ const SingUp = () => {
           <label >
             {inputLabel.name.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
-            ))}
+            ))} &nbsp;
           </label>
         </GroupForm >
         <GroupForm >
@@ -63,14 +65,14 @@ const SingUp = () => {
           </label>
         </GroupForm>
         <GroupForm>
-          <Select>
+          <Select >
             <option value="cliente">Tipo de usuario</option>
             <option value="cliente">Administrado</option>
             <option value="cliente">Trabajador</option>
             <option value="cliente">Cliente</option>
           </Select>
         </GroupForm>
-        <GroupForm >
+        <GroupForm $margin='-90px '>
           <Input id="mail" type="text" required=''/>
           <span className='bar'></span>
           <label >
@@ -79,7 +81,7 @@ const SingUp = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm>
+        <GroupForm >
           <Input id="mail" type="text" required=''/>
           <span className='bar'></span>
           <label >
@@ -88,8 +90,8 @@ const SingUp = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm>
-          <Input id="mail" type="text" required=''/>
+        <GroupForm $margin>
+          <Input id="mail" type="text" required='' />
           <span className='bar'></span>
           <label >
             {inputLabel.confirmPassword.map((char, index) => (
