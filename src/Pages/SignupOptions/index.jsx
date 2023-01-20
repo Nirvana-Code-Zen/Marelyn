@@ -1,7 +1,60 @@
+import { useContext, useRef, useState } from 'react'
+import { useLocation } from 'wouter'
+import { collection, addDoc } from 'firebase/firestore'
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from 'firebase/auth'
+
+import { FirebaseContext } from '../../firebase/init'
+
 import SignUpOptionsStyled, { SignUpHeader, SignUpTitle } from './indexStyled'
 import Button from '../../Components/Button'
+import ErrorMessage from '../../Components/ErrorMessage'
 
 const SignUpOptions = () => {
+  const firestore = useContext(FirebaseContext)
+  const [errorMessage, setErrorMessage] = useState(null)
+
+  const [location, setLocation] = useLocation()
+  const { current: providerMethod } = useRef({
+    facebook: FacebookAuthProvider,
+    google: GoogleAuthProvider
+  })
+
+  const goToSignUp = () => {
+    setLocation(`${location}email`)
+  }
+
+  const signInProvider = async (signInMethod) => {
+    const ProviderOption = providerMethod[signInMethod]
+
+    try {
+      const provider = new ProviderOption()
+      const auth = getAuth()
+      const { user } = await signInWithPopup(auth, provider)
+
+      await saveUserData(user)
+
+      setLocation('dashboard')
+    } catch (error) {
+      setErrorMessage(error)
+    }
+  }
+
+  const saveUserData = async (user) =>
+    await addDoc(collection(firestore, 'Users'), {
+      account_type: 'cliente',
+      name: user.displayName,
+      username: user.displayName,
+      email: user.email
+    })
+
+  const signInWithGoogle = async () => {
+    signInProvider('google')
+  }
+
+  const signInWithFacebook = () => {
+    signInProvider('facebook')
+  }
+
   return (
     <SignUpOptionsStyled>
       <SignUpHeader>
@@ -11,9 +64,10 @@ const SignUpOptions = () => {
         </svg>
         <SignUpTitle>Registrate</SignUpTitle>
       </SignUpHeader>
-      <Button onClick={() => {}} background='#2e89ff'>Registrate con Facebook</Button>
-      <Button onClick={() => {}} background='#e84334'>Registrate con Google</Button>
-      <Button onClick={() => {}}>Registrate con Email</Button>
+      <Button onClick={signInWithFacebook} background='#2e89ff'>Registrate con Facebook</Button>
+      <Button onClick={signInWithGoogle} background='#e84334'>Registrate con Google</Button>
+      <Button onClick={goToSignUp}>Registrate con Email</Button>
+      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </SignUpOptionsStyled>
   )
 }

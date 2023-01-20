@@ -116,4 +116,6 @@ export const Select = styled.select`
   margin: ${props => props.$margin};
 `
 
+export const Option = styled.option``
+
 export default Form

@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types'
 import ButtonStyled from './ButtonStyled'
 
-const Button = ({ onClick, children, width }) => {
+const Button = ({ onClick, children, width, background }) => {
   return (
-    <ButtonStyled type='button' onClick={onClick} $width_sizing={width} data-testid="button">
+    <ButtonStyled type='button' onClick={onClick} background={background} $width_sizing={width}>
       {children}
+      <div className="arrow-wrapper">
+        <div className="arrow"></div>
+      </div>
     </ButtonStyled>
   )
 }
@@ -14,7 +17,6 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   background: PropTypes.string,
   width: PropTypes.string
-
 }
 
 export default Button

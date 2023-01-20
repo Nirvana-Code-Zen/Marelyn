@@ -5,10 +5,10 @@ export default {
     primary_second_complement: '#f3c332',
     secondary: '#155db1',
     secondary_complement: '#2196f3',
+    secondary_second_complement: '#0c2461',
+    black: '#111',
     error: '#D50000',
-    hover_button: '#155db180',
-    text_hover: '#fffffff',
-    title: '#0c2461'
+    white: '#fffffff'
   },
   fonts: {
     text: '"Maven Pro", sans-serif',

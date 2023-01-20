@@ -36,5 +36,34 @@ export default styled.button`
     color: ${props => props.theme.colors.text_hover};
     border-color:  ${props => props.theme.colors.secondary};
   }
+  &:hover .arrow {
+    background-color: #FFF;
+  }
+
+  & .arrow {
+    margin-top: 1px;
+    width: 10px;
+    height: 2px;
+    position: relative;
+    transition: 0.2s;
+  }
+
+  & .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: 0 solid #FFF;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+  }
+
+  &:hover .arrow:before {
+    right: 0;
+  }
 
 `
