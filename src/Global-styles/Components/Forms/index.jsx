@@ -19,13 +19,7 @@ const Form = styled.form`
     font-size:15px;
     width: 75%;
     text-align: center;
-    padding: 0 15px 0 0;
     box-sizing: border-box;
- 
-    & a {
-      text-align:right;
-      font-weight: bold;
-    }
   }
 `
 
@@ -49,6 +43,7 @@ export const GroupForm = styled.div`
     position: absolute;
     background: ${props => props.theme.colors.secondary};
     transition: 0.2s ease all;
+
   }
 
   & label {
@@ -59,7 +54,7 @@ export const GroupForm = styled.div`
     font-weight: normal;
     position: absolute;
     pointer-events: none;
-    left: 10px;
+    left: 5px;
     top: 10px;
     display: flex;
     transition: 0.2s ease-out;
@@ -70,7 +65,7 @@ export const Input = styled.input`
   font-size: 17px;
   padding: 10px 10px 10px 5px;
   display: block;
-  width: 230px;
+  width: 260px;
   border: none;
   border-bottom: 1px solid ${props => props.theme.colors.primary};
   background: transparent;
@@ -81,7 +76,7 @@ export const Input = styled.input`
     border-bottom: none;
   }
 
-  &:focus ~ label .label-char {
+  &:focus ~ label .label-char{
     transform: translateY(-20px);
     font-size: 16px;
     color: ${props => props.theme.colors.secondary};

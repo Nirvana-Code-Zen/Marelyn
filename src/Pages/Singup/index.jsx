@@ -28,14 +28,10 @@ const SingUp = () => {
       <Header />
       <H2>Registro</H2>
       <Form
-        $width='70%'
-        $direction='row'
-        $wrap='wrap'
-        $margin='auto'
-        $top='120px '
-        className='boxshadow'
-        $justify='space-evenly'
-        $padding='0px 40px'
+        $width='80%' $direction='row'
+        $wrap='wrap' $margin='auto'
+        $top='120px' className='boxshadow'
+        $justify='space-evenly' $padding='0px 40px'
       >
         <GroupForm >
           <Input id="mail" type="text" required=''/>
@@ -72,7 +68,7 @@ const SingUp = () => {
             <option value="cliente">Cliente</option>
           </Select>
         </GroupForm>
-        <GroupForm $margin='-90px '>
+        <GroupForm $margin='-20px '>
           <Input id="mail" type="text" required=''/>
           <span className='bar'></span>
           <label >
@@ -91,7 +87,7 @@ const SingUp = () => {
           </label>
         </GroupForm>
         <GroupForm $margin>
-          <Input id="mail" type="text" required='' />
+          <Input id="mail" type="text" required=''/>
           <span className='bar'></span>
           <label >
             {inputLabel.confirmPassword.map((char, index) => (
@@ -99,7 +95,9 @@ const SingUp = () => {
             ))}
           </label>
         </GroupForm>
+        <div>
 
+        </div>
       </Form>
       <Button onClick={btnCreate} $width_sizing='wTen'>Crear</Button>
     </>
@@ -109,7 +107,7 @@ const SingUp = () => {
 const FormSpan = ({ char, index }) => {
   return (
     <span
-      className={char === '' ? 'label-char space' : 'label-char'}
+      className={char === ' ' ? 'label-char space' : 'label-char'}
       style={{ '--index': index }}
     >
       {char}

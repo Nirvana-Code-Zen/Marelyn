@@ -3,7 +3,8 @@ import { H2 } from '../../Global-styles/Components/Titles'
 import Button from '../../Components/Button'
 
 import './login.css'
-import { useState } from 'react'
+import { Link } from 'wouter'
+import PropTypes from 'prop-types'
 
 export default function Login () {
   const inputLabels = {
@@ -16,9 +17,6 @@ export default function Login () {
     console.log('Soy un boton')
   }
 
-  const [activeEmail, setActiveEmail] = useState(false)
-  const [activePassword, setActivePassword] = useState(false)
-
   return (
   <>
     <H2>Iniciar sesion</H2>
@@ -30,43 +28,22 @@ export default function Login () {
      $margin='auto'
      >
        <GroupForm >
-        <Input
-        type="text"
-        name="email"
-        required=''
-        tabIndex='0'
-        onFocus={ () => setActiveEmail(true) }
-        onBlur={ () => setActivePassword(false)}
-        $margin='20px 0'
-         />
+        <Input type="text" name="email" required=''$margin='20px 0'/>
         <span className='bar'></span>
-        <label className={activeEmail ? 'active' : ''}>
-          {inputLabels.email.map((char, index) => (
-            <span
-              key={index}
-              className="label-char"
-              style={{ '--index': index }}>
-              {char}
-            </span>
-          ))}
+        <label >
+        {inputLabels.email.map((char, index) => (
+              <FormSpan key={index} char={char} index={index}/>
+        ))}
         </label>
        </GroupForm>
        <GroupForm>
-        <Input
-        type="password"
-        name="password"
-        required=''
+        <Input type="password"name="password" required=''
         />
         <span className='bar'></span>
-        <label className={activePassword ? 'active' : ''}>
-          {inputLabels.password.map((char, index) => (
-            <span
-              key={index}
-              className="label-char"
-              style={{ '--index': index }}>
-              {char}
-            </span>
-          ))}
+        <label >
+        {inputLabels.password.map((char, index) => (
+              <FormSpan key={index} char={char} index={index}/>
+        ))}
         </label>
        </GroupForm>
        <p className='password'> <a href="https://es.code-paper.com/css/examples-css-bold-letters">Olvidaste tu contraseña?</a> </p>
@@ -83,8 +60,26 @@ export default function Login () {
         </a>
 
       </div>
-      <p><a href="/sign-up"> Registrate</a></p>
+      <Link to='/sing-up'>
+        <p>Registrate</p>
+      </Link>
+
      </Form>
    </>
   )
+}
+
+const FormSpan = ({ char, index }) => {
+  return (
+      <span
+        className={char === ' ' ? 'label-char space' : 'label-char'}
+        style={{ '--index': index }}>
+        {char}
+      </span>
+  )
+}
+
+FormSpan.propTypes = {
+  char: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired
 }
