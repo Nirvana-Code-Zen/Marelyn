@@ -5,7 +5,7 @@ import HeaderStyles from './HeaderStyles'
 const Header = () => {
   return (
     <HeaderStyles className='' >
-      <img src="../src/assets/logo-Marely.png" alt="logo-marelyn" />
+      <img src="../src/assets/logoMarely.png" alt="logo-marelyn" />
       <H1>Zapateria Marelyn</H1>
     </HeaderStyles>
   )

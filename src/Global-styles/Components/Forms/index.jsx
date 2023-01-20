@@ -20,9 +20,22 @@ const Form = styled.form`
     width: 75%;
     text-align: center;
     box-sizing: border-box;
+    cursor: pointer;
+  }
+  & span {
+    font-family: ${props => props.theme.fonts.titles};
+    letter-spacing: 2px;
+    font-size:15px;
+    width: 75%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
   }
 `
-
 export const GroupForm = styled.div`
   position: relative;
   margin-left: ${props => props.$margin || '0px'};
@@ -101,8 +114,6 @@ export const Select = styled.select`
   outline: none;
   border-radius:5px;
   margin: ${props => props.$margin};
-  
-
 `
 
 export default Form

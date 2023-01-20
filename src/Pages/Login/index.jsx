@@ -46,11 +46,11 @@ export default function Login () {
         ))}
         </label>
        </GroupForm>
-       <p className='password'> <a href="https://es.code-paper.com/css/examples-css-bold-letters">Olvidaste tu contraseña?</a> </p>
+       <p className='password'> <a href="">Olvidaste tu contraseña?</a> </p>
        <div >
       <Button onClick={btnEntrar} $width_sizing='wThirteenthTundred'>Entrar</Button>
       </div>
-       <p>O inicia sesion usando</p>
+       <span>O inicia sesion usando</span>
       <div className='content-social'>
         <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
           <img src="src/assets/facebook.png" alt="facebook" />
@@ -58,12 +58,10 @@ export default function Login () {
         <a href="https://mail.google.com/" target="_blank" rel="noreferrer">
           <img src="src/assets/gmail.png" alt="gmail" />
         </a>
-
       </div>
-      <Link to='/sing-up'>
-        <p>Registrate</p>
+      <Link href='sign-up'>
+         <p> Registrate </p>
       </Link>
-
      </Form>
    </>
   )
