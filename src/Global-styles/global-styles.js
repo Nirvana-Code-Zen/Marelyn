@@ -17,6 +17,9 @@ const GlobalStyles = createGlobalStyle`
     font-size: 45px;
   }
 
+  span{
+    display: inline-block;
+  }
 
   a {
     text-decoration: none;

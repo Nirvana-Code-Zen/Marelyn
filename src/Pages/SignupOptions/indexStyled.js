@@ -5,9 +5,7 @@ const SignUpOptionsStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-
   width: 400px;
-  height: 254px;
   margin: 10rem auto;
   padding: 1em;
   background: #F4F6FB;
@@ -19,6 +17,10 @@ const SignUpOptionsStyled = styled.div`
     margin-bottom: 20px;
     margin-right: 5px;
   }
+`
+
+export const ButtonContainer = styled.div`
+  margin: 15px 20px
 `
 
 export const SignUpHeader = styled.div`
