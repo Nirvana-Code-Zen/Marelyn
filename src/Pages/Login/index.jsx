@@ -1,9 +1,9 @@
 import Form, { GroupForm, Input } from '../../Global-styles/Components/Forms'
 import Button from '../../Components/Button'
 
-import './login.css'
 import { Link } from 'wouter'
 import PropTypes from 'prop-types'
+import SocialContent from './LoginStyled'
 
 export default function Login () {
   const inputLabels = {
@@ -46,17 +46,17 @@ export default function Login () {
         </GroupForm>
             <p className='mt-2 mb-2'> <a href="">Olvidaste tu contraseña?</a> </p>
             <div className='container'>
-              <Button onClick={btnEntrar} size='medium'>Entrar</Button>
+              <Button onClick={btnEntrar} size='medium' >Entrar</Button>
                 <span className='my'>O inicia sesion usando</span>
             </div>
-            <div className='content-social'>
+            <SocialContent>
               <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
                 <img src="src/assets/facebook.png" alt="facebook" />
               </a>
               <a href="https://mail.google.com/" target="_blank" rel="noreferrer">
                 <img src="src/assets/gmail.png" alt="gmail" />
               </a>
-            </div>
+            </SocialContent>
         <Link href='sign-up'>
           <p>Registrate</p>
         </Link>
@@ -68,7 +68,7 @@ export default function Login () {
 const FormSpan = ({ char, index }) => {
   return (
       <span
-        className={char === ' ' ? 'label-char space' : 'label-char'}
+        className={char === ' ' ? 'label-char space_word label-span' : 'label-char'}
         style={{ '--index': index }}>
         {char}
       </span>

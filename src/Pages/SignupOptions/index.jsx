@@ -67,15 +67,13 @@ const SignUpOptions = () => {
         <SignUpTitle>Registrate</SignUpTitle>
       </SignUpHeader>
         <ButtonContainer>
-          <Button onClick={signInWithFacebook} background='#2e89ff' color='#2e89ff'>
-              Registrate con Facebook
-          </Button>
+          <Button onClick={signInWithFacebook} background='#2e89ff' color='#2e89ff' arrow >Registrate con Facebook</Button>
         </ButtonContainer>
         <ButtonContainer>
-          <Button onClick={signInWithGoogle} background='#e84334' color='#e84334'>Registrate con Google</Button>
+          <Button onClick={signInWithGoogle} background='#e84334' color='#e84334' arrow >Registrate con Google</Button>
         </ButtonContainer>
         <ButtonContainer>
-          <Button onClick={goToSignUp} background='black' color='black'>Registrate con Email</Button>
+          <Button onClick={goToSignUp} background='#000' color='#000'arrow >Registrate con Email</Button>
         </ButtonContainer>
         {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </SignUpOptionsStyled></>

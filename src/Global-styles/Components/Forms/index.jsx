@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 const Form = styled.form`
   display: flex;
-  box-shadow: border-box;
   justify-content: ${props => props.styledModified.justify || 'center'};
   margin: ${props => props.styledModified.margin || 'auto'};
   margin-top: ${props => props.styledModified.top || '0'} ;
@@ -11,20 +10,22 @@ const Form = styled.form`
   align-items: center;
   width: ${props => props.styledModified.width || props.theme.width_porcentages};
   padding: ${props => props.styledModified.padding};
+  row-gap: ${props => props.styledModified.gap || '0'};
+
 
   & p {
-    font-family: ${props => props.theme.fonts.titles};
+    font-family: ${props => props.theme.fonts.texts_titles};
     letter-spacing: 2px;
-    font-size:15px;
+    font-size: ${props => props.theme.fonts_sizes.small_texts};
     width: 75%;
     text-align: center;
     box-sizing: border-box;
     cursor: pointer;
   }
   & span {
-    font-family: ${props => props.theme.fonts.titles};
+    font-family: ${props => props.theme.fonts.texts_titles};
     letter-spacing: 2px;
-    font-size:15px;
+    font-size: ${props => props.theme.fonts_sizes.small_texts};
     text-align: center;
     box-sizing: border-box;
   }
@@ -37,6 +38,7 @@ const Form = styled.form`
 
 export const GroupForm = styled.div`
   position: relative;
+  margin: 1rem 0 ;
   
   & .bar:before {
     left: 50%;
@@ -53,34 +55,33 @@ export const GroupForm = styled.div`
     bottom: 1px;
     position: absolute;
     background: ${props => props.theme.colors.secondary};
-    transition: 0.1s linear all;
+    transition: 0.2s ease all;
 
   }
 
   & label {
-    font-family: ${props => props.theme.fonts.titles};
+    font-family: ${props => props.theme.fonts.texts_titles};
     letter-spacing: 2px;
     color: #999;
-    font-size: 18px;
+    font-size: ${props => props.theme.fonts_sizes.texts};
     font-weight: normal;
     position: absolute;
     pointer-events: none;
     left: 5px;
     top: 10px;
     display: flex;
-    transition: 0.1s linear-out;
   }
 `
 
 export const Input = styled.input`
-  font-size: 17px;
+  font-size: ${props => props.theme.fonts_sizes.texts};
   padding: 10px 10px 10px 5px;
   display: block;
   width: 260px;
   border: none;
-  margin: 1.2rem 1rem 0 0 ;
   border-bottom: 1px solid ${props => props.theme.colors.primary};
   background: transparent;
+  box-sizing: border-box;
 
 
   
@@ -92,7 +93,6 @@ export const Input = styled.input`
   &:focus ~ label .label-char{
     transform: translateY(-20px);
     font-size: 16px;
-    padding: 12px 0;
     color: ${props => props.theme.colors.secondary};
   }
 
@@ -105,9 +105,9 @@ export const Input = styled.input`
 
 export const Select = styled.select`
   display: flex;
-  width: 220px;
+  width: 260px;
   height: 40px;
-  font-size: 18px;
+  font-size: ${props => props.theme.fonts_sizes.texts};
   background: ${props => props.theme.colors.secondary};
   color: white;
   cursor: pointer;

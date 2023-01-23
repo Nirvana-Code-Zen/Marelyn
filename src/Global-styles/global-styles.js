@@ -41,6 +41,22 @@ const GlobalStyles = createGlobalStyle`
     border-radius: 100%;
   }
 
+  .bar {
+  position: relative;
+  display: block;
+  width: 260px;
+}
+
+  .label-char {
+    transition: 0.2s ease all;
+    transition-delay: calc(var(--index) * 0.04s);
+    
+  }
+
+  .space_word {
+    margin-right: 8px;
+  }
+
 `
 
 export default GlobalStyles

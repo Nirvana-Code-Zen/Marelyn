@@ -9,7 +9,7 @@ export default styled.header`
   align-content: center;
   align-items: center;
   justify-content: center;
-  font-family: ${props => props.theme.fonts.titles};
+  font-family: ${props => props.theme.fonts.texts_titles};
 
   & img {
     position: absolute;

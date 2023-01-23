@@ -9,7 +9,16 @@ export default {
     white: '#ffffff'
   },
   fonts: {
-    titles: '"Didact Gothic", sans-serif'
+    texts_titles: '"Didact Gothic", sans-serif'
+  },
+  fonts_sizes: {
+    titles: '50px',
+    subtitles: '40px',
+    small_subtitles: '30px',
+    button_text: '16px',
+    small_texts: '15px',
+    medium_text: '17px',
+    texts: '19px'
   },
   width_sizing: {
     wTen: '0.625rem', /* 10px */

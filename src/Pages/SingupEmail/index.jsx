@@ -12,7 +12,7 @@ import { FirebaseContext } from '../../firebase/init'
 import { collectFormData, validateData } from '../../utils'
 import { createUserValidator } from '../../utils/validationForms'
 import PropTypes from 'prop-types'
-import '../SingupEmail/signUp.css'
+import BtnContainer from './SignupStyled'
 
 const SingUp = () => {
   const firestore = useContext(FirebaseContext)
@@ -88,7 +88,9 @@ const SingUp = () => {
           wrap: 'wrap',
           justify: 'space-evenly',
           direction: 'colunm',
-          padding: '40px 20px'
+          padding: '40px 20px',
+          gap: '2rem'
+
         }}
       >
         {errorMessage && (
@@ -166,9 +168,11 @@ const SingUp = () => {
             ))}
             </label>
         </GroupForm>
-        <div className='btn'>
-          <Button size='medium' onClick={createUserHandle}>Crear</Button>
-        </div>
+        <BtnContainer>
+          <div>
+            <Button size='medium' onClick={createUserHandle} >Crear</Button>
+          </div>
+        </BtnContainer>
       </Form>
     </>
   )
@@ -179,7 +183,7 @@ export default SingUp
 const FormSpan = ({ char, index }) => {
   return (
       <span
-        className={char === ' ' ? 'label-char space' : 'label-char'}
+        className={char === ' ' ? 'label-char space_word' : 'label-char'}
         style={{ '--index': index }}>
         {char}
       </span>

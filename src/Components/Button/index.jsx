@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import ButtonStyled from './ButtonStyled'
 
-const Button = ({ onClick, children, background, size, color }) => {
+const Button = ({ onClick, children, background, size, color, arrow }) => {
   return (
     <ButtonStyled type='button'
       onClick={onClick}
@@ -10,9 +10,11 @@ const Button = ({ onClick, children, background, size, color }) => {
       color={color}
     >
       {children}
-      <div className="arrow-wrapper">
-        <div className="arrow"></div>
-      </div>
+      {arrow && (
+        <div className="arrow-wrapper">
+          <div className="arrow"></div>
+        </div>
+      )}
     </ButtonStyled>
   )
 }
@@ -22,7 +24,8 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   background: PropTypes.string,
   size: PropTypes.string,
-  color: PropTypes.string
+  color: PropTypes.string,
+  arrow: PropTypes.bool
 }
 
 export default Button

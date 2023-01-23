@@ -18,8 +18,8 @@ export default styled.button`
   border: 1px solid transparent;
   color: #FFFFFF;
   background-color: ${props => props.background || props.theme.colors.secondary};
-  font-size: 16px;
-  font-family: ${props => props.theme.fonts.titles};
+  font-size: ${props => props.theme.fonts_sizes.button_text};
+  font-family: ${props => props.theme.fonts.texts_titles};
   letter-spacing: 3px;
   transition: all 0.15s linear;
   cursor: pointer;
@@ -58,7 +58,7 @@ export default styled.button`
     content: "";
     box-sizing: border-box;
     position: absolute;
-    border: 0 solid ${props => props.color || props.theme.colors.secondary};
+    border: 0 solid #FFF;
     border-width: 0 2px 2px 0;
     display: inline-block;
     top: -3px;
@@ -68,8 +68,10 @@ export default styled.button`
     transform: rotate(-45deg);
   }
 
-  &:hover .arrow:before {
+  &:hover .arrow::before {
     right: 0;
+    border: 0 solid ${props => props.color || props.theme.colors.secondary};
+    border-width: 0 2px 2px 0;
   }
 
 `

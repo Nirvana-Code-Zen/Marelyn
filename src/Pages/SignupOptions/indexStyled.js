@@ -31,7 +31,7 @@ export const SignUpHeader = styled.div`
 
 export const SignUpTitle = styled(H1)`
   padding-bottom: 20px;
-  font-size: 30px;
+  font-size: ${props => props.theme.fonts_sizes.small_subtitles};
   color: ${props => props.theme.colors.primary};
 `
 
