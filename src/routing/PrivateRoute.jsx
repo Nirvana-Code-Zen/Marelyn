@@ -1,21 +1,22 @@
 import PropTypes from 'prop-types'
+import { useContext } from 'react'
+import { useLocation } from 'wouter'
 
-const PrivateRoute = ({ component: Component }) => {
-  const isAuthenticated = false
+import { UserContext } from '../Context/User'
+import { protectedRoutes } from './paths'
 
-  if (isAuthenticated) {
-    return (
-      <Component />
-    )
-  }
+const ProtectedRoute = ({ children }) => {
+  const [location, navigate] = useLocation()
+  const user = useContext(UserContext)
 
-  return (
-    <Component />
-  )
+  const isProtected = protectedRoutes.some(route => location.includes(route))
+  if (!user.isLogged && isProtected) return navigate('/login')
+
+  return children
 }
 
-PrivateRoute.propTypes = {
-  component: PropTypes.node.isRequired
+ProtectedRoute.propTypes = {
+  children: PropTypes.node.isRequired
 }
 
-export default PrivateRoute
+export default ProtectedRoute
