@@ -25,4 +25,8 @@ describe('<Login/>', () => {
 
     expect(console.log).toHaveBeenCalledWith('Soy un boton')
   })
+
+  // test('Should Faceebook be redirect to dashboard',async ()=>{
+  //   const facebookLogin = screen.
+  // })
 })

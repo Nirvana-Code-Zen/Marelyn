@@ -52,6 +52,9 @@ const GlobalStyles = createGlobalStyle`
     transition-delay: calc(var(--index) * 0.04s);
     
   }
+  .focused .label-char {
+    transform: translateY(-20px); /* o cualquier estilo que desees */
+}
 
   .space_word {
     margin-right: 8px;

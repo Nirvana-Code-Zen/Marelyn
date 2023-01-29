@@ -1,9 +1,15 @@
 import Form, { GroupForm, Input } from '../../Global-styles/Components/Forms'
 import Button from '../../Components/Button'
-
-import { Link } from 'wouter'
-import PropTypes from 'prop-types'
 import SocialContent from './LoginStyled'
+import ErrorMessage from '../../Components/ErrorMessage'
+
+import { Link, useLocation } from 'wouter'
+import { useRef, useState } from 'react'
+import PropTypes from 'prop-types'
+
+import { getAuth, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { collectFormData, validateData } from '../../utils'
+import { validatorAccessLogin } from '../../utils/validationForms'
 
 export default function Login () {
   const inputLabels = {
@@ -11,14 +17,64 @@ export default function Login () {
     password: 'Contraseña'.split('')
   }
 
-  const btnEntrar = event => {
+  const { current: validatorLogin } = useRef(validatorAccessLogin)
+
+  const [location, setLocation] = useLocation()
+  const formRef = useRef(null)
+  const [errorMessage, setErrorMessage] = useState(null)
+
+  const btnLogin = async event => {
     event.preventDefault()
-    console.log('Soy un boton')
+    const data = collectFormData(formRef.current)
+    console.log(data)
+    const validation = Object.values(validateData(data, validatorLogin))
+
+    if (validation.lengh) {
+      return validation.forEach(message => setErrorMessage((prevMessage) => `${prevMessage || ''} * ${message}/n`))
+    }
+    setLocation(`${location}dashboard`)
+  }
+
+  const facebookLogin = async () => {
+    try {
+      const provider = new FacebookAuthProvider()
+
+      const auth = getAuth()
+
+      const result = await signInWithPopup(auth, provider)
+      const user = result.user
+      const credential = FacebookAuthProvider.credentialFromResult(result)
+      const token = credential.accessToken
+
+      setLocation('dashboard')
+
+      return { user, token }
+    } catch (error) {
+      setErrorMessage(error)
+    }
+  }
+
+  const googleLogin = async () => {
+    try {
+      const auth = getAuth()
+      const provider = new GoogleAuthProvider()
+
+      const result = await signInWithPopup(auth, provider)
+      const user = result.user
+      const credential = GoogleAuthProvider.credentialFromResult(result)
+      const token = credential.accessToken
+
+      setLocation('dashboard')
+      return console.log({ user, token })
+    } catch (error) {
+      setErrorMessage(error)
+    }
   }
 
   return (
     <div className='mt-5'>
       <Form
+        ref={formRef}
         className='boxshadow'
         styledModified={{
           width: '400px',
@@ -26,6 +82,11 @@ export default function Login () {
           padding: '30px 0'
         }}
       >
+        {errorMessage && (
+          <ErrorMessage>
+            {errorMessage.split('\n').map(message => <p key={message}></p>)}
+          </ErrorMessage>
+        )}
         <GroupForm >
           <Input type="text" name="email" required />
             <span className='bar'></span>
@@ -34,9 +95,10 @@ export default function Login () {
               <FormSpan key={index} char={char} index={index}/>
             ))}
             </label>
+            {errorMessage && <ErrorMessage><p>El correo que ingresaste esta mal escrito</p></ErrorMessage>}
         </GroupForm>
         <GroupForm>
-          <Input type="password"name="password" required=''/>
+          <Input type="password"name="password" required />
             <span className='bar'></span>
             <label >
             {inputLabels.password.map((char, index) => (
@@ -44,23 +106,27 @@ export default function Login () {
             ))}
             </label>
         </GroupForm>
-            <p className='mt-2 mb-2'> <a href="">Olvidaste tu contraseña?</a> </p>
+            <Link href='/restore-password'>
+              <p className='mt-2 mb-2'> Olvidaste tu contraseña? </p>
+            </Link>
             <div className='container'>
-              <Button onClick={btnEntrar} size='medium' >Entrar</Button>
+                <Button onClick={btnLogin} size='medium' >Entrar</Button>
+
                 <span className='my'>O inicia sesion usando</span>
             </div>
             <SocialContent>
-              <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-                <img src="src/assets/facebook.png" alt="facebook" />
-              </a>
-              <a href="https://mail.google.com/" target="_blank" rel="noreferrer">
-                <img src="src/assets/gmail.png" alt="gmail" />
-              </a>
+                <div onClick={facebookLogin}>
+                  <img src="src/assets/facebook.png" alt="facebook" />
+                </div>
+                <div onClick={googleLogin} className='div-c'>
+                  <img src="src/assets/gmail.png" alt="gmail" />
+                </div>
             </SocialContent>
         <Link href='sign-up'>
           <p>Registrate</p>
         </Link>
       </Form>
+
     </div>
   )
 }
@@ -68,7 +134,7 @@ export default function Login () {
 const FormSpan = ({ char, index }) => {
   return (
       <span
-        className={char === ' ' ? 'label-char space_word label-span' : 'label-char'}
+        className={char === ' ' ? 'label-char space_word ' : 'label-char'}
         style={{ '--index': index }}>
         {char}
       </span>

@@ -6,6 +6,8 @@ const SocialContent = styled.div`
   justify-content: center;
   gap: 30px;
   cursor: pointer;
+ 
+ 
 `
 
 export default SocialContent

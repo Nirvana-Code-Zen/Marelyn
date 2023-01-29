@@ -57,6 +57,9 @@ export const GroupForm = styled.div`
     background: ${props => props.theme.colors.secondary};
     transition: 0.2s ease all;
 
+   &:focus-within .label-char {
+    transform: translateY(-20px); /* o cualquier estilo que desees */
+}
   }
 
   & label {
