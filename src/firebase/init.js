@@ -1,5 +1,8 @@
+import { createContext } from 'react'
 import { initializeApp } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
+import { getFirestore } from 'firebase/firestore'
+
 import env from '../env'
 
 const initFirebase = () => {
@@ -14,7 +17,14 @@ const initFirebase = () => {
   }
 
   const app = initializeApp(firebaseConfig)
+  const db = getFirestore(app)
   getAnalytics(app)
+
+  return db
 }
+
+export const FirebaseContext = createContext()
+
+export const Firebase = FirebaseContext.Provider
 
 export default initFirebase

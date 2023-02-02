@@ -2,16 +2,20 @@ import { Route } from 'wouter'
 import User from '../Context/User'
 
 import Home from '../Pages/Home'
-import SingUp from '../Pages/Singup'
+import SignUp from '../Pages/SingupEmail'
+import SignUpOptions from '../Pages/SignupOptions'
 import Scope from '../routing/Scope.jsx'
 import ProtectedRoute from './PrivateRoute'
 
 const Routing = () => (
   <>
     <Route path='/' component={Home} />
-    <Route path="/sign-up" component={SingUp} />
     <Route path="/login" />
     <Route path="/restore-password" />
+    <Scope base='/sign-up'>
+      <Route path="/" component={SignUpOptions} />
+      <Route path="/email" component={SignUp} />
+    </Scope>
     <User>
       <ProtectedRoute>
         <Scope base='/products'>

@@ -1,12 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<GlobalSytles/> Should be global styles ready 1`] = `
+exports[`<GlobalStytles /> Should be global styles ready  1`] = `
 .c0 {
   font-size: 30px;
   text-align: center;
+  text-align: center;
+  font-family: "Didact Gothic",sans-serif;
+  -webkit-letter-spacing: 4px;
+  -moz-letter-spacing: 4px;
+  -ms-letter-spacing: 4px;
+  letter-spacing: 4px;
+  color: #ffffff;
 }
 
 <h4
+  className="c0"
+/>
+`;
+
+exports[`<GlobalStytles/> Should be global styles ready  1`] = `
+.c0 {
+  font-size: 40px;
+  font-family: "Didact Gothic",sans-serif;
+  text-align: center;
+  -webkit-letter-spacing: 4px;
+  -moz-letter-spacing: 4px;
+  -ms-letter-spacing: 4px;
+  letter-spacing: 4px;
+}
+
+<h2
+  className="c0"
+/>
+`;
+
+exports[`<GlobalSytles/> Should be global styles ready  1`] = `
+.c0 {
+  font-size: 50px;
+  font-family: "Didact Gothic",sans-serif;
+}
+
+<h1
   className="c0"
 />
 `;
