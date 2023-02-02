@@ -8,6 +8,6 @@ describe('<App />', () => {
   })
 
   test('Should be rendered', () => {
-    screen.getByLabelText('Zapateria Marelyn')
+    screen.getByText('Zapateria Marelyn')
   })
 })
