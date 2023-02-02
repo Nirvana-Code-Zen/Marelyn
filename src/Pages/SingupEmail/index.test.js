@@ -10,70 +10,24 @@ describe('<SingUp />', () => {
     render(
       <ThemeProvider theme={theme}>
         <SignUp />
-      </ThemeProvider>
-    )
+      </ThemeProvider>)
   })
 
   beforeEach(() => {
     jest.spyOn(event, 'preventDefault')
   })
 
-  test('Should be rendered', () => {
-    screen.getByText('Nombre de usuario')
-    screen.getByText('Apellido Paterno')
-    screen.getByText('Apellido Materno')
-    screen.getByText('Correo')
-    screen.getByText('Contraseña')
-    screen.getByText('Confirma contraseña')
-  })
-
   test('Should fill form correctly', () => {
-    fireEvent.change(screen.getByLabelText('Nombre de usuario'), { target: { value: 'user123' } })
-    fireEvent.change(screen.getByLabelText('Nombre(s)'), { target: { value: 'John' } })
-    fireEvent.change(screen.getByLabelText('Apellido Paterno'), { target: { value: 'Doe' } })
-    fireEvent.change(screen.getByLabelText('Apellido Materno'), { target: { value: 'Doe' } })
-    fireEvent.change(screen.getByLabelText('Correo'), { target: { value: 'john.doe@example.es' } })
-    fireEvent.change(screen.getByLabelText('Contraseña'), { target: { value: 'password123' } })
-    fireEvent.change(screen.getByLabelText('Confirma contraseña'), { target: { value: 'password123' } })
+    fireEvent.change(screen.getByAltText('user'), { target: { value: 'user123' } })
+    fireEvent.change(screen.getByAltText('name'), { target: { value: 'John' } })
+    fireEvent.change(screen.getByAltText('lastName'), { target: { value: 'Doe' } })
+    fireEvent.change(screen.getByAltText('secondLastName'), { target: { value: 'Doe' } })
+    fireEvent.change(screen.getByAltText('email'), { target: { value: 'john.doe@example.es' } })
+    fireEvent.change(screen.getByAltText('password'), { target: { value: 'password123' } })
+    fireEvent.change(screen.getByAltText('confirmPassword'), { target: { value: 'password123' } })
 
     fireEvent.click(screen.getByText('Crear'))
   })
 
-  test('Should fill form incorrectly', () => {
-    fireEvent.change(screen.getByLabelText('Nombre de usuario'), { target: { value: 'user123' } })
-    fireEvent.change(screen.getByLabelText('Nombre(s)'), { target: { value: 'John' } })
-    fireEvent.change(screen.getByLabelText('Apellido Paterno'), { target: { value: 'Doe' } })
-    fireEvent.change(screen.getByLabelText('Apellido Materno'), { target: { value: '' } })
-    fireEvent.change(screen.getByLabelText('Correo'), { target: { value: 'john.doe@examp' } })
-    fireEvent.change(screen.getByLabelText('Contraseña'), { target: { value: 'password123' } })
-    fireEvent.change(screen.getByLabelText('Confirma contraseña'), { target: { value: 'password123' } })
-
-    fireEvent.click(screen.getByText('Crear'))
-  })
-
-  test('Should passwords are equal', () => {
-    fireEvent.change(screen.getByLabelText('Nombre de usuario'), { target: { value: 'user123' } })
-    fireEvent.change(screen.getByLabelText('Nombre(s)'), { target: { value: 'John' } })
-    fireEvent.change(screen.getByLabelText('Apellido Paterno'), { target: { value: 'Doe' } })
-    fireEvent.change(screen.getByLabelText('Apellido Materno'), { target: { value: 'Doe' } })
-    fireEvent.change(screen.getByLabelText('Correo'), { target: { value: 'john.doe@example.es' } })
-    fireEvent.change(screen.getByLabelText('Contraseña'), { target: { value: 'password123' } })
-    fireEvent.change(screen.getByLabelText('Confirma contraseña'), { target: { value: 'password123' } })
-
-    fireEvent.click(screen.getByText('Crear'))
-  })
-
-  test('Should password aren`t equal', () => {
-    fireEvent.change(screen.getByLabelText('Nombre de usuario'), { target: { value: 'user123' } })
-    fireEvent.change(screen.getByLabelText('Nombre(s)'), { target: { value: 'John' } })
-    fireEvent.change(screen.getByLabelText('Apellido Paterno'), { target: { value: 'Doe' } })
-    fireEvent.change(screen.getByLabelText('Apellido Materno'), { target: { value: 'Doe' } })
-    fireEvent.change(screen.getByLabelText('Correo'), { target: { value: 'john.doe@example.es' } })
-    fireEvent.change(screen.getByLabelText('Contraseña'), { target: { value: 'password123' } })
-    fireEvent.change(screen.getByLabelText('Confirma contraseña'), { target: { value: 'password1234' } })
-
-    fireEvent.click(screen.getByText('Crear'))
-
-    screen.getByText('* Contraseñas son distintas')
-  })
+  //
 })

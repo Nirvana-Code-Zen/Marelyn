@@ -2,15 +2,15 @@ import styled from 'styled-components'
 
 const Form = styled.form`
   display: flex;
-  justify-content: ${props => props.styledModified.justify || 'center'};
-  margin: ${props => props.styledModified.margin || 'auto'};
-  margin-top: ${props => props.styledModified.top || '0'} ;
-  flex-wrap: ${props => props.styledModified.wrap || 'wrap'};
-  flex-direction: ${props => props.styledModified.direction || 'row'};
+  justify-content: ${props => props?.styledModified?.justify || 'center'};
+  margin: ${props => props?.styledModified?.margin || 'auto'};
+  margin-top: ${props => props?.styledModified?.top || '0'} ;
+  flex-wrap: ${props => props?.styledModified?.wrap || 'wrap'};
+  flex-direction: ${props => props?.styledModified?.direction || 'row'};
   align-items: center;
-  width: ${props => props.styledModified.width || props.theme.width_porcentages};
-  padding: ${props => props.styledModified.padding};
-  row-gap: ${props => props.styledModified.gap || '0'};
+  width: ${props => props?.styledModified?.width || props.theme.width_porcentages};
+  padding: ${props => props?.styledModified?.padding};
+  row-gap: ${props => props?.styledModified?.gap || '0'};
 
 
   & p {

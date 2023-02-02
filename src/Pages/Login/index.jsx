@@ -11,7 +11,7 @@ import { getAuth, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup } fr
 import { collectFormData, validateData } from '../../utils'
 import { validatorAccessLogin } from '../../utils/validationForms'
 
-export default function Login () {
+const Login = () => {
   const inputLabels = {
     email: 'Correo'.split(''),
     password: 'Contraseña'.split('')
@@ -26,7 +26,6 @@ export default function Login () {
   const btnLogin = async event => {
     event.preventDefault()
     const data = collectFormData(formRef.current)
-    console.log(data)
     const validation = Object.values(validateData(data, validatorLogin))
 
     if (validation.lengh) {
@@ -111,7 +110,6 @@ export default function Login () {
             </Link>
             <div className='container'>
                 <Button onClick={btnLogin} size='medium' >Entrar</Button>
-
                 <span className='my'>O inicia sesion usando</span>
             </div>
             <SocialContent>
@@ -126,7 +124,6 @@ export default function Login () {
           <p>Registrate</p>
         </Link>
       </Form>
-
     </div>
   )
 }
@@ -145,3 +142,5 @@ FormSpan.propTypes = {
   char: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired
 }
+
+export default Login

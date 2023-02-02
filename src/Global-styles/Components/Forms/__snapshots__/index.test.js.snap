@@ -11,30 +11,62 @@ exports[`<Form /> Styled Component Should be Form styles ready 1`] = `
   -ms-flex-pack: center;
   justify-content: center;
   margin: auto;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  margin-top: 0;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 80%;
-  height: 350px;
-  gap: 20px;
+  width: w-one-sixth:16%;
+  w-one-fifth: 20%;
+  w-quarter: 25%;
+  w-one-thrid: 33.333333%;
+  w-two-fifths: 40%;
+  w-medium: 50%;
+  w-tree-fifths: 60%;
+  w-two-thrid: 66.666667%;
+  w-four-fifths: 80%;
+  w-tree-quarters: 75%;
+  w-five-sixths: 83.333333%;
+  w-eleven-twelfth: 91.666667%;
+  w-complet: 100%;
+  row-gap: 0;
 }
 
-.c0 label {
+.c0 p {
   font-family: "Didact Gothic",sans-serif;
   -webkit-letter-spacing: 2px;
   -moz-letter-spacing: 2px;
   -ms-letter-spacing: 2px;
   letter-spacing: 2px;
+  font-size: 15px;
+  width: 75%;
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
-.c0 label a {
-  font-size: 13px;
-  text-align: right;
-  font-weight: bold;
+.c0 span {
+  font-family: "Didact Gothic",sans-serif;
+  -webkit-letter-spacing: 2px;
+  -moz-letter-spacing: 2px;
+  -ms-letter-spacing: 2px;
+  letter-spacing: 2px;
+  font-size: 15px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.c0 a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
 }
 
 <form
@@ -45,6 +77,7 @@ exports[`<Form /> Styled Component Should be Form styles ready 1`] = `
 exports[`<Form /> Styled Component Should be FormGroup styles ready 1`] = `
 .c0 {
   position: relative;
+  margin: 1rem 0;
 }
 
 .c0 .bar:before {
@@ -67,9 +100,21 @@ exports[`<Form /> Styled Component Should be FormGroup styles ready 1`] = `
   transition: 0.2s ease all;
 }
 
+.c0 .bar:before:focus-within .label-char,
+.c0 .bar:after:focus-within .label-char {
+  -webkit-transform: translateY(-20px);
+  -ms-transform: translateY(-20px);
+  transform: translateY(-20px);
+}
+
 .c0 label {
+  font-family: "Didact Gothic",sans-serif;
+  -webkit-letter-spacing: 2px;
+  -moz-letter-spacing: 2px;
+  -ms-letter-spacing: 2px;
+  letter-spacing: 2px;
   color: #999;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: normal;
   position: absolute;
   pointer-events: none;
@@ -88,17 +133,14 @@ exports[`<Form /> Styled Component Should be FormGroup styles ready 1`] = `
 
 exports[`<Form /> Styled Component Should be Input styles ready 1`] = `
 .c0 {
-  font-size: 17px;
+  font-size: 19px;
   padding: 10px 10px 10px 5px;
   display: block;
-  width: 200px;
+  width: 260px;
   border: none;
   border-bottom: 1px solid #d4a413;
   background: transparent;
-}
-
-.c0 .name {
-  border: 1px solid red;
+  box-sizing: border-box;
 }
 
 .c0:focus {
