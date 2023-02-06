@@ -101,7 +101,7 @@ const SingUp = () => {
         )}
 
         <GroupForm className='my-2'>
-          <Input id="userName" type="text" name="usuario" alt="user"/>
+          <Input id="userName" type="text" name="usuario" alt="user" required/>
           <span className='bar'></span>
             <label aria-labelledby={inputLabels.user} >
             {inputLabels.user.map((char, index) => (
@@ -110,7 +110,7 @@ const SingUp = () => {
             </label>
         </GroupForm>
         <GroupForm className='my-2'>
-          <Input id="name" name="nombre" type="text" alt="name"/>
+          <Input id="name" name="nombre" type="text" alt="name" required/>
           <span className='bar'></span>
             <label >
             {inputLabels.names.map((char, index) => (
@@ -119,7 +119,7 @@ const SingUp = () => {
             </label>
         </GroupForm>
         <GroupForm className='my-2'>
-          <Input id="lastName" type="text" name="apellido_paterno" alt="lastName"/>
+          <Input id="lastName" type="text" name="apellido_paterno" alt="lastName" required/>
           <span className='bar'></span>
             <label >
             {inputLabels.last_name.map((char, index) => (
@@ -128,7 +128,7 @@ const SingUp = () => {
             </label>
         </GroupForm>
         <GroupForm className='my-2'>
-          <Input id="secondLastName" type="text" name="apellido_materno" alt="secondLastName"/>
+          <Input id="secondLastName" type="text" name="apellido_materno" alt="secondLastName" required/>
           <span className='bar'></span>
             <label >
             {inputLabels.mid_name.map((char, index) => (
@@ -143,7 +143,7 @@ const SingUp = () => {
             <option value="type_usuari">Cliente</option>
           </Select>
         <GroupForm className='my-2'>
-          <Input id="mail" type="email" name="email" alt="email"/>
+          <Input id="mail" type="email" name="email" alt="email" required/>
           <span className='bar'></span>
             <label >
             {inputLabels.email.map((char, index) => (
@@ -152,7 +152,7 @@ const SingUp = () => {
             </label>
         </GroupForm>
         <GroupForm className='my-2'>
-          <Input id="password" type="password" name="contrasena" alt="password"/>
+          <Input id="password" type="password" name="contrasena" alt="password" required/>
           <span className='bar'></span>
             <label >
             {inputLabels.password.map((char, index) => (
@@ -161,7 +161,7 @@ const SingUp = () => {
             </label>
         </GroupForm>
         <GroupForm className='my-2'>
-          <Input id="confirmPassword" type="password" name="confirmar_contrasena" alt="confirmPassword"/>
+          <Input id="confirmPassword" type="password" name="confirmar_contrasena" alt="confirmPassword" required/>
           <span className='bar'></span>
             <label >
             {inputLabels.confirm_password.map((char, index) => (
