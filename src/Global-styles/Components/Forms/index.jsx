@@ -93,17 +93,28 @@ export const Input = styled.input`
     border-bottom: none;
   }
 
+<<<<<<< HEAD
   &:focus ~ label .label-char,
   &:valid ~ label .label-char{
+=======
+  &:focus ~ label .label-char{
+>>>>>>> 9cedfa870936fa57d29e994e04036a58185fbf32
     transform: translateY(-20px);
     font-size: 16px;
     color: ${props => props.theme.colors.secondary};
   }
+<<<<<<< HEAD
   
   &:focus ~ .bar:before,
   &:focus ~ .bar:after { 
     width: 50%;
 
+=======
+
+  &:focus ~ .bar:before,
+  &:focus ~ .bar:after { 
+    width: 50%;
+>>>>>>> 9cedfa870936fa57d29e994e04036a58185fbf32
   }
 
 `
