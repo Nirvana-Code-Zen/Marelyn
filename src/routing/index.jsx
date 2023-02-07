@@ -2,6 +2,7 @@ import { Route, Switch } from 'wouter'
 
 import Home from '../Pages/Home'
 import SignUpOptions from '../Pages/SignupOptions'
+import Dashboard from '../Pages/Dashboard'
 import SignUp from '../Pages/SingupEmail'
 import Scope from '../routing/Scope'
 
@@ -11,7 +12,7 @@ const Routing = () => {
       <Route path='/' component={Home} />
       <Route path="/login" component={Home}/>
       <Route path="/restore-password" component={Home}/>
-      <Route path="/dashboard" component={() => <h1>Dashboard</h1>}/>
+      <Route path="/dashboard" component={Dashboard}/>
       <Scope base='/sign-up'>
         <Route path="/" component={SignUpOptions} />
         <Route path="/email" component={SignUp} />

@@ -7,8 +7,8 @@ const Button = ({ onClick, children, background, size, color, arrow }) => {
       onClick={onClick}
       background={background}
       size={size}
-      color={color}
-    >
+      color={color}>
+
       {children}
       {arrow && (
         <div className="arrow-wrapper">
@@ -25,7 +25,8 @@ Button.propTypes = {
   background: PropTypes.string,
   size: PropTypes.string,
   color: PropTypes.string,
-  arrow: PropTypes.bool
+  arrow: PropTypes.bool,
+  image: PropTypes.string
 }
 
 export default Button
