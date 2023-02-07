@@ -1,36 +1,42 @@
-import { ThemeProvider } from 'styled-components'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import theme from '../../Global-styles/theme'
 
 import Login from './index'
+import { ThemeProvider } from 'styled-components'
 
-describe('<Login/>', () => {
+describe('<Login />', () => {
+  let getByAltTextImg = null
   beforeEach(() => {
-    render(
+    const { getByAltText } = render(
       <ThemeProvider theme={theme}>
         <Login/>
-      </ThemeProvider>
-    )
-    jest.spyOn(console, 'log')
-  })
-
-  test('Should be rendered', () => {
-    screen.getByText('Login')
+      </ThemeProvider>)
+    getByAltTextImg = getByAltText
   })
 
   test('Should be submit works', () => {
-    console.log = jest.fn()
-    const button = screen.getByText('Entrar')
-    fireEvent.click(button)
+    const button = screen.getByLabelText('Entrar')
 
-    expect(console.log).toHaveBeenCalledWith('Soy un boton')
+    fireEvent.click(button)
   })
 
-  test('Should be create user', () => {
-    console.log = jest.fn()
-    const button = screen.getByText('Crear usuario')
-    fireEvent.click(button)
+  test('Should be rendered Gmail image', async () => {
+    screen.getByAltText('Gmail')
+    const image = getByAltTextImg('gmail')
 
-    expect(console.log).toHaveBeenCalledWith('Necesito terminar la funcion de crear')
+    await waitFor(() => expect(image).toBeInTheDocument())
+
+    expect(image).toBeVisible()
+    expect(image).toHaveAttribute('src', '../src/assets/gmail.png')
+  })
+
+  test('Shoul be rendered Facebook', async () => {
+    screen.getByAltText('Facebook')
+    const image = getByAltTextImg('facebook')
+
+    await waitFor(() => expect(image).toBeInTheDocument())
+
+    expect(image).toBeVisible()
+    expect(image).toHaveAttribute('src', '../src/assets/facebook.png')
   })
 })

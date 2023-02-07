@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignUpOptionsStyled/> Should be global styles ready 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  width: 400px;
+  margin: 10rem auto;
+  padding: 1em;
+  background: #F4F6FB;
+  border: 1px solid white;
+  box-shadow: 10px 10px 64px 0px rgba(180,180,207,0.75);
+}
+
+.c0 svg {
+  color: #d4a413;
+  margin-bottom: 20px;
+  margin-right: 5px;
+}
+
+<div
+  className="c0"
+/>
+`;

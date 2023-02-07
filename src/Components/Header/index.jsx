@@ -1,11 +1,12 @@
-import styles from './header.module.css'
+import H1 from '../../Global-styles/Components/Titles'
+import HeaderStyles from './HeaderStyles'
 
 const Header = () => {
   return (
-    <header className={styles.header} >
-      <img src="./src/assets/logo-Marelyn.png" alt="logo-marelyn" className='w-9' />
-      <h2>Zapateria Marelyn</h2>
-    </header>
+    <HeaderStyles className='' >
+      <img src="../src/assets/logoMarely.png" alt="logo-marelyn" />
+      <H1>Zapateria Marelyn</H1>
+    </HeaderStyles>
   )
 }
 
