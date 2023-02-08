@@ -3,7 +3,7 @@ export default {
     primary: '#d4a413',
     primary_complement: '#efb810',
     primary_second_complement: '#f3c332',
-    secondary: '#155db1',
+    secondary: '`#155db1`',
     secondary_complement: '#2196f3',
     error: '#D50000',
     white: '#ffffff'

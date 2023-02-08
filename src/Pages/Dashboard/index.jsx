@@ -1,8 +1,12 @@
 import Header from '../../Components/Header/index.jsx'
+import Menu from '../../Components/Menu/Menu.jsx'
 
 const Dashboard = () => {
   return (
-    <Header />
+    <>
+    <Header image='src/assets/menu.png'/>
+    <Menu/>
+    </>
   )
 }
 
