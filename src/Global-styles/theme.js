@@ -3,10 +3,11 @@ export default {
     primary: '#d4a413',
     primary_complement: '#efb810',
     primary_second_complement: '#f3c332',
-    secondary: '`#155db1`',
+    secondary: '#155db1',
     secondary_complement: '#2196f3',
     error: '#D50000',
-    white: '#ffffff'
+    white: '#ffffff',
+    hover_search: '#efb810'
   },
   fonts: {
     texts_titles: '"Didact Gothic", sans-serif'
@@ -15,10 +16,11 @@ export default {
     titles: '50px',
     subtitles: '40px',
     small_subtitles: '30px',
+    texts: '19px',
+    medium_text: '17px',
     button_text: '16px',
     small_texts: '15px',
-    medium_text: '17px',
-    texts: '19px'
+    extra_small_texts: '14px'
   },
   width_sizing: {
     wTen: '0.625rem', /* 10px */

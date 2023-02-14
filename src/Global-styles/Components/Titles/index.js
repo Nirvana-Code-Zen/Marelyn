@@ -15,8 +15,7 @@ export const H2 = styled.h2`
 `
 
 export const H4 = styled.h4`
-  font-size: 30px;
-  text-align: center;
+  font-size: ${props => props.theme.fonts_sizes.medium_text || ' 30px'};
   text-align: center;
   font-family: ${props => props.theme.fonts.texts_titles};
   letter-spacing: 4px;
