@@ -5,6 +5,7 @@ import SignUpOptions from '../Pages/SignupOptions'
 import Dashboard from '../Pages/Dashboard'
 import SignUp from '../Pages/SingupEmail'
 import Scope from '../routing/Scope'
+import Products from '../Pages/Products/Products'
 
 const Routing = () => {
   return (
@@ -17,7 +18,7 @@ const Routing = () => {
         <Route path="/" component={SignUpOptions} />
         <Route path="/email" component={SignUp} />
       </Scope>
-      <Scope base='/products/'>
+      <Scope base='/products/' component={Products}>
         <Route path="create" />
         <Route path="list" />
         <Route path="update" />

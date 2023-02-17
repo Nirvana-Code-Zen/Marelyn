@@ -9,12 +9,10 @@ const imageSize = {
 }
 export default styled.img`
   display: flex ;
-  flex-wrap: wrap;
   width: ${props => imageSize[props.size]};
   height:${props => imageSize[props.size]};
-  transition: max-width .3s ease;
+  margin-left: ${props => props.margin};
   cursor: pointer;
-  margin: ${props => props.margin};
-  position: ${props => props.position};
+
 
 `
