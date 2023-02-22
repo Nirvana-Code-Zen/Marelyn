@@ -6,7 +6,7 @@ const Scope = props => {
   const [parentLocation] = useLocation()
 
   const nestedBase = `${router.base}${props.base}`
-
+  console.log(parentLocation, nestedBase)
   if (!parentLocation.startsWith(nestedBase)) return null
 
   return (

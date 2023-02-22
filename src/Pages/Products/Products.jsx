@@ -4,7 +4,7 @@ import { H2 } from '../../Global-styles/Components/Titles/index'
 const Products = () => {
   return (
     <ProductStyles>
-      <H2 color='red'>Productos</H2>
+      <H2 color='red'>Productos </H2>
     </ProductStyles>
 
   )

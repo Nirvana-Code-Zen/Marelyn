@@ -1,10 +1,6 @@
-import Menu from '../../Components/Menu/Menu.jsx'
-
 const Dashboard = () => {
   return (
-    <>
-    <Menu/>
-    </>
+    <h1>Hola soy el dashboard</h1>
   )
 }
 
