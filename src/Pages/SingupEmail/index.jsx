@@ -16,7 +16,6 @@ import BtnContainer from './SignupStyled'
 
 const SingUp = () => {
   const firestore = useContext(FirebaseContext)
-
   const { current: validationFormat } = useRef(createUserValidator)
 
   const formRef = useRef(null)

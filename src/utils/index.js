@@ -17,7 +17,7 @@ export const validateData = (data, validationFormat) => {
       continue
     }
 
-    if (!validationFormat[key].test(value)) {
+    if (validationFormat[key] && validationFormat[key].test && !validationFormat[key].test(value)) {
       dataMissing[key] = `${key.split('_').join(' ')} formato incorrecto`
     }
   }

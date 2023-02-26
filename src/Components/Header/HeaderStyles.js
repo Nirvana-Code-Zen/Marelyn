@@ -20,6 +20,4 @@ export default styled.header`
   & h1 {
     color: white;
   }
-
- 
 `

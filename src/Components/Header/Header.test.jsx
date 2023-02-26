@@ -21,6 +21,6 @@ describe('<Header />', () => {
     await waitFor(() => expect(image).toBeInTheDocument())
 
     expect(image).toBeVisible()
-    expect(image).toHaveAttribute('src', '../src/assets/logo-Marely.png')
+    expect(image).toHaveAttribute('src', '../src/assets/logoMarely.png')
   })
 })

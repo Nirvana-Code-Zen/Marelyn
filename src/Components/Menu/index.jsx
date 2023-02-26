@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { Link } from 'wouter'
 import PropTypes from 'prop-types'
 
-import MenuStyled, { InputMenu, ContainerMenu, HeaderMenu } from './MenuStyled'
-import Header from '../Header/index'
+import MenuStyled, { OptionMenu, ContainerMenu, HeaderMenu } from './MenuStyled'
+import Header from '../Header'
 
 const Menu = ({ children }) => {
   const [isMenuOpen, setMenuOpen] = useState(false)
@@ -15,44 +15,43 @@ const Menu = ({ children }) => {
   return (
     <MenuStyled expandSideNav={isMenuOpen}>
       <HeaderMenu>
-        <Header>
-          <i className={`bx bx-menu bx-md ${isMenuOpen ? 'open' : ''}`} onClick={handleClick}></i>
-        </Header>
+        <Header/>
       </HeaderMenu>
       <ContainerMenu className={isMenuOpen ? 'open' : ''}>
+      <i className={`bx bx-menu bx-md ${isMenuOpen ? 'open' : ''}`} onClick={handleClick}></i>
         <Link href='/dashboard'>
-          <InputMenu >
+          <OptionMenu >
             <i className='bx bx-home-alt bx-sm' ></i>
             <span>Inicio</span>
-          </InputMenu>
+          </OptionMenu>
         </Link>
         <Link href='/products/list'>
-          <InputMenu >
+          <OptionMenu >
             <i className='bx bxs-shopping-bags bx-sm' ></i>
             <span>Productos</span>
-          </InputMenu>
+          </OptionMenu>
         </Link>
         <Link href='/resources/clients'>
-          <InputMenu >
+          <OptionMenu >
             <i className='bx bx-user bx-sm' ></i>
             <span>Clientes</span>
-          </InputMenu>
+          </OptionMenu>
         </Link>
         <Link href='/resources/providers'>
-          <InputMenu >
+          <OptionMenu >
             <i className='bx bx-user bx-sm' ></i>
             <span>Proveedores</span>
-          </InputMenu>
+          </OptionMenu>
         </Link>
-        <InputMenu>
+        <OptionMenu>
           <i className='bx bxl-shopify bx-sm' ></i>
           <span>Ventas</span>
-        </InputMenu>
+        </OptionMenu>
         <Link href='/reports/sales'>
-          <InputMenu >
+          <OptionMenu >
             <i className='bx bxs-report bx-sm' ></i>
             <span>Reportes</span>
-          </InputMenu>
+          </OptionMenu>
         </Link>
       </ContainerMenu>
       {children}

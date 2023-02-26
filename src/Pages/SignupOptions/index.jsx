@@ -34,7 +34,7 @@ const SignUpOptions = () => {
 
       await saveUserData(user)
 
-      setLocation('dashboard')
+      setLocation('/dashboard')
     } catch (error) {
       setErrorMessage(error)
     }
