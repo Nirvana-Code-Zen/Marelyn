@@ -26,5 +26,4 @@ const initFirebase = () => {
 export const FirebaseContext = createContext()
 
 export const Firebase = FirebaseContext.Provider
-
 export default initFirebase

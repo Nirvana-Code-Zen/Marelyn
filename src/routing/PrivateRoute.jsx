@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+
 import { useEffect } from 'react'
 import { useLocation } from 'wouter'
 import Layeout from '../Components/Layeout'
@@ -16,14 +17,14 @@ const PrivateRoute = ({ children }) => {
       </Layeout>
     )
   }
-
   useEffect(() => redirection('/login'), [])
 
   return null
 }
 
 PrivateRoute.propTypes = {
+
   children: PropTypes.node.isRequired
 }
 
-export default PrivateRoute
+export default ProtectedRoute
