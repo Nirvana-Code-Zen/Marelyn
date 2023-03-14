@@ -7,9 +7,57 @@ export default styled.div`
  & i{
   color: white;
   cursor: pointer;
+  transform:translate(${props => props.translateAxisX});
  }
-`
 
+ @media (max-width: 1023px) {
+    grid-template: 100px calc(100vh - 100px) / 60px 1fr;
+    background-color: azure;
+
+    & i {
+      display: flex;
+      position: relative;
+      right: 17px;
+    }
+
+     & h1{
+      font-size: ${props => props.theme.fonts_sizes.subtitles};
+    }
+  }
+
+  @media (max-width: 767px) {
+    grid-template: 100px calc(100vh - 100px) / 50px 1fr;
+    background-color: antiquewhite;
+
+
+    & i {
+      display: flex;
+      position: relative;
+      right: 17px;
+    }
+
+    & h1{
+      font-size: ${props => props.theme.fonts_sizes.small_subtitles};
+    }
+  }
+
+  @media (max-width: 360px) {
+  grid-template: 100px calc(100vh - 100px) / 50px 1fr;
+  background-color:pink ;
+  font-size: ${props => props.theme.fonts_sizes.mobile_font};
+ 
+    & i {
+      display: flex;
+      position: relative;
+      right: 15px;
+
+    }
+
+    h1{
+      font-size: ${props => props.theme.fonts_sizes.mobile_font};
+    }
+  }
+`
 export const InputMenu = styled.div`
   width: 100%;
   padding: 20px 0 20px 30px;
@@ -56,7 +104,6 @@ export const ContainerMenu = styled.div`
       border: 1px solir blue;
     }
   }
-
 `
 
 export const HeaderMenu = styled.div`
@@ -65,11 +112,13 @@ export const HeaderMenu = styled.div`
   grid-column-end: span 2;
 
   & i {
-    position: absolute;
-    right: 4.5rem;
-    top: 28px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 2rem;
+    right: 38.7rem;
+    bottom: 8rem;
     height: 100%;
   }
   
-
 `

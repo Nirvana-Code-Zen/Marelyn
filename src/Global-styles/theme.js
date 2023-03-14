@@ -16,6 +16,7 @@ export default {
     titles: '50px',
     subtitles: '40px',
     small_subtitles: '30px',
+    mobile_font: '25px',
     texts: '19px',
     medium_text: '17px',
     button_text: '16px',

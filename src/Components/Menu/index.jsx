@@ -15,7 +15,7 @@ const Menu = ({ children }) => {
   return (
     <MenuStyled expandSideNav={isMenuOpen}>
       <HeaderMenu>
-        <Header>
+        <Header position='relative' translateAxisX='-50px'>
           <i className={`bx bx-menu bx-md ${isMenuOpen ? 'open' : ''}`} onClick={handleClick}></i>
         </Header>
       </HeaderMenu>

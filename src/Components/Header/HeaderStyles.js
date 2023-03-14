@@ -12,14 +12,14 @@ export default styled.header`
   font-family: ${props => props.theme.fonts.texts_titles};
 
   & img {
-    position: absolute;
-    left: 4.5rem;
+    position: ${props => props.position || 'absolute'};
+    left:  4.5rem;
+    top: ${props => props.top};
     height: 100%;
+    transform: translateX(${props => props.translateAxisX || '0px'});
   }
 
   & h1 {
     color: white;
-  }
-
- 
+  } 
 `
