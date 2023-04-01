@@ -7,7 +7,7 @@ import { Link, useLocation } from 'wouter'
 import { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { getAuth, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { getAuth, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
 import { collectFormData, validateData } from '../../utils'
 import { validatorAccessLogin } from '../../utils/validationForms'
 
@@ -16,12 +16,12 @@ const Login = () => {
     email: 'Correo'.split(''),
     password: 'Contraseña'.split('')
   }
-
   const { current: validatorLogin } = useRef(validatorAccessLogin)
 
   const [location, setLocation] = useLocation()
   const formRef = useRef(null)
   const [errorMessage, setErrorMessage] = useState(null)
+  const [, setLoading] = useState(false)
 
   const btnLogin = async event => {
     event.preventDefault()
@@ -31,7 +31,16 @@ const Login = () => {
     if (validation.lengh) {
       return validation.forEach(message => setErrorMessage((prevMessage) => `${prevMessage || ''} * ${message}/n`))
     }
-    setLocation(`${location}dashboard`)
+    setLoading(true)
+    const auth = getAuth()
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password)
+      setLocation(`${location}dashboard`)
+      setLoading(false)
+    } catch (error) {
+      setErrorMessage(error.message)
+      setLoading(false)
+    }
   }
 
   const facebookLogin = async () => {
@@ -45,11 +54,17 @@ const Login = () => {
       const credential = FacebookAuthProvider.credentialFromResult(result)
       const token = credential.accessToken
 
-      setLocation('dashboard')
-
-      return { user, token }
+      const methods = await auth.fetchSignInMethodsForEmail(user.email)
+      if (methods.includes(provider.providerId)) {
+        setLocation('dashboard')
+        return { user, token }
+      } else {
+        setErrorMessage('Este usuario no esta registrado')
+        return null
+      }
     } catch (error) {
       setErrorMessage(error)
+      return null
     }
   }
 
@@ -63,10 +78,17 @@ const Login = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result)
       const token = credential.accessToken
 
-      setLocation('dashboard')
-      return console.log({ user, token })
+      const methods = await auth.fetchSignInMethodsForEmail(user.email)
+      if (methods.includes(provider.providerId)) {
+        setLocation('dashboard')
+        return { user, token }
+      } else {
+        setErrorMessage('Este usuario no esta registrado')
+        return null
+      }
     } catch (error) {
       setErrorMessage(error)
+      return null
     }
   }
 

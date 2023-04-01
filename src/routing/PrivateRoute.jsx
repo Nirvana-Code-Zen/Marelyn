@@ -4,7 +4,7 @@ import { useLocation } from 'wouter'
 import Layeout from '../Components/Layeout'
 
 const PrivateRoute = ({ children }) => {
-  const isAuthenticated = true
+  const isAuthenticated = false
 
   // eslint-disable-next-line no-unused-vars
   const [_, redirection] = useLocation()
