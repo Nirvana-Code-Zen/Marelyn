@@ -1,6 +1,11 @@
 import styled from 'styled-components'
 
-export default styled.div`
-  display: flex;
-  background-color: ${props => props.theme.colors.secondary};
+const ProductStyled = styled.div`
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  align-items: center;
+  gap: 2rem;
 `
+
+export default ProductStyled

@@ -1,10 +1,14 @@
 import ProductStyles from './ProductStyles'
-import { H2 } from '../../Global-styles/Components/Titles/index'
+import CategoryProducts from '../CategoryProducts'
+import CreateProducts from '../CreateProducts'
+import ListProducts from '../ListProduct'
 
 const Products = () => {
   return (
     <ProductStyles>
-      <H2 color='red'>Productos </H2>
+      <CategoryProducts/>
+      <CreateProducts/>
+      <ListProducts/>
     </ProductStyles>
 
   )
