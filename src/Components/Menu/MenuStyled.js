@@ -4,15 +4,20 @@ export default styled.div`
     display: grid;
     grid-template: 100px calc(100vh - 100px) / ${props => !props.expandSideNav ? '90px 1fr' : '230px 1fr'};
  
-
  & i{
   color: white;
   cursor: pointer;
+
+  &.btn-Menu{
+    position: relative;
+    left: 1.5rem;
+    
+  }
+
  }
 `
 
 export const OptionMenu = styled.div`
-
   width: 100%;
   padding: 10px 0 10px 30px;
   border-radius:5px;
@@ -22,7 +27,6 @@ export const OptionMenu = styled.div`
   box-sizing: border-box;
   transition: all .3s ease;
 
-  
   &:hover{
     background: ${props => props.theme.colors.secondary};
     opacity: 90%;
@@ -41,7 +45,6 @@ export const OptionMenu = styled.div`
 `
 export const ContainerMenu = styled.div`
   grid-column: 1;
-
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

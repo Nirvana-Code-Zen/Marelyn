@@ -2,10 +2,28 @@ import styled from 'styled-components'
 
 const ProductStyled = styled.div`
   display:flex;
-  justify-content:center;
-  flex-direction:column;
+  padding: 35px  30px;
+  border: 1px solid var(--secondary);
+  font-family: ${props => props.theme.fonts.texts_titles};
+`
+export const ContainerItems = styled.div`
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 2rem;
+  gap: 3rem;
 `
 
+export const ContainerSearch = styled.input`
+  border: 1px solid var(${props => props.theme.colors.secondary});
+  width: 300px;
+  height: 50px;
+  display: flex;
+  letter-spacing: 2.5px;
+  align-items: center;
+  padding-left:1rem;
+  border-radius: 8px;
+  font-size: ${props => props.theme.fonts_sizes.button_text};
+`
 export default ProductStyled

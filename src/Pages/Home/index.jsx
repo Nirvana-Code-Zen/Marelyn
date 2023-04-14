@@ -3,7 +3,7 @@ import Header from '../../Components/Header'
 
 const Home = () => (
   <div >
-    <Header/>
+    <Header />
     <Login />
   </div>
 )

@@ -3,7 +3,9 @@ import styled from 'styled-components'
 const buttonSize = {
   small: '80px',
   medium: '150px',
-  large: '250px',
+  intermediate: '180px',
+  large: '220px',
+  extraLarge: '250px',
   fit: '100%'
 }
 
@@ -14,6 +16,7 @@ export default styled.button`
   align-items: center;
   padding: 10px 28px;
   width: ${props => buttonSize[props.size] || buttonSize.fit};
+  height: ${props => props.height} ;
   border-radius: 15px;
   border: 1px solid transparent;
   color: #FFFFFF;
@@ -73,5 +76,4 @@ export default styled.button`
     border: 0 solid ${props => props.color || props.theme.colors.secondary};
     border-width: 0 2px 2px 0;
   }
-
 `
