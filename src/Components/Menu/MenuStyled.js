@@ -10,7 +10,8 @@ export default styled.div`
 
   &.btn-Menu{
     position: relative;
-    left: 1.5rem;
+    left: 1.8rem;
+    bottom: 8rem;
     
   }
 

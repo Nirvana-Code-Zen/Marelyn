@@ -2,9 +2,9 @@ import H1 from '../../Global-styles/Components/Titles'
 import HeaderStyles from './HeaderStyles'
 import PropTypes from 'prop-types'
 
-const Header = ({ image, children, title, position, translateAxisX }) => {
+const Header = ({ image, children, title, position, left }) => {
   return (
-    <HeaderStyles className=''image={image} title='' position={position} translateAxisX={translateAxisX} >
+    <HeaderStyles className=''image={image} title='' position={position} left={left} >
       <img src="../src/assets/logoMarely.png" alt="logo-marelyn" />
       <H1>{title}</H1>
       {children}
@@ -17,7 +17,7 @@ Header.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
   position: PropTypes.string,
-  translateAxisX: PropTypes.string
+  left: PropTypes.string
 }
 
 export default Header

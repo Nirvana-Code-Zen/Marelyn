@@ -12,8 +12,8 @@ export default styled.header`
   font-family: ${props => props.theme.fonts.texts_titles};
 
   & img {
-    position: absolute;
-    left: 4.5rem;
+    position: ${props => props.position || 'absolute'};
+    left:  ${props => props.left || '8.5rem'};
     height: 100%;
   }
 

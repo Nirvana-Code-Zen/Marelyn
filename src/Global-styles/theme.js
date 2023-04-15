@@ -15,7 +15,8 @@ export default {
   fonts_sizes: {
     titles: '50px',
     subtitles: '40px',
-    small_subtitles: '30px',
+    medio_titles: '30px',
+    small_subtitles: '20px',
     texts: '19px',
     medium_text: '17px',
     button_text: '16px',
