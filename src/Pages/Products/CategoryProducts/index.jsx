@@ -1,4 +1,4 @@
-import CategoryProductsStyled from '../CategoryProducts/categoryProducStyled.js'
+import CategoryProductsStyled from './categoryProducStyled.js'
 
 const CategoryProducts = () => {
   return (

@@ -12,16 +12,13 @@ const Home = styled.div`
       font-size: ${props => props.theme.fonts_sizes.medio_titles}
     }
   }
-
   @media (max-width: 360px){
     background-color: orange;
-
+    
     & H1{
       color: red;
       font-size: ${props => props.theme.fonts_sizes.small_titles}
     }
-    
-   
   }
 `
 

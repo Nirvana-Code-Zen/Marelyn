@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 
 const CreateProductStyled = styled.div`
-  width: 50%;
+  margin-top:10rem;
   height: 200px;
-  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: antiquewhite;
   
 
 `

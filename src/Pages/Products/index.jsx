@@ -1,12 +1,16 @@
 import ProductStyles, { ContainerItems, ContainerSearch } from './ProductStyles'
-// import CategoryProducts from '../CategoryProducts'
-// import CreateProducts from '../CreateProducts'
-// import ListProducts from '../ListProduct'
 import Button from '../../Components/Button'
+import CreateProducts from './CreateProducts'
+
+import { useState } from 'react'
+import { Link } from 'wouter'
 
 const Products = () => {
+  const [viewForms, setViewForms] = useState(false)
+
   const btn = () => {
     console.log('si funciono')
+    setViewForms(true)
   }
   return (
     <ProductStyles>
@@ -17,15 +21,16 @@ const Products = () => {
         <Button size='large' height='63.3px' onClick={btn}>
           <span>Lista de productos</span>
         </Button>
-        <ContainerSearch>
-
-        </ContainerSearch>
+      <ContainerSearch>
+      </ContainerSearch>
+      <Link href='create'>
         <Button size='large' height='63.3px' onClick={btn}>
           <span>Crear productos </span>
         </Button>
+        {viewForms && <CreateProducts/>}
+      </Link>
       </ContainerItems>
     </ProductStyles>
-
   )
 }
 

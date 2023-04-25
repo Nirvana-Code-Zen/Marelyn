@@ -12,7 +12,8 @@ import Clients from '../Pages/Clients'
 import Providers from '../Pages/Providers'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
-import CategoryProducts from '../Pages/CategoryProducts'
+import CategoryProducts from '../Pages/Products/CategoryProducts'
+import CreateProducts from '../Pages/Products/CreateProducts'
 
 const Routing = () => {
   return (
@@ -31,11 +32,11 @@ const Routing = () => {
         <Route path="/dashboard" component={Dashboard}/>
         <Scope base='/products/' >
             <Route path="list" component={Products} />
-            <Route path="create"/>
+            <Route path="create" component={CreateProducts}/>
             <Route path="update" />
             <Route path="categories" component={CategoryProducts}/>
             <Route path="sales" component={Sales} />
-            <Route path=":productid/deteils" />
+            <Route path=":productid/detaeils" />
         </Scope>
         <Scope base='/reports/'>
             <Route path="sales" component={Reports} />
