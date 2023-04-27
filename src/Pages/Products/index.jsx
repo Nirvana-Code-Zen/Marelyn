@@ -8,9 +8,11 @@ import { Link } from 'wouter'
 const Products = () => {
   const [viewForms, setViewForms] = useState(false)
 
+  const toogleViewForms = () => {
+    setViewForms(!viewForms)
+  }
   const btn = () => {
     console.log('si funciono')
-    setViewForms(true)
   }
   return (
     <ProductStyles>
@@ -24,10 +26,10 @@ const Products = () => {
       <ContainerSearch>
       </ContainerSearch>
       <Link href='create'>
-        <Button size='large' height='63.3px' onClick={btn}>
+        <Button size='large' height='63.3px' onClick={toogleViewForms}>
           <span>Crear productos </span>
         </Button>
-        {viewForms && <CreateProducts/>}
+        {viewForms && <CreateProducts setViewForms={setViewForms}/>}
       </Link>
       </ContainerItems>
     </ProductStyles>
