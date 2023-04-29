@@ -11,6 +11,7 @@ const Form = styled.form`
   width: ${props => props?.styledModified?.width || props.theme.width_porcentages};
   padding: ${props => props?.styledModified?.padding};
   row-gap: ${props => props?.styledModified?.gap || '0'};
+  height: ${props => props.styledModified?.height || 'auto'};
 
 
   & p {
@@ -28,6 +29,7 @@ const Form = styled.form`
     font-size: ${props => props.theme.fonts_sizes.small_texts};
     text-align: center;
     box-sizing: border-box;
+    
   }
   a {
     text-decoration: none;
@@ -78,7 +80,7 @@ export const GroupForm = styled.div`
 
 export const Input = styled.input`
   font-size: ${props => props.theme.fonts_sizes.texts};
-  padding: 10px 10px 10px 5px;
+  padding: 10px 10px 6px 5px;
   display: block;
   width: 260px;
   border: none;
@@ -86,8 +88,6 @@ export const Input = styled.input`
   background: transparent;
   box-sizing: border-box;
 
-
-  
   &:focus {
     outline: none;
     border-bottom: none;
@@ -103,11 +103,8 @@ export const Input = styled.input`
   &:focus ~ .bar:before,
   &:focus ~ .bar:after { 
     width: 50%;
-
   }
-
 `
-
 export const Select = styled.select`
   display: flex;
   width: 260px;
