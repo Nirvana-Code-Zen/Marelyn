@@ -43,7 +43,7 @@ export const GroupForm = styled.div`
   margin: 1rem 0 ;
   
   & .bar:before {
-    left: 50%;
+    left: 30%;
   } 
 
   & .bar:after {
@@ -82,11 +82,12 @@ export const Input = styled.input`
   font-size: ${props => props.theme.fonts_sizes.texts};
   padding: 10px 10px 6px 5px;
   display: block;
-  width: 260px;
+  width:  ${props => props.width || '100%'};
   border: none;
   border-bottom: 1px solid ${props => props.theme.colors.primary};
   background: transparent;
   box-sizing: border-box;
+  letter-spacing: 2px;
 
   &:focus {
     outline: none;

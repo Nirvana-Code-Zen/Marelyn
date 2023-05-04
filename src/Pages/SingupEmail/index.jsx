@@ -89,7 +89,6 @@ const SingUp = () => {
           direction: 'colunm',
           padding: '40px 20px',
           gap: '2rem'
-
         }}
       >
 

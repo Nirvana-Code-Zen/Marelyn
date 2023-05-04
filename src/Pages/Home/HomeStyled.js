@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const Home = styled.div`
-  background-color: aliceblue;
   height: 100vh;
 
   @media (max-width: 768px){

@@ -1,13 +1,55 @@
 import { BtnCreate } from './CreateStyled'
 import Form, { GroupForm, Input } from '../../../Global-styles/Components/Forms'
 import Button from '../../../Components/Button'
+import ErrorMessage from '../../../Components/ErrorMessage'
 
 import PropTypes from 'prop-types'
-import { useContext, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
+import { collectFormData, validateData } from '../../../utils'
+
+import { createValidatorProduct } from '../../../utils/validationForms'
+import { useLocation } from 'wouter'
+
 import { FirebaseContext } from '../../../firebase/init'
 import { collection, addDoc } from 'firebase/firestore'
 
 const CreateProducts = () => {
+  const firestore = useContext(FirebaseContext)
+  const { current: validationForm } = useRef(createValidatorProduct)
+
+  const formRef = useRef(null)
+
+  const navigate = useLocation()[1]
+
+  const createProduct = async (product) => {
+    await addDoc(collection(firestore, 'Products'), {
+      category: product.category,
+      productName: product.productName,
+      color: product.color,
+      size: product.size,
+      model: product.model,
+      code: product.code,
+      price: product.price,
+      description: product.description
+    })
+  }
+  const createProductHandle = async evt => {
+    evt.preventDefault()
+    const data = collectFormData(formRef.current)
+    console.log(data)
+    const validation = Object.values(validateData(data, validationForm))
+
+    if (validation.length) {
+      return validation.forEach(message => setErrorMessage((prevMessage) => `${prevMessage || ''} * ${message}\n`))
+    }
+    try {
+      await createProduct(data)
+      navigate('products')
+    } catch (error) {
+      console.error('Error creando el producto', error)
+      setErrorMessage(('Error creando el producto'))
+    }
+  }
   const inputLabels = {
     category: 'Categoria'.split(''),
     productName: 'Nombre del producto'.split(''),
@@ -18,37 +60,11 @@ const CreateProducts = () => {
     price: 'Precio'.split(''),
     description: 'Descripcion'.split('')
   }
-  const { firestore } = useContext(FirebaseContext)
-
-  const [productData, setProductData] = useState({
-    category: '',
-    productName: '',
-    color: '',
-    size: '',
-    model: '',
-    code: '',
-    price: '',
-    description: ''
-  })
-
-  const createProduct = async evt => {
-    evt.preventDefault()
-
-    try {
-      await addDoc(collection(firestore, 'Products'), productData)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  const handleInputChange = evt => {
-    setProductData({
-      ...productData,
-      [evt.target.name]: evt.target.value
-    })
-  }
+  const [errorMessage, setErrorMessage] = useState(null)
   return (
 <>
     <Form
+    ref={formRef}
      className='boxshadow'
       styledModified={{
         width: '80%',
@@ -58,14 +74,18 @@ const CreateProducts = () => {
         padding: '40px 20px'
       }}
     >
+       {errorMessage && (
+          <ErrorMessage>
+            {errorMessage.split('\n').map(message => <p key={message}>{message}</p>)}
+          </ErrorMessage>
+       )}
       <GroupForm className='my-2'>
         <Input type='text'
         name='category'
         alt='category'
-        value={productData.category}
-        onChange={handleInputChange}/>
+        required/>
         <span className='bar'></span>
-          <label>
+          <label aria-labelledby={inputLabels.category}>
             {inputLabels.category.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
@@ -75,10 +95,10 @@ const CreateProducts = () => {
         <Input type='text'
         name='productName'
         alt='productName'
-        value={productData.productName}
-        onChange={handleInputChange}/>
+        width='100%'
+        required/>
         <span className='bar'></span>
-          <label>
+          <label aria-labelledby={inputLabels.productName}>
             {inputLabels.productName.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
@@ -88,10 +108,10 @@ const CreateProducts = () => {
         <Input type='text'
         name='color'
         alt='color'
-        value={productData.color}
-        onChange={handleInputChange}/>
+        width='100%'
+        required/>
         <span className='bar'></span>
-          <label>
+          <label aria-labelledby={inputLabels.color}>
             {inputLabels.color.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
@@ -101,10 +121,10 @@ const CreateProducts = () => {
         <Input type='text'
         name='size'
         alt='size'
-        value={productData.size}
-        onChange={handleInputChange}/>
+        width='100%'
+        required/>
         <span className='bar'></span>
-          <label>
+          <label aria-labelledby={inputLabels.size}>
             {inputLabels.size.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
@@ -114,10 +134,10 @@ const CreateProducts = () => {
         <Input type='text'
         name='model'
         alt='model'
-        value={productData.model}
-        onChange={handleInputChange}/>
+        width='100%'
+        required/>
         <span className='bar'></span>
-          <label>
+          <label aria-labelledby={inputLabels.model}>
             {inputLabels.model.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
@@ -127,10 +147,10 @@ const CreateProducts = () => {
         <Input type='text'
         name='code'
         alt='code'
-        value={productData.code}
-        onChange={handleInputChange}/>
+        width='100%'
+        required/>
         <span className='bar'></span>
-          <label>
+          <label aria-labelledby={inputLabels.code}>
             {inputLabels.code.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
@@ -140,10 +160,10 @@ const CreateProducts = () => {
         <Input type='text'
         name='price'
         alt='price'
-        value={productData.price}
-        onChange={handleInputChange}/>
+        width='100%'
+        required/>
         <span className='bar'></span>
-          <label>
+          <label aria-labelledby={inputLabels.price}>
             {inputLabels.price.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
@@ -153,10 +173,10 @@ const CreateProducts = () => {
         <Input type='text'
         name='description'
         alt='description'
-        value={productData.description}
-        onChange={handleInputChange}/>
+        width='100%'
+        required/>
         <span className='bar'></span>
-          <label>
+          <label aria-labelledby={inputLabels.description}>
             {inputLabels.description.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
@@ -164,7 +184,7 @@ const CreateProducts = () => {
       </GroupForm>
         <BtnCreate>
           <div>
-            <Button size='medium' type='submit' onClick={createProduct} >Crear</Button>
+            <Button size='medium' type='submit' onClick={createProductHandle} >Crear</Button>
           </div>
       </BtnCreate>
     </Form>
