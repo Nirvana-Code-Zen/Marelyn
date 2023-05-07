@@ -8,15 +8,65 @@ const CreateProductStyled = styled.div`
     flex-wrap: wrap;
     border: 1px solid blue;
 `
-export const ContainerProducts = styled.div`
-  display: flex;
-  border: 1px solid red;
+
+export const Description = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap:1.2rem;
+    width: 70%;
+    height: 15rem;
+
+    & label{
+      position: relative;
+      left: .5rem;
+      font-family: ${props => props.theme.fonts.texts_titles};
+      letter-spacing: 2px;
+      color: ${props => props.theme.colors.texts};
+    }
+    & textarea{
+      font-family: ${props => props.theme.fonts.texts_titles};
+      font-size: ${props => props.theme.fonts_sizes.medium_text};
+      letter-spacing: 3px;
+      border: transparent;
+      width: 100%;
+      height: 10.5rem;
+      padding: 1rem;
+      box-sizing: border-box;
+      resize: none;
+    }
+
+    & textarea:focus{
+    border: ${props => props.theme.colors.secondary};
+    }
 `
 
-export const ContainerIten = styled.div`
+export const Image = styled.div`
   display: flex;
+  flex-direction: column;
+  width: 21%;
+  width: 21%;
+  height: 16rem;
+  position: relative;
+  bottom: 2.3rem;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  & label{
+    position: relative;
+    left: 5rem;
+    bottom: 3rem;
+    font-family: ${props => props.theme.fonts.texts_titles};
+    letter-spacing: 2px;
+    color: ${props => props.theme.colors.texts};
+  }
+ 
 `
 
+export const ContainerImage = styled.div`
+  height: 9rem;
+  border: 1px solid ${props => props.theme.colors.primary};
+  border-radius: 5px;
+`
 export const BtnCreate = styled.div`
   flex-basis: 100%;
 
@@ -24,5 +74,11 @@ export const BtnCreate = styled.div`
     margin: auto;
     width: 150px;
   }
+`
+
+export const BtnCharget = styled.div`
+  position: relative;
+  left: 27.7rem;
+  bottom: 8.5rem;
 `
 export default CreateProductStyled

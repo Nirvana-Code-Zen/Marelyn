@@ -7,7 +7,8 @@ export default {
     secondary_complement: '#2196f3',
     error: '#D50000',
     white: '#ffffff',
-    hover_search: '#efb810'
+    hover_search: '#efb810',
+    texts: '#999999'
   },
   fonts: {
     texts_titles: '"Didact Gothic", sans-serif'

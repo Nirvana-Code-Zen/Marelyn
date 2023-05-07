@@ -1,4 +1,4 @@
-import { BtnCreate } from './CreateStyled'
+import { BtnCharget, BtnCreate, Description, Image, ContainerImage } from './CreateStyled'
 import Form, { GroupForm, Input } from '../../../Global-styles/Components/Forms'
 import Button from '../../../Components/Button'
 import ErrorMessage from '../../../Components/ErrorMessage'
@@ -30,7 +30,8 @@ const CreateProducts = () => {
       model: product.model,
       code: product.code,
       price: product.price,
-      description: product.description
+      description: product.description,
+      image: product.image
     })
   }
   const createProductHandle = async evt => {
@@ -61,6 +62,10 @@ const CreateProducts = () => {
     description: 'Descripcion'.split('')
   }
   const [errorMessage, setErrorMessage] = useState(null)
+
+  const btnCharget = () => {
+    console.log('hola')
+  }
   return (
 <>
     <Form
@@ -130,12 +135,13 @@ const CreateProducts = () => {
             ))}
           </label>
       </GroupForm>
-      <GroupForm className='my-2'>
+      <GroupForm className='my-2' left='-4.5rem'>
         <Input type='text'
         name='model'
         alt='model'
         width='100%'
-        required/>
+        required
+        />
         <span className='bar'></span>
           <label aria-labelledby={inputLabels.model}>
             {inputLabels.model.map((char, index) => (
@@ -143,12 +149,13 @@ const CreateProducts = () => {
             ))}
           </label>
       </GroupForm>
-      <GroupForm className='my-2'>
+      <GroupForm className='my-2' left='-8.9rem'>
         <Input type='text'
         name='code'
         alt='code'
         width='100%'
-        required/>
+        required
+       />
         <span className='bar'></span>
           <label aria-labelledby={inputLabels.code}>
             {inputLabels.code.map((char, index) => (
@@ -156,7 +163,7 @@ const CreateProducts = () => {
             ))}
           </label>
       </GroupForm>
-      <GroupForm className='my-2'>
+      <GroupForm className='my-2' left='-13.5rem'>
         <Input type='text'
         name='price'
         alt='price'
@@ -169,26 +176,26 @@ const CreateProducts = () => {
             ))}
           </label>
       </GroupForm>
-      <GroupForm className='my-2'>
-        <Input type='text'
-        name='description'
-        alt='description'
-        width='100%'
-        required/>
-        <span className='bar'></span>
-          <label aria-labelledby={inputLabels.description}>
-            {inputLabels.description.map((char, index) => (
-              <FormSpan key={index} char={char} index={index}/>
-            ))}
-          </label>
-      </GroupForm>
+      <Description >
+        <label>Descripcion</label>
+      <textarea name="description" cols="30" rows="10" className='boxshadow'></textarea>
+      </Description>
+      <Image className='boxshadow'>
+          <label >Imagen</label>
+          <ContainerImage >
+          </ContainerImage>
+      </Image>
         <BtnCreate>
           <div>
             <Button size='medium' type='submit' onClick={createProductHandle} >Crear</Button>
           </div>
       </BtnCreate>
+      <BtnCharget>
+          <div>
+            <Button size='medium' type='submit' onClick={btnCharget} >Cargar</Button>
+          </div>
+      </BtnCharget>
     </Form>
-
 </>
   )
 }
