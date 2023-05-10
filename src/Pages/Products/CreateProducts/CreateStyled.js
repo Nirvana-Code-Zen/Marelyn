@@ -80,5 +80,13 @@ export const BtnCharget = styled.div`
   position: relative;
   left: 27.7rem;
   bottom: 8.5rem;
+
+  & input {
+    width: 100%;
+    background-color: red;
+  }
+
+
 `
+
 export default CreateProductStyled

@@ -23,14 +23,14 @@ const CreateProducts = () => {
 
   const createProduct = async (product) => {
     await addDoc(collection(firestore, 'Products'), {
-      category: product.category,
-      productName: product.productName,
-      color: product.color,
-      size: product.size,
+      category: product.Categoria,
+      productName: product.Nombre_del_producto,
+      color: product.Color,
+      size: product.Numero,
       model: product.model,
-      code: product.code,
-      price: product.price,
-      description: product.description,
+      code: product.Codigo,
+      price: product.Precio,
+      description: product.Descripcion,
       image: product.image
     })
   }
@@ -183,6 +183,7 @@ const CreateProducts = () => {
       <Image className='boxshadow'>
           <label >Imagen</label>
           <ContainerImage >
+
           </ContainerImage>
       </Image>
         <BtnCreate>
@@ -192,7 +193,7 @@ const CreateProducts = () => {
       </BtnCreate>
       <BtnCharget>
           <div>
-            <Button size='medium' type='submit' onClick={btnCharget} >Cargar</Button>
+            <Button size='medium' type='submit' onClick={btnCharget} > <input type="file" /></Button>
           </div>
       </BtnCharget>
     </Form>
