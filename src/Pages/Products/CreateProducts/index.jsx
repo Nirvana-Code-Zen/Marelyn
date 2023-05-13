@@ -69,14 +69,15 @@ const CreateProducts = () => {
   return (
 <>
     <Form
-    ref={formRef}
-     className='boxshadow'
+      ref={formRef}
+      className='boxshadow'
       styledModified={{
-        width: '80%',
-        height: '60%',
+        width: '97%',
+        height: '85%',
+        top: '1rem',
         justify: 'space-evenly',
-        top: '130px',
-        padding: '40px 20px'
+        padding: '40px 20px',
+        gap: '13px'
       }}
     >
        {errorMessage && (
@@ -135,7 +136,7 @@ const CreateProducts = () => {
             ))}
           </label>
       </GroupForm>
-      <GroupForm className='my-2' left='-4.5rem'>
+      <GroupForm className='my-2' left='-4.8rem'>
         <Input type='text'
         name='model'
         alt='model'
@@ -149,7 +150,7 @@ const CreateProducts = () => {
             ))}
           </label>
       </GroupForm>
-      <GroupForm className='my-2' left='-8.9rem'>
+      <GroupForm className='my-2' left='-9.5rem'>
         <Input type='text'
         name='code'
         alt='code'
@@ -163,7 +164,7 @@ const CreateProducts = () => {
             ))}
           </label>
       </GroupForm>
-      <GroupForm className='my-2' left='-13.5rem'>
+      <GroupForm className='my-2' left='-14.5rem'>
         <Input type='text'
         name='price'
         alt='price'
@@ -193,7 +194,7 @@ const CreateProducts = () => {
       </BtnCreate>
       <BtnCharget>
           <div>
-            <Button size='medium' type='submit' onClick={btnCharget} > <input type="file" /></Button>
+            <Button size='medium' type='submit' onClick={btnCharget} >Cargar</Button>
           </div>
       </BtnCharget>
     </Form>

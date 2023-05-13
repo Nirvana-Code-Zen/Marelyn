@@ -5,7 +5,7 @@ const CategoryProductStyled = styled.div`
   display: flex;
   width: 50%;
   height: 200px;
-  height: 20rem ;
+
 `
 
 export const ContainerCategory = styled.div`
@@ -13,6 +13,10 @@ export const ContainerCategory = styled.div`
   width: 40%;
   height: 20%;
   background-color:blue;
+
+  & div{
+    background-color: gold;
+  }
 `
 
 export default CategoryProductStyled

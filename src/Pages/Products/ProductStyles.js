@@ -26,4 +26,17 @@ export const ContainerSearch = styled.input`
   border-radius: 8px;
   font-size: ${props => props.theme.fonts_sizes.button_text};
 `
+
+export const ComponentProducts = styled.div`
+    position: absolute;
+    width: 82.3%;
+    height: 65%;
+    top: 15rem;
+    left: 11.7rem;
+`
+
+export const CompCategory = styled.div`
+
+`
+
 export default ProductStyled
