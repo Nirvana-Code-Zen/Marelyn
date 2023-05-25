@@ -19,7 +19,7 @@ export const H4 = styled.h4`
   text-align: center;
   font-family: ${props => props.theme.fonts.texts_titles};
   letter-spacing: 4px;
-  color: ${props => props.theme.colors.white || '#000'}
+  color: ${props => props.theme.colors.white || '#000000'}
 `
 
 export default H1

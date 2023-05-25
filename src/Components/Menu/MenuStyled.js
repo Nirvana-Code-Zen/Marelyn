@@ -12,9 +12,7 @@ export default styled.div`
     position: relative;
     left: 1.8rem;
     bottom: 8rem;
-    
   }
-
  }
 `
 
@@ -44,6 +42,7 @@ export const OptionMenu = styled.div`
   transition: opacity .3s ease;
   }
 `
+
 export const ContainerMenu = styled.div`
   grid-column: 1;
   display: flex;
@@ -62,7 +61,6 @@ export const ContainerMenu = styled.div`
       display: inline;
     }
   }
-
 `
 
 export const HeaderMenu = styled.div`

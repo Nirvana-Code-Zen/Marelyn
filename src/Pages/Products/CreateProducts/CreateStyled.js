@@ -6,7 +6,6 @@ const CreateProductStyled = styled.div`
     width: 85%;
     flex-wrap: wrap;
     border: 1px solid blue;
-    
 `
 
 export const Description = styled.div`
@@ -81,7 +80,7 @@ export const BtnCreate = styled.div`
 export const BtnCharget = styled.div`
   position: relative;
   left: 28.8rem;
-  bottom:7.5rem;
+  bottom:6rem;
 
   & input {
     width: 100%;

@@ -28,15 +28,16 @@ export const ContainerSearch = styled.input`
 `
 
 export const ComponentProducts = styled.div`
-    position: absolute;
-    width: 82.3%;
-    height: 65%;
-    top: 15rem;
-    left: 11.7rem;
+  position: absolute;
+  width: 82.3%;
+  height: 65%;
+  top: 15rem;
+  left: 11.7rem;
 `
 
-export const CompCategory = styled.div`
-
+export const ComponentCreate = styled.div`
+  display: flex;
+  border: 1px solid red;
 `
 
 export default ProductStyled

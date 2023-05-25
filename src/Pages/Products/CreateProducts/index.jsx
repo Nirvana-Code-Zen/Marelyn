@@ -17,6 +17,7 @@ const CreateProducts = () => {
   const firestore = useContext(FirebaseContext)
   const { current: validationForm } = useRef(createValidatorProduct)
 
+  console.log(firestore)
   const formRef = useRef(null)
 
   const navigate = useLocation()[1]
@@ -30,10 +31,10 @@ const CreateProducts = () => {
       model: product.model,
       code: product.Codigo,
       price: product.Precio,
-      description: product.Descripcion,
-      image: product.image
+      description: product.Descripcion
     })
   }
+
   const createProductHandle = async evt => {
     evt.preventDefault()
     const data = collectFormData(formRef.current)
@@ -76,8 +77,7 @@ const CreateProducts = () => {
         height: '85%',
         top: '1rem',
         justify: 'space-evenly',
-        padding: '40px 20px',
-        gap: '13px'
+        padding: '40px 20px'
       }}
     >
        {errorMessage && (

@@ -1,10 +1,11 @@
 import CategoryProductsStyled, { ContainerCategory } from './categoryProducStyled.js'
+import { H2 } from '../../../Global-styles/Components/Titles'
 
 const CategoryProducts = () => {
   return (
     <CategoryProductsStyled>
-      <ContainerCategory>
-      <div></div>
+      <ContainerCategory className='boxshadow'>
+       <H2 font_size='20px'>Categorias</H2>
       </ContainerCategory>
     </CategoryProductsStyled>
   )
