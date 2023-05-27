@@ -4,17 +4,20 @@ import CreateProducts from './CreateProducts'
 import CategoryProducts from './CategoryProducts'
 
 import { useState } from 'react'
+// import { Link } from 'wouter'
 
 const Products = () => {
   const [viewForms, setViewForms] = useState(false)
 
-  const toogleViewForms = () => {
+  const toogleViewForms = (event) => {
+    event.preventDefault()
     setViewForms(!viewForms)
   }
 
   const [showCategory, setShowCategory] = useState(false)
 
-  const viewCategory = () => {
+  const viewCategory = (event) => {
+    event.preventDefault()
     setShowCategory(!showCategory)
     console.log('esta bien ')
   }
@@ -38,13 +41,15 @@ const Products = () => {
           <span>Lista de productos</span>
         </Button>
         <ContainerSearch></ContainerSearch>
-        <Button size='large' height='63.3px' onClick={toogleViewForms}>
-          <span>Crear productos </span>
-        </Button>
+
+          <Button size='large' height='63.3px' onClick={toogleViewForms}>
+            <span>Crear productos </span>
+          </Button>
+
       </ContainerItems>
       <ComponentProducts>
-        {viewForms && <CreateProducts setViewForms={setViewForms} />}
-      </ComponentProducts>
+            {viewForms && <CreateProducts setViewForms={setViewForms} />}
+          </ComponentProducts>
     </ProductStyles>
   )
 }

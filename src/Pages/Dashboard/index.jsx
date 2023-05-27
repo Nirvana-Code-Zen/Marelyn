@@ -1,29 +1,21 @@
-import DashboardStyled, { ProductsSection, SalesSection, ReportsSection, ClientSection, SupplierSection, OffertSection } from './DashboardStyled'
-import { H2 } from '../../Global-styles/Components/Titles'
+import DashboardStyled, { ProductsSection, SalesSection, ReportsSection, OffertSection } from './DashboardStyled'
+import { H4 } from '../../Global-styles/Components/Titles'
 
 const Dashboard = () => {
   return (
     <DashboardStyled Styled className='boxshadow'>
-
-        <ProductsSection>
-          <H2>Seccion de productos nuevos</H2>
+        <ProductsSection className='boxshadow'>
+          <H4>Seccion de productos nuevos</H4>
         </ProductsSection>
-        <SalesSection>
-        <H2>Seccion de ventas </H2>
+        <SalesSection className='boxshadow'>
+        <H4>Seccion de ventas </H4>
         </SalesSection>
-        <ReportsSection>
-          <H2>Seccion de reportes </H2>
+        <ReportsSection className='boxshadow'>
+          <H4>Seccion de reportes </H4>
         </ReportsSection>
-        <ClientSection>
-          <H2>Seccion de clientes </H2>
-        </ClientSection>
-        <SupplierSection>
-          <H2>Seccion de proveedores </H2>
-        </SupplierSection>
-        <OffertSection>
-          <H2>Seccion de ofertas </H2>
+        <OffertSection className='boxshadow'>
+          <H4>Seccion de ofertas </H4>
         </OffertSection>
-
     </DashboardStyled>
 
   )

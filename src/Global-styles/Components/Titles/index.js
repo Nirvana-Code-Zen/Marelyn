@@ -13,13 +13,20 @@ export const H2 = styled.h2`
   letter-spacing: 4px;
   color: ${props => props.color || props.theme.colors.texts_titles}
 `
-
-export const H4 = styled.h4`
-  font-size: ${props => props.theme.fonts_sizes.medium_text || ' 30px'};
+export const H3 = styled.h3`
+  font-size: 30px;
   text-align: center;
   font-family: ${props => props.theme.fonts.texts_titles};
   letter-spacing: 4px;
   color: ${props => props.theme.colors.white || '#000000'}
 `
 
+export const H4 = styled.h4`
+  font-size: 20px;
+  text-align: center;
+  font-family: ${props => props.theme.fonts.texts_titles};
+  letter-spacing: 4px;
+  padding-left: 1rem;
+ 
+`
 export default H1

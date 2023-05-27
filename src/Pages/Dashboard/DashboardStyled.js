@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 const Dashboard = styled.div`
-  padding: 2rem 4rem;
   display: grid;
+  padding: 1rem;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(20rem, auto);
-  grid-gap: .5rem;
+  grid-template-rows: repeat(2,1fr);
+  grid-gap: 1rem;
 `
 // export const ContainerDashboard = styled.div`
 //   display: flex;
@@ -16,46 +16,28 @@ const Dashboard = styled.div`
 
 export const ProductsSection = styled.div`
   display: flex;
-  grid-column: 1/3;
-  grid-row: 1/4;
-  width: 100%;
-  height: 18rem;
-  background-color: red;
+  justify-content: center;
+  grid-column: 1/2;
+  grid-row: 1/2;
 
 `
 export const SalesSection = styled.div`
-  grid-column: 3/6;
-  grid-row: 1/4;
-  width: 100%;
-  height: 18rem;
-  background-color: orange;
+  display: flex;
+  justify-content: center;
+  grid-column: 3/4;
+  grid-row: 1/3;
 `
 export const ReportsSection = styled.div`
-  grid-column: 1/4;
-  grid-row: 2/6;
-  width: 100%;
-  height: 9rem;
-  background-color: greenyellow;
-`
-export const ClientSection = styled.div`
-  grid-column: 4;
-  grid-row: 2/4;
-  width: 100%;
-  height: 9rem;
-  background-color: pink;
-`
-export const SupplierSection = styled.div`
-  grid-column: 5/6;
+  display: flex;
+  justify-content: center;
+  grid-column: 1/3;
   grid-row: 2/3;
-  width: 100%;
-  height: 9rem;
-background-color: purple;
 `
+
 export const OffertSection = styled.div`
-  grid-column: 5/6;
-  grid-row: 3/4;
-  width: 100%;
-  height: 9rem;
-  background-color: blue;
+  display: flex;
+  justify-content: center;
+  grid-column: 2/3;
+  grid-row: 1/2;
 `
 export default Dashboard

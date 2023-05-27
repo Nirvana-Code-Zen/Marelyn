@@ -38,7 +38,6 @@ const CreateProducts = () => {
   const createProductHandle = async evt => {
     evt.preventDefault()
     const data = collectFormData(formRef.current)
-    console.log(data)
     const validation = Object.values(validateData(data, validationForm))
 
     if (validation.length) {
