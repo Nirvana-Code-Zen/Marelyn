@@ -8,9 +8,9 @@ describe('<Header />', () => {
   let getByAltTextImg = null
   beforeEach(() => {
     const { getByAltText } = render(
-    <ThemeProvider theme={theme}>
-      <Header/>
-    </ThemeProvider>)
+      <ThemeProvider theme={theme}>
+        <Header/>
+      </ThemeProvider>)
     getByAltTextImg = getByAltText
   })
 

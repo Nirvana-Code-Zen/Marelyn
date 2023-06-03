@@ -7,9 +7,9 @@ import Layeout from './Layeout'
 describe('<Layeout/>', () => {
   beforeEach(() => {
     render(
-    <ThemeProvider theme={theme}>
-      <Layeout/>
-    </ThemeProvider>)
+      <ThemeProvider theme={theme}>
+        <Layeout/>
+      </ThemeProvider>)
   })
 
   test('should render children', () => {

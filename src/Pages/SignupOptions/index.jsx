@@ -64,8 +64,8 @@ const SignUpOptions = () => {
             <path d="M0 0h24v24H0z" fill="none"></path>
             <path d="M4 15h2v5h12V4H6v5H4V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6zm6-4V8l5 4-5 4v-3H2v-2h8z" fill="currentColor"></path>
           </svg>
-        <SignUpTitle>Registrate</SignUpTitle>
-      </SignUpHeader>
+          <SignUpTitle>Registrate</SignUpTitle>
+        </SignUpHeader>
         <ButtonContainer>
           <Button onClick={signInWithFacebook} background='#2e89ff' color='#2e89ff' arrow >Registrate con Facebook</Button>
         </ButtonContainer>
@@ -76,7 +76,7 @@ const SignUpOptions = () => {
           <Button onClick={goToSignUp} background='#000' color='#000'arrow >Registrate con Email</Button>
         </ButtonContainer>
         {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
-    </SignUpOptionsStyled></>
+      </SignUpOptionsStyled></>
   )
 }
 

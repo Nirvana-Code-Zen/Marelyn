@@ -101,71 +101,71 @@ const SingUp = () => {
         <GroupForm className='my-2'>
           <Input id="userName" type="text" name="usuario" alt="user" required/>
           <span className='bar'></span>
-            <label aria-labelledby={inputLabels.user} >
+          <label aria-labelledby={inputLabels.user} >
             {inputLabels.user.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
-            </label>
+          </label>
         </GroupForm>
         <GroupForm className='my-2'>
           <Input id="name" name="nombre" type="text" alt="name" required/>
           <span className='bar'></span>
-            <label >
+          <label >
             {inputLabels.names.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
-            </label>
+          </label>
         </GroupForm>
         <GroupForm className='my-2'>
           <Input id="lastName" type="text" name="apellido_paterno" alt="lastName" required/>
           <span className='bar'></span>
-            <label >
+          <label >
             {inputLabels.last_name.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
-            </label>
+          </label>
         </GroupForm>
         <GroupForm className='my-2'>
           <Input id="secondLastName" type="text" name="apellido_materno" alt="secondLastName" required/>
           <span className='bar'></span>
-            <label >
+          <label >
             {inputLabels.mid_name.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
-            </label>
+          </label>
         </GroupForm>
         <Select >
-            <option value="type_usuari">Tipo de usuario</option>
-            <option value="type_usuari">Administrador</option>
-            <option value="type_usuari">Empleado</option>
-            <option value="type_usuari">Cliente</option>
-          </Select>
+          <option value="type_usuari">Tipo de usuario</option>
+          <option value="type_usuari">Administrador</option>
+          <option value="type_usuari">Empleado</option>
+          <option value="type_usuari">Cliente</option>
+        </Select>
         <GroupForm className='my-2'>
           <Input id="mail" type="email" name="email" alt="email" required/>
           <span className='bar'></span>
-            <label >
+          <label >
             {inputLabels.email.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
-            </label>
+          </label>
         </GroupForm>
         <GroupForm className='my-2'>
           <Input id="password" type="password" name="contrasena" alt="password" required/>
           <span className='bar'></span>
-            <label >
+          <label >
             {inputLabels.password.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
-            </label>
+          </label>
         </GroupForm>
         <GroupForm className='my-2'>
           <Input id="confirmPassword" type="password" name="confirmar_contrasena" alt="confirmPassword" required/>
           <span className='bar'></span>
-            <label >
+          <label >
             {inputLabels.confirm_password.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
-            </label>
+          </label>
         </GroupForm>
         <BtnContainer>
           <div>
@@ -181,11 +181,11 @@ export default SingUp
 
 const FormSpan = ({ char, index }) => {
   return (
-      <span
-        className={char === ' ' ? 'label-char space_word' : 'label-char'}
-        style={{ '--index': index }} >
-        {char}
-      </span>
+    <span
+      className={char === ' ' ? 'label-char space_word' : 'label-char'}
+      style={{ '--index': index }} >
+      {char}
+    </span>
   )
 }
 

@@ -72,7 +72,6 @@ const CreateProducts = () => {
     <CreateProductStyled>
       <Form
         ref={formRef}
-        className='boxshadow'
         styledModified={{
           width: '97%',
           height: '85%',

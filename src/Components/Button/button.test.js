@@ -9,11 +9,11 @@ import Button from './index'
 describe('<Button/>', () => {
   beforeEach(() => {
     render(
-        <ThemeProvider theme={theme}>
-          <Button onClick={ () => { 'Soy un botton' }}>
+      <ThemeProvider theme={theme}>
+        <Button onClick={ () => { 'Soy un botton' }}>
             Entrar
-          </Button>
-        </ThemeProvider>
+        </Button>
+      </ThemeProvider>
     )
     jest.spyOn(console, 'log')
   })

@@ -5,8 +5,7 @@ import SignUpOptions from '../Pages/SignupOptions'
 import Dashboard from '../Pages/Dashboard'
 import SignUp from '../Pages/SingupEmail'
 import Scope from '../routing/Scope'
-import Products from '../Pages/Products'
-import Sales from '../Pages/Sales'
+import ProductsLayout from '../Components/Layeout/Products'
 import Reports from '../Pages/Reports'
 import Clients from '../Pages/Clients'
 import Providers from '../Pages/Providers'
@@ -31,12 +30,11 @@ const Routing = () => {
       <PrivateRoute>
         <Route path="/dashboard" component={Dashboard}/>
         <Scope base='/products/' >
-          <Route path="list" component={Products} />
-          <Route path="create" component={CreateProducts}/>
-          <Route path="update" />
-          <Route path="categories" component={CategoryProducts}/>
-          <Route path="sales" component={Sales} />
-          <Route path=":productid/detaeils" component={ListProduct} />
+          <ProductsLayout>
+            <Route path="list" component={ListProduct} />
+            <Route path="create" component={CreateProducts}/>
+            <Route path="categories" component={CategoryProducts}/>
+          </ProductsLayout>
         </Scope>
         <Scope base='/reports/'>
           <Route path="sales" component={Reports} />

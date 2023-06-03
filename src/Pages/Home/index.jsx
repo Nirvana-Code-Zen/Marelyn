@@ -5,9 +5,9 @@ import HomeStyled from '../Home/HomeStyled'
 
 const Home = () => (
   <HomeStyled size='cell-phone'>
-   <Header>
+    <Header>
       <H1>Zapateria Marelyn</H1>
-   </Header>
+    </Header>
     <Login />
   </HomeStyled>
 )

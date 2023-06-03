@@ -18,7 +18,7 @@ const Menu = ({ children }) => {
         <Header position='relative' left='center'/>
       </HeaderMenu>
       <ContainerMenu className={isMenuOpen ? 'open' : ''}>
-      <i className={`bx bx-menu bx-md ${isMenuOpen ? 'open' : ''} btn-Menu`} onClick={handleClick}></i>
+        <i className={`bx bx-menu bx-md ${isMenuOpen ? 'open' : ''} btn-Menu`} onClick={handleClick}></i>
         <Link href='/dashboard'>
           <OptionMenu >
             <i className='bx bx-home-alt bx-sm' ></i>

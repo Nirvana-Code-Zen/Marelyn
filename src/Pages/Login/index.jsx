@@ -110,38 +110,38 @@ const Login = () => {
         )}
         <GroupForm >
           <Input type="text" name="email" required />
-            <span className='bar'></span>
-            <label >
+          <span className='bar'></span>
+          <label >
             {inputLabels.email.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
-            </label>
-            {errorMessage && <ErrorMessage><p>El correo que ingresaste esta mal escrito</p></ErrorMessage>}
+          </label>
+          {errorMessage && <ErrorMessage><p>El correo que ingresaste esta mal escrito</p></ErrorMessage>}
         </GroupForm>
         <GroupForm>
           <Input type="password"name="password" required />
-            <span className='bar'></span>
-            <label >
+          <span className='bar'></span>
+          <label >
             {inputLabels.password.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
-            </label>
+          </label>
         </GroupForm>
-            <Link href='/restore-password'>
-              <p className='mt-2 mb-2'> Olvidaste tu contraseña? </p>
-            </Link>
-            <div className='container'>
-                <Button onClick={btnLogin} size='medium' >Entrar</Button>
-                <span className='my'>O inicia sesion usando</span>
-            </div>
-            <SocialContent>
-                <div onClick={facebookLogin}>
-                  <img src="src/assets/facebook.png" alt="facebook" />
-                </div>
-                <div onClick={googleLogin} className='div-c'>
-                  <img src="src/assets/gmail.png" alt="gmail" />
-                </div>
-            </SocialContent>
+        <Link href='/restore-password'>
+          <p className='mt-2 mb-2'> Olvidaste tu contraseña? </p>
+        </Link>
+        <div className='container'>
+          <Button onClick={btnLogin} size='medium' >Entrar</Button>
+          <span className='my'>O inicia sesion usando</span>
+        </div>
+        <SocialContent>
+          <div onClick={facebookLogin}>
+            <img src="src/assets/facebook.png" alt="facebook" />
+          </div>
+          <div onClick={googleLogin} className='div-c'>
+            <img src="src/assets/gmail.png" alt="gmail" />
+          </div>
+        </SocialContent>
         <Link href='sign-up'>
           <p>Registrate</p>
         </Link>
@@ -152,11 +152,11 @@ const Login = () => {
 
 const FormSpan = ({ char, index }) => {
   return (
-      <span
-        className={char === ' ' ? 'label-char space_word ' : 'label-char'}
-        style={{ '--index': index }}>
-        {char}
-      </span>
+    <span
+      className={char === ' ' ? 'label-char space_word ' : 'label-char'}
+      style={{ '--index': index }}>
+      {char}
+    </span>
   )
 }
 

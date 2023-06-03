@@ -12,7 +12,7 @@ const PrivateRoute = ({ children }) => {
   if (isAuthenticated) {
     return (
       <Layeout>
-          {children}
+        {children}
       </Layeout>
     )
   }
