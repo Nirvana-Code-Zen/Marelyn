@@ -1,10 +1,10 @@
-import ListStyled from '../ListProducts/ListStyled'
+import ListStyled, { H3 } from './ListStyled'
 
 const ListProduct = () => {
   return (
-  <ListStyled>
-
-  </ListStyled>
+    <ListStyled>
+      <H3>Hola</H3>
+    </ListStyled>
   )
 }
 

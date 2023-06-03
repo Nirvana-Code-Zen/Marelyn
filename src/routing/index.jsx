@@ -14,6 +14,7 @@ import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
 import CategoryProducts from '../Pages/Products/CategoryProducts'
 import CreateProducts from '../Pages/Products/CreateProducts'
+import ListProduct from '../Pages/Products/ListProducts'
 
 const Routing = () => {
   return (
@@ -27,27 +28,26 @@ const Routing = () => {
         </Scope>
         <Route path="/restore-password" component={Home}/>
       </PublicRoute>
-
       <PrivateRoute>
         <Route path="/dashboard" component={Dashboard}/>
         <Scope base='/products/' >
-            <Route path="list" component={Products} />
-            <Route path="create" component={CreateProducts}/>
-            <Route path="update" />
-            <Route path="categories" component={CategoryProducts}/>
-            <Route path="sales" component={Sales} />
-            <Route path=":productid/detaeils" />
+          <Route path="list" component={Products} />
+          <Route path="create" component={CreateProducts}/>
+          <Route path="update" />
+          <Route path="categories" component={CategoryProducts}/>
+          <Route path="sales" component={Sales} />
+          <Route path=":productid/detaeils" component={ListProduct} />
         </Scope>
         <Scope base='/reports/'>
-            <Route path="sales" component={Reports} />
-            <Route path="purchases" />
-            <Route path="incomes" />
+          <Route path="sales" component={Reports} />
+          <Route path="purchases" />
+          <Route path="incomes" />
         </Scope>
-          <Scope base='/resources/'>
-            <Route path="clients" component={Clients} />
-            <Route path="providers" componet={Providers}/>
-          </Scope>
-          <Route path="/orders" />
+        <Scope base='/resources/'>
+          <Route path="clients" component={Clients} />
+          <Route path="providers" componet={Providers}/>
+        </Scope>
+        <Route path="/orders" />
       </PrivateRoute>
     </>
   )

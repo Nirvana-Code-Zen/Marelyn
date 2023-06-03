@@ -1,14 +1,11 @@
 import styled from 'styled-components'
 
 const ListProduct = styled.div`
+border: 1px solid red;
 `
 
-export const ContainerList = styled.div`
-  width: 50%;
-  background-color: aquamarine;
-`
+export const H3 = styled.div`
+  color: orange;
 
-export const ItemProducts = styled.div`
-  border: 1px solid red;
 `
 export default ListProduct

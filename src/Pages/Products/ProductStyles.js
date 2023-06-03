@@ -27,14 +27,19 @@ export const ContainerSearch = styled.input`
   font-size: ${props => props.theme.fonts_sizes.button_text};
 `
 
-export const ComponentProducts = styled.div`
-  position: absolute;
+// export const ProductsComponent = styled.div`
+//   position: absolute;
+//   width: 82.3%;
+//   height: 65%;
+//   top: 13.5rem;
+//   left: 11.7rem;
+// `
+export const ComponentCategory = styled.div`
   width: 82.3%;
-  height: 65%;
-  top: 15rem;
-  left: 11.7rem;
+  position: absolute;
+  left: ${props => props.left};
+  bottom: ${props => props.bottom};
 `
-
 export const ComponentCreate = styled.div`
   display: flex;
   border: 1px solid red;

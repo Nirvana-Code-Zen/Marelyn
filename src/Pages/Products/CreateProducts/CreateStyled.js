@@ -1,11 +1,8 @@
 import styled from 'styled-components'
 
 const CreateProductStyled = styled.div`
-    height: 28rem;
     display: flex;
-    width: 85%;
-    flex-wrap: wrap;
-    border: 1px solid blue;
+    width: 100%;
 `
 
 export const Description = styled.div`

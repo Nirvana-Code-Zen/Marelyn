@@ -1,57 +1,70 @@
-import ProductStyles, { ContainerItems, ContainerSearch, ComponentProducts } from './ProductStyles'
+import ProductStyles, { ContainerItems, ContainerSearch, ComponentCategory } from './ProductStyles'
 import Button from '../../Components/Button'
 import CreateProducts from './CreateProducts'
 import CategoryProducts from './CategoryProducts'
 
+import PropTypes from 'prop-types'
 import { useState } from 'react'
 // import { Link } from 'wouter'
+import ListProduct from './ListProducts'
 
-const Products = () => {
+const Products = ({ children }) => {
   const [viewForms, setViewForms] = useState(false)
+  const [showCategory, setShowCategory] = useState(false)
+  const [viewList, setListView] = useState(false)
 
   const toogleViewForms = (event) => {
     event.preventDefault()
     setViewForms(!viewForms)
   }
 
-  const [showCategory, setShowCategory] = useState(false)
-
   const viewCategory = (event) => {
     event.preventDefault()
     setShowCategory(!showCategory)
-    console.log('esta bien ')
   }
 
+  // const showViewList = (event) => {
+  //   event.preventDefault()
+  //   setListView(!viewList)
+  // }
+
   const btn = () => {
-    console.log('si Hola')
+    console.log('hola')
   }
+
   return (
     <ProductStyles>
       <ContainerItems>
         {/* <Link href='category'> */}
-          <Button size='large' height='63.3px' onClick={viewCategory}>
-            <span>Categorias</span>
-          </Button>
-          <ComponentProducts>
-              {showCategory && <CategoryProducts setShowCategory={setShowCategory}/>}
-          </ComponentProducts>
-          {/* </Link> */}
-
+        <Button size='large' height='63.3px' onClick={viewCategory}>
+          <span>Categorias</span>
+        </Button>
+        <ComponentCategory top='3rem'>
+          {showCategory && <CategoryProducts setShowCategory={setShowCategory}/>}
+        </ComponentCategory>
+        {/* </Link> */}
         <Button size='large' height='63.3px' onClick={btn}>
           <span>Lista de productos</span>
         </Button>
-        <ContainerSearch></ContainerSearch>
+        {viewList && <ListProduct setListView={setListView}/>}
+        <ContainerSearch>
 
-          <Button size='large' height='63.3px' onClick={toogleViewForms}>
-            <span>Crear productos </span>
-          </Button>
-
+        </ContainerSearch>
+        {/* <Link to='create'> */}
+        <Button size='large' height='63.3px' onClick={toogleViewForms}>
+          <span>Crear Producto</span>
+        </Button>
+        {/* </Link> */}
       </ContainerItems>
-      <ComponentProducts>
-            {viewForms && <CreateProducts setViewForms={setViewForms} />}
-          </ComponentProducts>
+      <ComponentCategory left='11.7rem' bottom='3rem'>
+        {viewForms && <CreateProducts setViewForms={setViewForms} />}
+      </ComponentCategory>
+      { children }
     </ProductStyles>
   )
 }
 
+Products.propTypes = {
+  children: PropTypes.node.isRequired
+}
 export default Products
