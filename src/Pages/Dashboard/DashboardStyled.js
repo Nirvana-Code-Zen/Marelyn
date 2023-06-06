@@ -7,12 +7,6 @@ const Dashboard = styled.div`
   grid-template-rows: repeat(2,1fr);
   grid-gap: 1rem;
 `
-// export const ContainerDashboard = styled.div`
-//   display: flex;
-//   width: 100%;
-//   height: 78vh;
-//   background-color:yellow ;
-// `
 
 export const ProductsSection = styled.div`
   display: flex;

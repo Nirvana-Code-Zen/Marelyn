@@ -8,21 +8,20 @@ const CategoryProductStyled = styled.div`
   gap: 1rem;
 
   .line-horizontal {
-    width: 100%;
+    width: 90%;
     display: flex;
-    align-items: flex-start;
-    border: 2px solid ${props => props.theme.colors.primary}; 
+    border: 0.12rem solid ${props => props.theme.colors.primary}; 
  }
 `
 
 export const ContainerCategory = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-height: calc(100vh - 200px);
+  width: 100%; 
+  max-height: calc(100vh - 12.5rem);
 
   & ul{
-    list-style: none;
+    list-style: none; 
   }
 
   & li{
@@ -31,12 +30,16 @@ export const ContainerCategory = styled.div`
     cursor: pointer;
   }
 
-
+  & li:hover{
+    background-color: ${props => props.theme.colors.primary};
+    width: 90%;
+  }
 `
+
 export const H3 = styled.h3`
-  font-size: 20px;
+  font-size: 1.25rem;
   font-family: ${props => props.theme.fonts.texts_titles};
-  letter-spacing: 4px;
+  letter-spacing: 0.25rem;
   position: relative;
   right: 37rem;
   bottom: -1.8rem;

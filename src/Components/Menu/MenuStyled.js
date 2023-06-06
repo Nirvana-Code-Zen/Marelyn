@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export default styled.div`
     display: grid;
-    grid-template: 100px calc(100vh - 100px) / ${props => !props.expandSideNav ? '90px 1fr' : '230px 1fr'};
+    grid-template: 6.25rem calc(100vh - 6.25rem) / ${props => !props.expandSideNav ? '5.96rem 1fr' : '14.37rem 1fr'};
  
  & i{
   color: white;
@@ -18,7 +18,7 @@ export default styled.div`
 
 export const OptionMenu = styled.div`
   width: 100%;
-  padding: 10px 0 10px 30px;
+  padding: 0.65rem 0 0.65rem 1.87rem;
   border-radius:5px;
   display: flex;
   justify-content: left;
@@ -36,8 +36,8 @@ export const OptionMenu = styled.div`
   font-size: ${props => props.theme.fonts_sizes.medium_text};
   font-family: ${props => props.theme.fonts.texts_titles};
   color: ${props => props.theme.colors.white};
-  letter-spacing: 4px;
-  padding-left: 22px;
+  letter-spacing: 0.25rem;
+  padding-left: 1.37rem;
   display: none;
   transition: opacity .3s ease;
   }
@@ -47,15 +47,15 @@ export const ContainerMenu = styled.div`
   grid-column: 1;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
-  max-width: 100px;
-  padding-top: 60px;
+  box-sizing: border-box;    
+  max-width: 6.25rem;
+  padding-top: 3.75rem;
   background-color: ${props => props.theme.colors.primary};
   transition: max-width .3s ease;
-  grid-row-gap: 25px;
+  grid-row-gap: 1.56rem;
 
   &.open{
-    max-width: 280px;
+    max-width: 17.5rem;
 
     & span{
       display: inline;

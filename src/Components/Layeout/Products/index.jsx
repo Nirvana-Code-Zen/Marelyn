@@ -12,13 +12,13 @@ const ProductsLayout = ({ children }) => {
   return (
     <ProductStyles>
       <ContainerItems>
-        <Button size='large' height='63.3px' onClick={ _ => goToPage('categories')}>
+        <Button size='large' height='3.95rem' onClick={ _ => goToPage('categories')}>
           Categorias
         </Button>
-        <Button size='large' height='63.3px' onClick={ _ => goToPage('list')}>
+        <Button size='large' height='3.95rem' onClick={ _ => goToPage('list')}>
           Lista de productos
         </Button>
-        <Button size='large' height='63.3px' onClick={ _ => goToPage('create')}>
+        <Button size='large' height='3.95rem' onClick={ _ => goToPage('create')}>
           Crear Producto
         </Button>
       </ContainerItems>

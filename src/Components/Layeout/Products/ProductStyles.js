@@ -9,9 +9,9 @@ export const ContainerItems = styled.div`
   width: 100%;
   margin-bottom: 3rem;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: start;
   align-items: center;
-  gap: 3rem;
+  gap: .5rem;
 `
 
 export const ProductSection = styled.div`

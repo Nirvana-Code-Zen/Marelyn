@@ -4,7 +4,7 @@ const SocialContent = styled.div`
   display: flex;
   width: 80%;
   justify-content: center;
-  gap: 30px;
+  gap: 1.87rem;
   cursor: pointer;
 `
 

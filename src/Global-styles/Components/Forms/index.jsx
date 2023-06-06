@@ -20,7 +20,7 @@ const Form = styled.form`
 
   & p {
     font-family: ${props => props.theme.fonts.texts_titles};
-    letter-spacing: 2px;
+    letter-spacing: 0.125rem ;
     font-size: ${props => props.theme.fonts_sizes.small_texts};
     width: 75%;
     text-align: center;
@@ -29,7 +29,7 @@ const Form = styled.form`
   }
   & span {
     font-family: ${props => props.theme.fonts.texts_titles};
-    letter-spacing: 2px;
+    letter-spacing: 0.125rem ;
     font-size: ${props => props.theme.fonts_sizes.small_texts};
     text-align: center;
     box-sizing: border-box;
@@ -49,6 +49,8 @@ export const GroupForm = styled.div`
   position: relative;
   margin: 1rem 0 ;
   left: ${props => props.left};
+  right: ${props => props.right};
+  top: ${props => props.top};
   
   & .bar:before {
     left: 30%;
@@ -60,7 +62,7 @@ export const GroupForm = styled.div`
 
   & .bar:before, & .bar:after {
     content: '';
-    height: 2px;
+    height: 0.125rem ;
     width: 0;
     bottom: 1px;
     position: absolute;
@@ -68,36 +70,36 @@ export const GroupForm = styled.div`
     transition: 0.2s ease all;
 
    &:focus-within .label-char {
-    transform: translateY(-20px); /* o cualquier estilo que desees */
+    transform: translateY(-1.25rem); /* o cualquier estilo que desees */
 }
   }
 
   & label {
     font-family: ${props => props.theme.fonts.texts_titles};
-    letter-spacing: 2px;
+    letter-spacing: 0.125rem ;
     color: #999;
     font-size: ${props => props.theme.fonts_sizes.texts};
     font-weight: normal;
     position: absolute;
     pointer-events: none;
-    left: 5px;
-    top: 10px;
+    left: 0.31rem ;
+    top: 0.62rem;
     display: flex;
-  }
+  }   
 `
 
 export const Input = styled.input`
   font-size: ${props => props.theme.fonts_sizes.texts};
-  padding: 10px 10px 6px 5px;
+  padding: 0.62rem 0.62rem 0.37rem 0.31rem;
   display: block;
   width:  ${props => props.width || '100%'};
   border: none;
   border-bottom: 1px solid ${props => props.theme.colors.primary};
   background: transparent;
   box-sizing: border-box;
-  letter-spacing: 2px;
+  letter-spacing: 0.125rem  ;
   margin-left: ${props => props.margin_left};
-
+ 
   &:focus {
     outline: none;
     border-bottom: none;
@@ -105,7 +107,7 @@ export const Input = styled.input`
 
   &:focus ~ label .label-char,
   &:valid ~ label .label-char{
-    transform: translateY(-20px);
+    transform: translateY(-1.25rem);
     font-size: ${props => props.theme.fonts_sizes.button_text};;
     color: ${props => props.theme.colors.secondary};
   }
@@ -117,17 +119,17 @@ export const Input = styled.input`
 `
 export const Select = styled.select`
   display: flex;
-  width: 260px;
-  height: 40px;
+  width: 16.25rem;
+  height: 2.5rem;
   font-size: ${props => props.theme.fonts_sizes.texts};
   background: ${props => props.theme.colors.secondary};
   color: white;
   cursor: pointer;
-  padding: 5px;
+  padding: 0.31rem;
   outline: none;
-  border-radius:5px;
+  border-radius: 0.31rem;  
   margin: ${props => props.$margin};
-  
+   
 `
 
 export default Form

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Home = styled.div`
   height: 100vh;
 
-  @media (max-width: 768px){
+  @media (max-width: 48rem){
     background-color: pink;
 
     & H1{
@@ -11,7 +11,7 @@ const Home = styled.div`
       font-size: ${props => props.theme.fonts_sizes.medio_titles}
     }
   }
-  @media (max-width: 360px){
+  @media (max-width: 22.5rem){
     background-color: orange;
     
     & H1{

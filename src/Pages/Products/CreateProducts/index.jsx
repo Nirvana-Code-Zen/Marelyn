@@ -85,7 +85,7 @@ const CreateProducts = () => {
             {errorMessage.split('\n').map(message => <p key={message}>{message}</p>)}
           </ErrorMessage>
         )}
-        <GroupForm className='my-2'>
+        <GroupForm className='my-2' left='2.8rem'>
           <Input type='text'
             name='category'
             alt='category'
@@ -97,7 +97,7 @@ const CreateProducts = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2'>
+        <GroupForm className='my-2' left='6rem'>
           <Input type='text'
             name='productName'
             alt='productName'
@@ -110,7 +110,7 @@ const CreateProducts = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2'>
+        <GroupForm className='my-2' left='10.5rem'>
           <Input type='text'
             name='color'
             alt='color'
@@ -123,7 +123,7 @@ const CreateProducts = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2'>
+        <GroupForm className='my-2' left='14rem'>
           <Input type='text'
             name='size'
             alt='size'
@@ -136,7 +136,7 @@ const CreateProducts = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2' left='-4.8rem'>
+        <GroupForm className='my-2' right='66.4rem' top='5.6rem'>
           <Input type='text'
             name='model'
             alt='model'
@@ -150,7 +150,7 @@ const CreateProducts = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2' left='-9.5rem'>
+        <GroupForm className='my-2' left='6rem'>
           <Input type='text'
             name='code'
             alt='code'
@@ -164,7 +164,7 @@ const CreateProducts = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2' left='-14.5rem'>
+        <GroupForm className='my-2' left='-6.8rem'>
           <Input type='text'
             name='price'
             alt='price'
@@ -184,18 +184,13 @@ const CreateProducts = () => {
         <Image className='boxshadow'>
           <label >Imagen</label>
           <ContainerImage >
-
           </ContainerImage>
         </Image>
         <BtnCreate>
-          <div>
-            <Button size='medium' type='submit' onClick={createProductHandle} >Crear</Button>
-          </div>
+          <Button size='medium' type='submit' onClick={createProductHandle} >Crear</Button>
         </BtnCreate>
         <BtnCharget>
-          <div>
-            <Button size='medium' type='submit' onClick={btnCharget} >Cargar</Button>
-          </div>
+          <Button size='medium' type='submit' onClick={btnCharget} >Cargar</Button>
         </BtnCharget>
       </Form>
     </CreateProductStyled>

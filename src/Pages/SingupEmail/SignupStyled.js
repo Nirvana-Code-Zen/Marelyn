@@ -5,7 +5,7 @@ const BtnContainer = styled.div`
 
   & div {
     margin: auto;
-    width: 150px;
+    width: 9.37rem;
   }
 `
 

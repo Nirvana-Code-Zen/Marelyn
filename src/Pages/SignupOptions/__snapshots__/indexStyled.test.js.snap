@@ -13,17 +13,17 @@ exports[`<SignUpOptionsStyled/> Should be global styles ready 1`] = `
   -webkit-justify-content: space-evenly;
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
-  width: 400px;
+  width: 25rem;
   margin: 10rem auto;
   padding: 1em;
   background: #F4F6FB;
   border: 1px solid white;
-  box-shadow: 10px 10px 64px 0px rgba(180,180,207,0.75);
+  box-shadow: 0.62rem 0.62rem 4rem 0px rgba(180,180,207,0.75);
 }
 
 .c0 svg {
   color: #d4a413;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   margin-right: 5px;
 }
 

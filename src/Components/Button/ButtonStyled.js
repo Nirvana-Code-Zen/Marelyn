@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 const buttonSize = {
-  small: '80px',
-  medium: '150px',
-  intermediate: '180px',
-  large: '220px',
-  extraLarge: '250px',
+  small: '5rem',
+  medium: '9.3rem',
+  intermediate: '11.5rem',
+  large: '13.75rem',
+  extraLarge: '15.65rem',
   fit: '100%'
 }
 
@@ -14,16 +14,16 @@ export default styled.button`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 10px 28px;
+  padding: .62rem 1.75rem;
   width: ${props => buttonSize[props.size] || buttonSize.fit};
   height: ${props => props.height} ;
-  border-radius: 15px;
+  border-radius: 0.93rem;
   border: 1px solid transparent;
   color: #FFFFFF;
   background-color: ${props => props.background || props.theme.colors.secondary};
   font-size: ${props => props.theme.fonts_sizes.button_text};
   font-family: ${props => props.theme.fonts.texts_titles};
-  letter-spacing: 3px;
+  letter-spacing: 0.18rem;
   transition: all 0.15s linear;
   cursor: pointer;
   
@@ -31,14 +31,14 @@ export default styled.button`
     background-color: transparent;
     border-color: ${props => props.color || props.theme.colors.secondary};
     color: ${props => props.color || props.theme.colors.secondary};
-    transform: translateY(-5px) scale(1.05);
+    transform: translateY(-0.31rem) scale(1.05);
   }
 
   &:active {
     background-color: transparent;
     border-color: ${props => props.color || props.theme.colors.secondary};
     color: ${props => props.color || props.theme.colors.secondary};
-    transform: translateY(5px) scale(0.95);
+    transform: translateY(0.31rem) scale(0.95);
   }
   &:disabled {
     background-color: ${props => props.theme.colors.secondary};
@@ -51,8 +51,8 @@ export default styled.button`
 
   & .arrow {
     margin-left: .4rem;
-    width: 10px;
-    height: 2px;
+    width: .62rem;
+    height: 0.12rem;
     position: relative;
     transition: 0.2s;
   }
@@ -64,16 +64,16 @@ export default styled.button`
     border: 0 solid #FFF;
     border-width: 0 2px 2px 0;
     display: inline-block;
-    top: -3px;
-    right: 3px;
+    top: -0.18rem;
+    right: 0.18rem;
     transition: 0.2s;
-    padding: 3px;
+    padding: 0.18rem;
     transform: rotate(-45deg);
   }
 
   &:hover .arrow::before {
     right: 0;
     border: 0 solid ${props => props.color || props.theme.colors.secondary};
-    border-width: 0 2px 2px 0;
+    border-width: 0 0.12rem 0.12rem 0;
   }
 `

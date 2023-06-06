@@ -32,8 +32,8 @@ const CategoryProducts = () => {
 
     <CategoryProductStyled>
       <H3>Categorias</H3>
-      <hr className="line-horizontal" />
-      <ContainerCategory className='boxshadow'>
+      <hr className="line-horizontal titulo" />
+      <ContainerCategory >
         <ul>
           {categories.sort((a, b) => a.localeCompare(b, 'es', { sensitivity: 'base' })).map((category, index) => (
             <li key={index}>
