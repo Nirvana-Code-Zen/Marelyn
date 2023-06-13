@@ -18,7 +18,7 @@ export const Description = styled.div`
     letter-spacing: 0.12rem;
     color: ${props => props.theme.colors.texts};
     position: relative;
-    left: .2rem;
+    left: .5rem;
   }
   & textarea{
     font-family: ${props => props.theme.fonts.texts_titles};
@@ -58,7 +58,7 @@ export const Image = styled.div`
   }
 `
 
-export const ContainerImage = styled.div`
+export const UploadImage = styled.div`
   height: 9rem;
   border: 1px solid ${props => props.theme.colors.primary};
   border-radius: 0.31rem;
@@ -69,9 +69,8 @@ export const BtnCreate = styled.div`
   justify-content: center;
   width: 100%;
   position: absolute;
-  bottom: 4rem;
+  bottom: 6rem;
 `
-
 export const BtnCharget = styled.div`
   position: relative;
   right: 6.8rem;

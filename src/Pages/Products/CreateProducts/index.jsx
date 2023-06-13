@@ -1,4 +1,4 @@
-import CreateProductStyled, { BtnCharget, BtnCreate, Description, Image, ContainerImage } from './CreateStyled'
+import CreateProductStyled, { BtnCharget, BtnCreate, Description, Image, UploadImage } from './CreateStyled'
 import Form, { GroupForm, Input } from '../../../Global-styles/Components/Forms'
 import Button from '../../../Components/Button'
 import ErrorMessage from '../../../Components/ErrorMessage'
@@ -12,6 +12,7 @@ import { useLocation } from 'wouter'
 
 import { FirebaseContext } from '../../../firebase/init'
 import { collection, addDoc } from 'firebase/firestore'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 
 const inputLabels = {
   category: 'Categoria'.split(''),
@@ -29,6 +30,8 @@ const CreateProducts = () => {
   const { current: validationForm } = useRef(createValidatorProduct)
 
   const [errorMessage, setErrorMessage] = useState(null)
+  const { storage } = useContext(FirebaseContext)
+  const [selectedImage, setSelectedImage] = useState(null)
 
   const formRef = useRef(null)
 
@@ -65,8 +68,13 @@ const CreateProducts = () => {
     }
   }
 
-  const btnCharget = () => {
-    console.log('hola')
+  const handleUpload = async () => {
+    if (selectedImage) {
+      const storageRef = ref(storage, 'images/' + selectedImage.name)
+      await uploadBytes(storageRef, selectedImage)
+      const downloadURL = await getDownloadURL(storageRef)
+      console.log('URL de descarga:', downloadURL)
+    }
   }
   return (
     <CreateProductStyled>
@@ -183,14 +191,15 @@ const CreateProducts = () => {
         </Description>
         <Image className='boxshadow'>
           <label >Imagen</label>
-          <ContainerImage >
-          </ContainerImage>
+          <UploadImage>
+            <input type="file" onChange={(e) => setSelectedImage(e.target.files[0])} />
+          </UploadImage>
         </Image>
         <BtnCreate>
           <Button size='medium' type='submit' onClick={createProductHandle} >Crear</Button>
         </BtnCreate>
         <BtnCharget>
-          <Button size='medium' type='submit' onClick={btnCharget} >Cargar</Button>
+          <Button size='medium' type='submit' onClick={handleUpload} >Cargar</Button>
         </BtnCharget>
       </Form>
     </CreateProductStyled>

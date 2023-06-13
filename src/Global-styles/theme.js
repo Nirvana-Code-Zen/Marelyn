@@ -14,15 +14,15 @@ export default {
     texts_titles: '"Didact Gothic", sans-serif'
   },
   fonts_sizes: {
-    titles: '50px',
-    subtitles: '40px',
-    medio_titles: '30px',
-    small_subtitles: '20px',
-    texts: '19px',
-    medium_text: '17px',
-    button_text: '16px',
-    small_texts: '15px',
-    extra_small_texts: '14px'
+    titles: '30.12rem', /* 50px */
+    subtitles: '2.5rem', /* 40px */
+    medio_titles: '1.87rem', /* 30px */
+    small_subtitles: '1.25rem', /* 20px */
+    texts: '1.18rem', /* 19px */
+    medium_text: '1.06rem', /* 17px */
+    button_text: '1rem', /* `16px */
+    small_texts: '0.93rem', /* 15px */
+    extra_small_texts: '0.87rem'/* 14px */
   },
   width_sizing: {
     wTen: '0.625rem', /* 10px */

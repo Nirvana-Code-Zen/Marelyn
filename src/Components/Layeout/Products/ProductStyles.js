@@ -19,4 +19,9 @@ export const ProductSection = styled.div`
   overflow-y: auto;
 `
 
+export const Tabs = styled.div`
+  cursor: pointer;
+  background-color: ${props => props.theme.colors.primary};
+
+`
 export default ProductStyled

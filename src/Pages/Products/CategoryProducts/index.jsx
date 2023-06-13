@@ -40,7 +40,6 @@ const CategoryProducts = () => {
               {category}
             </li>
           ))}
-
         </ul>
       </ContainerCategory>
     </CategoryProductStyled>

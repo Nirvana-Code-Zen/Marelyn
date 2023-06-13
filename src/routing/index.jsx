@@ -7,7 +7,6 @@ import SignUp from '../Pages/SingupEmail'
 import Scope from '../routing/Scope'
 import ProductsLayout from '../Components/Layeout/Products'
 import Reports from '../Pages/Reports'
-import Clients from '../Pages/Clients'
 import Providers from '../Pages/Providers'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
@@ -42,7 +41,6 @@ const Routing = () => {
           <Route path="incomes" />
         </Scope>
         <Scope base='/resources/'>
-          <Route path="clients" component={Clients} />
           <Route path="providers" componet={Providers}/>
         </Scope>
         <Route path="/orders" />
