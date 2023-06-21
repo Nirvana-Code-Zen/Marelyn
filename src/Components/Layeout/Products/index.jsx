@@ -14,7 +14,7 @@ const ProductsLayout = ({ children }) => {
       <ContainerItems>
         <Tabs onClick={ _ => goToPage('categories')}>
           <input type="radio" id='categorie'/>
-          <label htmlFor='categorie'>Categorias</label>
+          <label htmlFor='categorie' >Categorias</label>
         </Tabs>
         <Tabs onClick={ _ => goToPage('list')}>
           <input type="radio" id='list'/>
@@ -31,7 +31,6 @@ const ProductsLayout = ({ children }) => {
     </ProductStyles>
   )
 }
-
 ProductsLayout.propTypes = {
   children: PropTypes.node.isRequired
 }

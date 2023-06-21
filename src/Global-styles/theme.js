@@ -8,7 +8,8 @@ export default {
     error: '#D50000',
     white: '#ffffff',
     hover_search: '#efb810',
-    texts: '#999999'
+    texts: '#999999',
+    hover_tabs: '#E3D99F'
   },
   fonts: {
     texts_titles: '"Didact Gothic", sans-serif'

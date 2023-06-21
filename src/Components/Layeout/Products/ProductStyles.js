@@ -10,8 +10,7 @@ export const ContainerItems = styled.div`
   margin-bottom: 3rem;
   display: flex;
   justify-content: start;
-  align-items: center;
-  gap: .5rem;
+  align-items: start;
 `
 
 export const ProductSection = styled.div`
@@ -21,7 +20,18 @@ export const ProductSection = styled.div`
 
 export const Tabs = styled.div`
   cursor: pointer;
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${props => props.theme.colors.secondary};
+  padding: 1rem;
+  font-size: ${props => props.theme.fonts_sizes.button_text} ;
+  letter-spacing: 2px;
+  color: white;
 
+  & input{
+    visibility: hidden;
+    }
+`
+export const H4 = styled.h4`
+  color: red;
+ 
 `
 export default ProductStyled

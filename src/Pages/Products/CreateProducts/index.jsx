@@ -6,13 +6,13 @@ import ErrorMessage from '../../../Components/ErrorMessage'
 import PropTypes from 'prop-types'
 import { useContext, useRef, useState } from 'react'
 import { collectFormData, validateData } from '../../../utils'
-
 import { createValidatorProduct } from '../../../utils/validationForms'
 import { useLocation } from 'wouter'
 
 import { FirebaseContext } from '../../../firebase/init'
 import { collection, addDoc } from 'firebase/firestore'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { v4 as uuidv4 } from 'uuid'
 
 const inputLabels = {
   category: 'Categoria'.split(''),
@@ -22,15 +22,14 @@ const inputLabels = {
   model: 'Modelo'.split(''),
   code: 'Codigo'.split(''),
   price: 'Precio'.split(''),
-  description: 'Descripcion'.split('')
+  description: 'Descripción'.split('')
 }
 
 const CreateProducts = () => {
-  const { db: firestore } = useContext(FirebaseContext)
+  const { db: firestore, storage } = useContext(FirebaseContext)
   const { current: validationForm } = useRef(createValidatorProduct)
 
   const [errorMessage, setErrorMessage] = useState(null)
-  const { storage } = useContext(FirebaseContext)
   const [selectedImage, setSelectedImage] = useState(null)
 
   const formRef = useRef(null)
@@ -38,29 +37,35 @@ const CreateProducts = () => {
   const navigate = useLocation()[1]
 
   const createProduct = async (product) => {
-    await addDoc(collection(firestore, 'Products'), {
-      category: product.category,
-      productName: product.productName,
-      color: product.color,
-      size: product.size,
-      model: product.model,
-      code: product.code,
-      price: product.price,
-      description: product.description
-    })
+    await addDoc(collection(firestore, 'Products'), product)
   }
 
-  const createProductHandle = async evt => {
+  const createProductHandle = async (evt) => {
     evt.preventDefault()
     const data = collectFormData(formRef.current)
     const validation = Object.values(validateData(data, validationForm))
 
     if (validation.length) {
-      validation.forEach(message => setErrorMessage((prevMessage) => `${prevMessage || ''} * ${message}\n`))
+      validation.forEach((message) =>
+        setErrorMessage((prevMessage) => `${prevMessage || ''} * ${message}\n`)
+      )
       return
     }
+
+    const product = {
+      id: uuidv4, // Genera un nuevo ID único
+      category: data.category,
+      productName: data.productName,
+      color: data.color,
+      size: data.size,
+      model: data.model,
+      code: data.code,
+      price: data.price,
+      description: data.description
+    }
+
     try {
-      await createProduct(data)
+      await createProduct(product)
       navigate('products')
     } catch (error) {
       console.error('Error creando el producto', error)
@@ -76,6 +81,7 @@ const CreateProducts = () => {
       console.log('URL de descarga:', downloadURL)
     }
   }
+
   return (
     <CreateProductStyled>
       <Form

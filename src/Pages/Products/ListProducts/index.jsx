@@ -6,6 +6,7 @@ import { FirebaseContext } from '../../../firebase/init'
 
 const ListProduct = () => {
   const [products, setProducts] = useState([])
+  // const [edit, setEdit] = useState([])
 
   const { db: firestore } = useContext(FirebaseContext)
   useEffect(() => {
@@ -21,6 +22,18 @@ const ListProduct = () => {
     return () => docChangues()
   }, [])
 
+  // const deleteProduct = async (id) => {
+  //   try {
+  //     await deleteDoc(doc(firestore, 'Product', id))
+  //   } catch (error) {
+  //     console.log('Error al eliminar un producto', error)
+  //   }
+  // }
+
+  // const updateProduct = async (id) => {
+
+  // }
+
   return (
     <ListStyled>
       <TableProduct>
@@ -33,7 +46,8 @@ const ListProduct = () => {
             <th>Modelo</th>
             <th>Código</th>
             <th>Precio</th>
-            <th>Descripción</th>
+            <th>Cantidad</th>
+            <th>Opciones</th>
           </tr>
         </thead>
         <tbody>
@@ -48,7 +62,11 @@ const ListProduct = () => {
                 <td>{product.model}</td>
                 <td>{product.code}</td>
                 <td>{'$' + product.price + '.00'}</td>
-                <td>{product.description}</td>
+                <td>{product.quantity}</td>
+                <td className='options'>
+                  <i className='bx bx-trash bx-sm trash' ></i>
+                  <i className='bx bx-edit bx-sm edit' ></i>
+                </td>
               </tr>
             ))}
         </tbody>
