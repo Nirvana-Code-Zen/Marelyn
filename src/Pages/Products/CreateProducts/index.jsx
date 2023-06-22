@@ -1,4 +1,4 @@
-import CreateProductStyled, { BtnCharget, BtnCreate, Description, Image, UploadImage } from './CreateStyled'
+import CreateProductStyled, { BtnCharget, BtnCreate, ChargetImage, Description, Image, UploadImage } from './CreateStyled'
 import Form, { GroupForm, Input } from '../../../Global-styles/Components/Forms'
 import Button from '../../../Components/Button'
 import ErrorMessage from '../../../Components/ErrorMessage'
@@ -12,7 +12,7 @@ import { useLocation } from 'wouter'
 import { FirebaseContext } from '../../../firebase/init'
 import { collection, addDoc } from 'firebase/firestore'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
-import { v4 as uuidv4 } from 'uuid'
+// import { v4 as uuidv4 } from 'uuid'
 
 const inputLabels = {
   category: 'Categoria'.split(''),
@@ -31,10 +31,19 @@ const CreateProducts = () => {
 
   const [errorMessage, setErrorMessage] = useState(null)
   const [selectedImage, setSelectedImage] = useState(null)
+  const [imageUrl, setImageUrl] = useState(null)
 
   const formRef = useRef(null)
 
   const navigate = useLocation()[1]
+
+  const generateId = async () => {
+    const counterSnaposhot = await firestore.collection('counter').doc('product').get()
+    const counter = counterSnaposhot.data().value
+    const newCounter = counter + 1
+    await firestore.collection('counter').doc('product').update({ value: newCounter })
+    return newCounter
+  }
 
   const createProduct = async (product) => {
     await addDoc(collection(firestore, 'Products'), product)
@@ -52,19 +61,20 @@ const CreateProducts = () => {
       return
     }
 
-    const product = {
-      id: uuidv4, // Genera un nuevo ID único
-      category: data.category,
-      productName: data.productName,
-      color: data.color,
-      size: data.size,
-      model: data.model,
-      code: data.code,
-      price: data.price,
-      description: data.description
-    }
-
     try {
+      const newId = await generateId()
+      const product = {
+        id: newId,
+        category: data.category,
+        productName: data.productName,
+        color: data.color,
+        size: data.size,
+        model: data.model,
+        code: data.code,
+        price: data.price,
+        description: data.description
+      }
+
       await createProduct(product)
       navigate('products')
     } catch (error) {
@@ -72,13 +82,12 @@ const CreateProducts = () => {
       setErrorMessage('Error creando el producto')
     }
   }
-
   const handleUpload = async () => {
     if (selectedImage) {
       const storageRef = ref(storage, 'images/' + selectedImage.name)
       await uploadBytes(storageRef, selectedImage)
       const downloadURL = await getDownloadURL(storageRef)
-      console.log('URL de descarga:', downloadURL)
+      setImageUrl(downloadURL)
     }
   }
 
@@ -124,7 +133,7 @@ const CreateProducts = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2' left='10.5rem'>
+        <GroupForm className='my-2' left='8.5rem'>
           <Input type='text'
             name='color'
             alt='color'
@@ -137,7 +146,7 @@ const CreateProducts = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2' left='14rem'>
+        <GroupForm className='my-2' left='11rem'>
           <Input type='text'
             name='size'
             alt='size'
@@ -178,7 +187,7 @@ const CreateProducts = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2' left='-6.8rem'>
+        <GroupForm className='my-2' right='8.8rem'>
           <Input type='text'
             name='price'
             alt='price'
@@ -195,11 +204,21 @@ const CreateProducts = () => {
           <label>Descripcion</label>
           <textarea name="description" cols="30" rows="10" className='boxshadow'></textarea>
         </Description>
+        <ChargetImage>
+          <input type="file" onChange={(e) => setSelectedImage(e.target.files[0])} />
+        </ChargetImage>
         <Image className='boxshadow'>
           <label >Imagen</label>
-          <UploadImage>
-            <input type="file" onChange={(e) => setSelectedImage(e.target.files[0])} />
-          </UploadImage>
+          {imageUrl
+            ? (
+              <img src={imageUrl} alt='uploaded image'/>
+            )
+            : (
+              <UploadImage>
+                {/* <input type="file" onChange={(e) => setSelectedImage(e.target.files[0])} /> */}
+                <span className='file-name'>Seleccionar imagen </span>
+              </UploadImage>
+            )}
         </Image>
         <BtnCreate>
           <Button size='medium' type='submit' onClick={createProductHandle} >Crear</Button>
