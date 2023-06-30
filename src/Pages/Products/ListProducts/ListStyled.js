@@ -6,6 +6,7 @@ const ListProduct = styled.div`
   padding-bottom:  1rem ;
   width: 100%;
 
+
   & th{
     font-size: ${props => props.theme.fonts_sizes.medium_text};
     background-color: ${props => props.theme.colors.secondary};
@@ -28,23 +29,22 @@ const ListProduct = styled.div`
   }
 
   & .options{
-    gap: 2rem;
     align-items: baseline;
   }
 
   & .trash{
     color:red;
-    padding-left: 1.5rem;
+    padding-left: -0.5rem;
    }
   & .edit{
       color: ${props => props.theme.colors.secondary} ;
-      padding-left: 2rem;
+      padding-left: 1.5rem;
     }
 
-  & tr:hover{
-    background-color: ${props => props.theme.colors.hover_tabs};
-    cursor: pointer;
-  }
+    & tr{
+      cursor: pointer;
+    }
+ 
 `
 
 export const TableProduct = styled.table`

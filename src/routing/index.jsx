@@ -41,7 +41,7 @@ const Routing = () => {
           <Route path="incomes" />
         </Scope>
         <Scope base='/resources/'>
-          <Route path="providers" componet={Providers}/>
+          <Route path="providers" component={Providers}/>
         </Scope>
         <Route path="/orders" />
       </PrivateRoute>

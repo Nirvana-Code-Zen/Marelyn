@@ -1,4 +1,5 @@
 import ReportStyled from './ReportStyled'
+
 import H1 from '../../Global-styles/Components/Titles/index'
 
 const Reports = () => {

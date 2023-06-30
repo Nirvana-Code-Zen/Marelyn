@@ -22,18 +22,6 @@ const ListProduct = () => {
     return () => docChangues()
   }, [])
 
-  // const deleteProduct = async (id) => {
-  //   try {
-  //     await deleteDoc(doc(firestore, 'Product', id))
-  //   } catch (error) {
-  //     console.log('Error al eliminar un producto', error)
-  //   }
-  // }
-
-  // const updateProduct = async (id) => {
-
-  // }
-
   return (
     <ListStyled>
       <TableProduct>

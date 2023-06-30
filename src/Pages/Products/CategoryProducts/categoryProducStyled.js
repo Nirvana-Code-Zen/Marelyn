@@ -19,14 +19,13 @@ const CategoryProductStyled = styled.div`
 export const ContainerCategory = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%; 
+  width: 90rem; 
   max-height: calc(100vh - 12.5rem);
   position: relative;
   bottom: 3.5rem;
 
   & ul{
     list-style: none; 
-    width: 103.5%;
   }
 
   & li{
@@ -36,8 +35,9 @@ export const ContainerCategory = styled.div`
   }
 
   & li:hover{
-    background-color: ${props => props.theme.colors.primary};
-    width: 90%;
+    background-color: ${props => props.theme.colors.secondary};
+    color: white;
+    width: 84rem;
   }
 `
 

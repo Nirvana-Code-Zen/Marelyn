@@ -8,16 +8,16 @@ export const Description = styled.div`
   display: flex;
   flex-direction: column;
   gap:1.2rem;
-  width: 56.7rem;
-    position: relative;
-    right: 11.5rem;
+  width: 57rem;
+  position: relative;
+  right: 11.5rem;
 
   & label{
     font-family: ${props => props.theme.fonts.texts_titles};
     letter-spacing: 0.12rem;
     color: ${props => props.theme.colors.texts};
     position: relative;
-    left: .5rem;
+    left: .3rem;
   }
   & textarea{
     font-family: ${props => props.theme.fonts.texts_titles};
@@ -39,26 +39,34 @@ export const Description = styled.div`
 export const Image = styled.div`
   display: flex;
   flex-direction: column;
-  width: 19rem;
-  height: 18rem;
+  width: 19.5rem;
+  height: 17rem;
   position: relative;
   bottom: 11.3rem;
-  left: 6rem;
   padding: 1rem;
   box-sizing: border-box;
 
   & label{
     position: relative;
-    left: 5rem;
+    left:  -0.8rem;
     bottom: 3rem;
     font-family: ${props => props.theme.fonts.texts_titles};
     letter-spacing: 0.12rem;
     color: ${props => props.theme.colors.texts};
   }
+
+  & span{
+    padding-top: 1.5rem;
+    cursor: pointer;
+  }
+   & span:hover{
+    color: ${props => props.theme.colors.secondary};
+    font-size: ${props => props.theme.fonts_sizes.medium_text};
+   }
 `
 
 export const UploadImage = styled.div`
-  height: 9rem;
+  height: 10.5rem;
   border: 1px solid ${props => props.theme.colors.primary};
   border-radius: 0.31rem;
 
@@ -74,16 +82,6 @@ export const BtnCreate = styled.div`
   position: absolute;
   bottom: 4rem;
 `
-export const BtnCharget = styled.div`
-  position: relative;
-  right: 8.5rem;
-  bottom: 5rem;
-
-  & input {
-    width: 100%;
-    background-color: red;
-  }
-`
 
 export const ChargetImage = styled.div`
     border: 1px dashed ${props => props.theme.colors.secondary} ;
@@ -91,6 +89,9 @@ export const ChargetImage = styled.div`
     width: 57rem;
     position: relative;
     bottom: 5rem;
-    left: 3.3rem;
+
+    & input{
+      padding: 0.5rem;
+    }
 `
 export default CreateProductStyled

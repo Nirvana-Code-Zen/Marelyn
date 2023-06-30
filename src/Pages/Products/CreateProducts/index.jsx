@@ -1,4 +1,4 @@
-import CreateProductStyled, { BtnCharget, BtnCreate, ChargetImage, Description, Image, UploadImage } from './CreateStyled'
+import CreateProductStyled, { BtnCreate, ChargetImage, Description, Image, UploadImage } from './CreateStyled'
 import Form, { GroupForm, Input } from '../../../Global-styles/Components/Forms'
 import Button from '../../../Components/Button'
 import ErrorMessage from '../../../Components/ErrorMessage'
@@ -146,7 +146,7 @@ const CreateProducts = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2' left='11rem'>
+        <GroupForm className='my-2' left='11.5rem'>
           <Input type='text'
             name='size'
             alt='size'
@@ -214,18 +214,14 @@ const CreateProducts = () => {
               <img src={imageUrl} alt='uploaded image'/>
             )
             : (
-              <UploadImage>
-                {/* <input type="file" onChange={(e) => setSelectedImage(e.target.files[0])} /> */}
-                <span className='file-name'>Seleccionar imagen </span>
-              </UploadImage>
+              <UploadImage/>
             )}
+          <span onClick={handleUpload}>Editar</span>
         </Image>
         <BtnCreate>
           <Button size='medium' type='submit' onClick={createProductHandle} >Crear</Button>
         </BtnCreate>
-        <BtnCharget>
-          <Button size='medium' type='submit' onClick={handleUpload} >Cargar</Button>
-        </BtnCharget>
+
       </Form>
     </CreateProductStyled>
   )
