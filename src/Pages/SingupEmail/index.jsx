@@ -1,4 +1,4 @@
-import { useRef, useState, useContext } from 'react'
+import React, { useRef, useState, useContext } from 'react'
 import { useLocation } from 'wouter'
 import { collection, addDoc } from 'firebase/firestore'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
@@ -31,8 +31,9 @@ const SingUp = () => {
       throw new Error(error.message.split('_').join(' ').toLowerCase())
     }
   }
+
   const saveUserData = async (user) =>
-    await addDoc(collection(firestore, 'Users'), {
+    await addDoc(collection(firestore.db, 'Users'), {
       account_type: 'cliente',
       username: user.usuario,
       name: user.nombre,

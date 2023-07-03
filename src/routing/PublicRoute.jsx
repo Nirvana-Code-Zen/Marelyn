@@ -4,7 +4,6 @@ import { Switch, useLocation } from 'wouter'
 
 const PublicRoute = ({ children }) => {
   const isAuthenticated = true
-
   // eslint-disable-next-line no-unused-vars
   const [_, redirection] = useLocation()
 

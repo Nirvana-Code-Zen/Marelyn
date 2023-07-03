@@ -1,36 +1,27 @@
 import PropTypes from 'prop-types'
 import { useLocation } from 'wouter'
-
-import ProductStyles, { ContainerItems, ProductSection, Tabs } from './ProductStyles'
-// import Button from '../../Button'
+import ProductStyles, { ContainerItems, ProductSection } from './ProductStyles'
+import Tabs from '../../Tabs'
 
 const ProductsLayout = ({ children }) => {
   const [location, setLocation] = useLocation()
 
-  const goToPage = page => setLocation(page)
+  const goToPage = (page) => setLocation(page)
 
   return (
     <ProductStyles>
       <ContainerItems>
-        <Tabs active={location === 'categories'} onClick={() => goToPage('categories')}>
-          <input type="radio" id='categorie'/>
-          <label htmlFor='categorie' >Categorias</label>
-        </Tabs>
-        <Tabs active={location === 'list'} onClick={() => goToPage('list')}>
-          <input type="radio" id='list'/>
-          <label htmlFor='list'>Lista de productos</label>
-        </Tabs>
-        <Tabs active={location === 'create'} onClick={() => goToPage('create')}>
-          <input type="radio" id='create'/>
-          <label htmlFor='create'>Crear Producto</label>
-        </Tabs>
+        <Tabs active={location === 'categories'} onClick={() => goToPage('categories')} label="Categorias" inputId="categorie" />
+        <Tabs active={location === 'list'} onClick={() => goToPage('list')} label="Lista de productos" inputId="list" />
+        <Tabs active={location === 'create'} onClick={() => goToPage('create')} label="Crear Producto" inputId="create" />
       </ContainerItems>
-      <ProductSection className='boxshadow'>
-        { children }
+      <ProductSection className="boxshadow">
+        {children}
       </ProductSection>
     </ProductStyles>
   )
 }
+
 ProductsLayout.propTypes = {
   children: PropTypes.node.isRequired
 }

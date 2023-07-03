@@ -4,6 +4,7 @@ const ProductStyled = styled.div`
   margin: 35px  30px;
   border: 1px solid var(--secondary);
   font-family: ${props => props.theme.fonts.texts_titles};
+  border: 1px solid red;
 `
 export const ContainerItems = styled.div`
   width: 100%;
@@ -11,6 +12,7 @@ export const ContainerItems = styled.div`
   display: flex;
   justify-content: start;
   align-items: start;
+  border: 1px solid blue;
 `
 
 export const ProductSection = styled.div`
@@ -18,24 +20,6 @@ export const ProductSection = styled.div`
   overflow-y: auto;
 `
 
-export const Tabs = styled.div`
-  cursor: pointer;
-  background-color: ${props =>
-    props.active ? props.theme.colors.secondary : props.theme.colors.primary};
-  padding: 1rem;
-  font-size: ${props => props.theme.fonts_sizes.button_text} ;
-  letter-spacing: 2px;
-  color: white;
-  cursor: pointer;
-
-  & input{
-    visibility: hidden;
-    }
-    
-    & label {
-      cursor: pointer;
-    }
-`
 export const H4 = styled.h4`
   color: red;
  
