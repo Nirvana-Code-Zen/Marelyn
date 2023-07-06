@@ -51,6 +51,7 @@ export const GroupForm = styled.div`
   left: ${props => props.left};
   right: ${props => props.right};
   top: ${props => props.top};
+  bottom: ${props => props.bottom};
   
   & .bar:before {
     left: 30%;

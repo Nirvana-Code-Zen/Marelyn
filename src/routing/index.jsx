@@ -8,11 +8,13 @@ import Scope from '../routing/Scope'
 import ProductsLayout from '../Components/Layeout/Products'
 import Reports from '../Pages/Reports'
 import Providers from '../Pages/Providers'
+import CreateProvider from '../Pages/Providers/CreateProvider'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
 import CategoryProducts from '../Pages/Products/CategoryProducts'
 import CreateProducts from '../Pages/Products/CreateProducts'
 import ListProduct from '../Pages/Products/ListProducts'
+import ProviderStyled from '../Pages/Providers/ProviderStyled'
 
 const Routing = () => {
   return (
@@ -41,10 +43,10 @@ const Routing = () => {
           <Route path="incomes" />
         </Scope>
         <Scope base='/resources/'>
-          <ProductsLayout>
+          <ProviderStyled>
             <Route path="providers" component={Providers}/>
-          </ProductsLayout>
-
+            <Route path="create-provider" component={CreateProvider}/>
+          </ProviderStyled>
         </Scope>
         <Route path="/orders" />
       </PrivateRoute>

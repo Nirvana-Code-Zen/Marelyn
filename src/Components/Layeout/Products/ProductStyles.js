@@ -4,7 +4,6 @@ const ProductStyled = styled.div`
   margin: 35px  30px;
   border: 1px solid var(--secondary);
   font-family: ${props => props.theme.fonts.texts_titles};
-  border: 1px solid red;
 `
 export const ContainerItems = styled.div`
   width: 100%;
@@ -12,7 +11,6 @@ export const ContainerItems = styled.div`
   display: flex;
   justify-content: start;
   align-items: start;
-  border: 1px solid blue;
 `
 
 export const ProductSection = styled.div`

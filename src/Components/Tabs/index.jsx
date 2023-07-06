@@ -1,12 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import TabContainer, { HiddenRadioInput } from './TabsStyled'
 
 const Tabs = ({ active, onClick, label, inputId }) => {
   return (
-    <div className={`tab ${active ? 'active' : ''}`} onClick={onClick}>
-      <input type="radio" id={inputId} name="tabs" />
+    <TabContainer active={active} onClick={onClick}>
+      <HiddenRadioInput type="radio" id={inputId} name="tabs" />
       <label htmlFor={inputId}>{label}</label>
-    </div>
+    </TabContainer>
+
   )
 }
 
