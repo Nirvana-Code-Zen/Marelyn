@@ -9,9 +9,9 @@ const ListProduct = styled.div`
 
   & th{
     font-size: ${props => props.theme.fonts_sizes.medium_text};
-    background-color: ${props => props.theme.colors.secondary};
-    width: 11rem;
-    color: white;
+    border-bottom:1px solid ${props => props.theme.colors.primary};
+    width: 15rem;
+    color: ${props => props.theme.colors.secondary};
     padding: 0.5rem 1.5rem;
     text-align: left;
   }

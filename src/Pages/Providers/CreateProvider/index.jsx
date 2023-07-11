@@ -58,11 +58,9 @@ const CreateProvider = () => {
         parcel: data.parcel
 
       }
-
       await providers(provider)
       navigate('providers')
     } catch (error) {
-      console.error('Error creando el proveedor', error)
       setErrorMessage('Error creando el proveedor')
     }
   }
@@ -70,7 +68,7 @@ const CreateProvider = () => {
   return (
     <CreateProviderStyled>
       <Form
-        className='boxshadow'
+
         ref={formRef}
         styledModified={{
           width: '80rem',
@@ -88,6 +86,7 @@ const CreateProvider = () => {
           <Input type='text'
             name='completeName'
             alt='completeName'
+            width='20rem'
             required/>
           <span className='bar'></span>
           <label aria-labelledby={inputLabels.completeName}>

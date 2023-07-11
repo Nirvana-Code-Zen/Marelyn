@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-export default styled.div`
-  margin: 15px 20px ;
+const ProviderStyled = styled.div`
+  margin: 30px 35px ;
   border: 1px solid var(--secondary);
   font-family: ${props => props.theme.fonts.texts_titles};
 `
@@ -18,3 +18,4 @@ export const ItemProvider = styled.div`
   justify-content: start;
   align-items: start;
 `
+export default ProviderStyled

@@ -5,6 +5,6 @@ const CreateProviderStyled = styled.div`
 
 export const BtnCreateProvider = styled.div`
   position: absolute;
-  top: 29rem;
+  bottom: 9rem;
 `
 export default CreateProviderStyled

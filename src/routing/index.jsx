@@ -7,14 +7,14 @@ import SignUp from '../Pages/SingupEmail'
 import Scope from '../routing/Scope'
 import ProductsLayout from '../Components/Layeout/Products'
 import Reports from '../Pages/Reports'
-import Providers from '../Pages/Providers'
+import ProviderStyled from '../Components/Layeout/Providers'
 import CreateProvider from '../Pages/Providers/CreateProvider'
+import ListProvider from '../Pages/Providers/ListProvider'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
 import CategoryProducts from '../Pages/Products/CategoryProducts'
 import CreateProducts from '../Pages/Products/CreateProducts'
 import ListProduct from '../Pages/Products/ListProducts'
-import ProviderStyled from '../Pages/Providers/ProviderStyled'
 
 const Routing = () => {
   return (
@@ -44,9 +44,10 @@ const Routing = () => {
         </Scope>
         <Scope base='/resources/'>
           <ProviderStyled>
-            <Route path="providers" component={Providers}/>
+            <Route path="list-providers" component={ListProvider}/>
             <Route path="create-provider" component={CreateProvider}/>
           </ProviderStyled>
+
         </Scope>
         <Route path="/orders" />
       </PrivateRoute>

@@ -1,5 +1,5 @@
-import ProviderStyled, { ItemProvider, ProviderSection } from './ProviderStyled'
-import Tabs from '../../Components/Tabs'
+import ProviderStyled, { ItemProvider, ProviderSection } from '../Providers/ProviderStyled'
+import Tabs from '../../Tabs'
 
 import { useLocation } from 'wouter'
 import PropTypes from 'prop-types'
@@ -12,8 +12,8 @@ const Providers = ({ children }) => {
   return (
     <ProviderStyled>
       <ItemProvider>
-        <Tabs active={location === 'createProvider'} onClick={() => gotToPage('create-provider')} label='Crear Proveedor' inputId='createProvider' />
-        <Tabs active={location === 'provider'} onClick={() => gotToPage('provider')} label='Proveedores' inputId='Proveedores' />
+        <Tabs active={location === 'createProvider'} onClick={() => gotToPage('create-provider')} label='Crear Proovedor' inputId='createProvider' />
+        <Tabs active={location === 'provider'} onClick={() => gotToPage('provider')} label='Proovedores' inputId='provider' />
       </ItemProvider>
       <ProviderSection className='boxshadow'>
         {children}
@@ -22,8 +22,8 @@ const Providers = ({ children }) => {
   )
 }
 
-export default Providers
-
 Providers.propTypes = {
   children: PropTypes.node.isRequired
 }
+
+export default Providers
