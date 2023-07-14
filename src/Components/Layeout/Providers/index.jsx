@@ -12,10 +12,10 @@ const Providers = ({ children }) => {
   return (
     <ProviderStyled>
       <ItemProvider>
-        <Tabs active={location === 'createProvider'} onClick={() => gotToPage('create-provider')} label='Crear Proovedor' inputId='createProvider' />
-        <Tabs active={location === 'provider'} onClick={() => gotToPage('provider')} label='Proovedores' inputId='provider' />
+        <Tabs active={location === 'create-provider'} onClick={() => gotToPage('create-provider')} label='Crear Proveedor' inputId='create-provider'/>
+        <Tabs active={location === 'list-providers'} onClick={() => gotToPage('list-providers')} label='Proveedores' inputId='list-providers' />
       </ItemProvider>
-      <ProviderSection className='boxshadow'>
+      <ProviderSection >
         {children}
       </ProviderSection>
     </ProviderStyled>

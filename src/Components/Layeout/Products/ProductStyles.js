@@ -16,6 +16,7 @@ export const ContainerItems = styled.div`
 export const ProductSection = styled.div`
   height: calc(100vh - 280px);
   overflow-y: auto;
+  width: ${props => props.width};
 `
 
 export const H4 = styled.h4`

@@ -8,6 +8,7 @@ import { collectFormData, validateData } from '../../../utils'
 import { useRef, useContext, useState } from 'react'
 import { useLocation } from 'wouter'
 import PropTypes from 'prop-types'
+
 import { FirebaseContext } from '../../../firebase/init'
 import { collection, addDoc } from 'firebase/firestore'
 
@@ -21,9 +22,6 @@ const inputLabels = {
 }
 
 const CreateProvider = () => {
-  // const btn = () => {
-  //   console.log('hola')
-  // }
   const { db: firestore } = useContext(FirebaseContext)
   const { current: validationForm } = useRef(createValidatorProvider)
 
@@ -66,27 +64,26 @@ const CreateProvider = () => {
   }
 
   return (
-    <CreateProviderStyled>
+    <CreateProviderStyled >
       <Form
-
         ref={formRef}
         styledModified={{
-          width: '80rem',
+          width: '70rem',
           height: '20rem',
           top: '1rem',
+          left: '10rem',
           justify: 'space-evenly',
-          padding: '40px 20px'
+          padding: '30px 15px'
         }}>
         {errorMessage && (
           <ErrorMessage>
             {errorMessage.split('\n').map(message => <p key={message}>{message}</p>)}
           </ErrorMessage>
         )}
-        <GroupForm className='my-2' >
+        <GroupForm className='my-2' left='4.5rem' >
           <Input type='text'
             name='completeName'
             alt='completeName'
-            width='20rem'
             required/>
           <span className='bar'></span>
           <label aria-labelledby={inputLabels.completeName}>
@@ -96,7 +93,7 @@ const CreateProvider = () => {
           </label>
         </GroupForm>
 
-        <GroupForm className='my-2' left='13rem'>
+        <GroupForm className='my-2' left='7.5rem'>
           <Input type='text'
             name='phone'
             alt='phone'
@@ -108,7 +105,7 @@ const CreateProvider = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2' left='18.2rem'>
+        <GroupForm className='my-2' left='10.2rem'>
           <Input type='text'
             name='product'
             alt='product'
@@ -120,7 +117,7 @@ const CreateProvider = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2' right='58rem' top='7rem' >
+        <GroupForm className='my-2' right='47rem' top='7rem' >
           <Input type='text'
             name='address'
             alt='address'
@@ -132,7 +129,7 @@ const CreateProvider = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2' bottom='3rem' left='19rem' >
+        <GroupForm className='my-2' bottom='3rem' left='13.5rem' >
           <Input type='text'
             name='date'
             alt='date'
@@ -145,7 +142,7 @@ const CreateProvider = () => {
           </label>
         </GroupForm>
 
-        <GroupForm className='my-2' bottom='3rem' left='12rem' >
+        <GroupForm className='my-2' bottom='3rem' left='4.5rem' >
           <Input type='text'
             name='parcel'
             alt='parcel'

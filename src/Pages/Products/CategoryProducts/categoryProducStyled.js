@@ -13,6 +13,7 @@ const CategoryProductStyled = styled.div`
     border: 0.12rem solid ${props => props.theme.colors.primary}; 
     position: relative;
     bottom: 1.7rem;
+    right: 1.8rem;
  }
 `
 
@@ -29,9 +30,12 @@ export const ContainerCategory = styled.div`
   }
 
   & li{
-    padding: .5rem;
+    padding-top: .5rem;
     font-size: ${props => props.theme.fonts_sizes.texts};
     cursor: pointer;
+    position: relative;
+    right: 1.8rem;
+    padding-left: .8rem;
   }
 
   & li:hover{
@@ -43,10 +47,12 @@ export const ContainerCategory = styled.div`
 
 export const H3 = styled.h3`
   font-size: 1.25rem;
+  
   font-family: ${props => props.theme.fonts.texts_titles};
+  color: ${props => props.theme.colors.secondary};
   letter-spacing: 0.25rem;
   position: relative;
-  right: 38rem;
+  right: 40rem;
 `
 
 export default CategoryProductStyled

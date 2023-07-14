@@ -31,7 +31,7 @@ const Menu = ({ children }) => {
             <span>Productos</span>
           </OptionMenu>
         </Link>
-        <Link href='/resources/providers'>
+        <Link href='/resources/list-providers'>
           <OptionMenu >
             <i className='bx bx-user bx-sm' ></i>
             <span>Proveedores</span>

@@ -15,7 +15,7 @@ const ProductsLayout = ({ children }) => {
         <Tabs active={location === 'list'} onClick={() => goToPage('list')} label="Lista de productos" inputId="list" />
         <Tabs active={location === 'create'} onClick={() => goToPage('create')} label="Crear Producto" inputId="create" />
       </ContainerItems>
-      <ProductSection className="boxshadow">
+      <ProductSection >
         {children}
       </ProductSection>
     </ProductStyles>

@@ -12,7 +12,7 @@ export const ProviderSection = styled.div`
 `
 
 export const ItemProvider = styled.div`
-  width: 100%;
+  width: 60%;
   margin-bottom: 3rem;
   display: flex;
   justify-content: start;

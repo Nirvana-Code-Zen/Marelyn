@@ -12,7 +12,7 @@ const Form = styled.form`
     padding: ${props => props?.styledModified?.padding};
     row-gap: ${props => props?.styledModified?.gap || '0'};
     height: ${props => props.styledModified?.height || 'auto'};
-
+ 
     & form:focus{
       outline: none;
     }
