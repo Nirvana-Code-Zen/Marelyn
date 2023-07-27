@@ -12,7 +12,6 @@ import { useLocation } from 'wouter'
 import { FirebaseContext } from '../../../firebase/init'
 import { collection, addDoc } from 'firebase/firestore'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
-// import { v4 as uuidv4 } from 'uuid'
 
 const inputLabels = {
   category: 'Categoria'.split(''),
@@ -37,12 +36,19 @@ const CreateProducts = () => {
 
   const navigate = useLocation()[1]
 
-  const generateId = async () => {
-    const counterSnaposhot = await firestore.collection('counter').doc('product').get()
-    const counter = counterSnaposhot.data().value
-    const newCounter = counter + 1
-    await firestore.collection('counter').doc('product').update({ value: newCounter })
-    return newCounter
+  // const generateId = async () => {
+  //   const counterSnaposhot = await firestore.collection('counter').doc('product').get()
+  //   const counter = counterSnaposhot.data().value
+  //   const newCounter = counter + 1
+  //   await firestore.collection('counter').doc('product').update({ value: newCounter })
+  //   return newCounter
+  // }
+  const generateId = () => {
+    let id = ''
+    for (let i = 0; i < 8; i++) {
+      id += Math.floor(Math.random() * 10)
+    }
+    return id
   }
 
   const createProduct = async (product) => {
@@ -97,7 +103,7 @@ const CreateProducts = () => {
         ref={formRef}
         styledModified={{
           width: '97%',
-          height: '85%',
+          height: '29rem',
           top: '1rem',
           justify: 'space-evenly',
           padding: '40px 20px'
@@ -159,7 +165,7 @@ const CreateProducts = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2' right='66.4rem' top='5.6rem'>
+        <GroupForm className='my-2' right='66.4rem' top='5.8rem'>
           <Input type='text'
             name='model'
             alt='model'
@@ -204,10 +210,7 @@ const CreateProducts = () => {
           <label>Descripcion</label>
           <textarea name="description" cols="30" rows="10" className='boxshadow'></textarea>
         </Description>
-        <ChargetImage>
-          <input type="file" onChange={(e) => setSelectedImage(e.target.files[0])} />
-        </ChargetImage>
-        <Image className='boxshadow'>
+        <Image >
           <label >Imagen</label>
           {imageUrl
             ? (
@@ -218,6 +221,10 @@ const CreateProducts = () => {
             )}
           <span onClick={handleUpload}>Editar</span>
         </Image>
+        <ChargetImage>
+          <label htmlFor="fileInput" className='fileButton'>Seleccionar imagen</label>
+          <input id='fileInput' className='fileButton' type="file" onChange={(e) => setSelectedImage(e.target.files[0])} />
+        </ChargetImage>
         <BtnCreate>
           <Button size='medium' type='submit' onClick={createProductHandle} >Crear</Button>
         </BtnCreate>

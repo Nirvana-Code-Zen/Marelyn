@@ -33,7 +33,7 @@ const Routing = () => {
         <Scope base='/products/' >
           <ProductsLayout>
             <Route path="list" component={ListProduct} />
-            <Route path="create" component={CreateProducts}/>
+            <Route path="create-product" component={CreateProducts}/>
             <Route path="categories" component={CategoryProducts}/>
           </ProductsLayout>
         </Scope>
