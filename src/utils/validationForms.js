@@ -26,9 +26,9 @@ export const createValidatorProduct = {
 
 export const createValidatorProvider = {
   completeName: /\w+/,
-  phone: /\d+(\.\d+)?/,
-  product: /\w+/,
+  phone: /^-?\d+$/,
+  product: /^[A-Za-z0-9 \-.]+$/,
   address: /\w+/,
-  date: /\w+/,
+  date: /^[A-Za-z]+$/,
   parcel: /\w+/
 }

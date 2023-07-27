@@ -26,6 +26,7 @@ const CreateProvider = () => {
   const { current: validationForm } = useRef(createValidatorProvider)
 
   const [errorMessage, setErrorMessage] = useState(null)
+  const [phoneError, setPhoneError] = useState(null)
 
   const formRef = useRef(null)
 
@@ -35,6 +36,14 @@ const CreateProvider = () => {
     await addDoc(collection(firestore, 'Provider', provider))
   }
 
+  const validatePhoneLength = (event) => {
+    const phone = event.target.value.trim()
+    if (phone.length !== 10) {
+      setPhoneError('El numero telefonico tiene que tener solo 10 dijitos')
+    } else {
+      setPhoneError(null)
+    }
+  }
   const createProviderHandle = async (event) => {
     event.preventDefault()
     const data = collectFormData(formRef.current)
@@ -46,6 +55,7 @@ const CreateProvider = () => {
       )
       return
     }
+
     try {
       const provider = {
         completeName: data.completeName,
@@ -57,8 +67,9 @@ const CreateProvider = () => {
 
       }
       await providers(provider)
-      navigate('providers')
+      navigate('resources')
     } catch (error) {
+      console.log('Error creando el proveedor', error)
       setErrorMessage('Error creando el proveedor')
     }
   }
@@ -97,12 +108,14 @@ const CreateProvider = () => {
           <Input type='text'
             name='phone'
             alt='phone'
-            required/>
+            required
+            onBlur={validatePhoneLength}/>
           <span className='bar'></span>
           <label aria-labelledby={inputLabels.phone}>
             {inputLabels.phone.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
+            {phoneError && <ErrorMessage>{phoneError}</ErrorMessage>}
           </label>
         </GroupForm>
         <GroupForm className='my-2' left='10.2rem'>

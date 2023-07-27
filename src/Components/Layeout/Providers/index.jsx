@@ -12,8 +12,8 @@ const Providers = ({ children }) => {
   return (
     <ProviderStyled>
       <ItemProvider>
-        <Tabs active={location === 'create-provider'} onClick={() => gotToPage('create-provider')} label='Crear Proveedor' inputId='create-provider'/>
         <Tabs active={location === 'list-providers'} onClick={() => gotToPage('list-providers')} label='Proveedores' inputId='list-providers' />
+        <Tabs active={location === 'create-provider'} onClick={() => gotToPage('create-provider')} label='Crear Proveedor' inputId='create-provider'/>
       </ItemProvider>
       <ProviderSection >
         {children}
