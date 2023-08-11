@@ -36,14 +36,6 @@ const CreateProvider = () => {
     await addDoc(collection(firestore, 'Provider', provider))
   }
 
-  const validatePhoneLength = (event) => {
-    const phone = event.target.value.trim()
-    if (phone.length !== 10) {
-      setPhoneError('El numero telefonico tiene que tener solo 10 dijitos')
-    } else {
-      setPhoneError(null)
-    }
-  }
   const createProviderHandle = async (event) => {
     event.preventDefault()
     const data = collectFormData(formRef.current)
@@ -74,6 +66,14 @@ const CreateProvider = () => {
     }
   }
 
+  const validatePhoneLength = (event) => {
+    const phone = event.target.value.trim()
+    if (phone.length !== 10) {
+      setPhoneError('El numero telefonico tiene que tener solo 10 dijitos')
+    } else {
+      setPhoneError(null)
+    }
+  }
   return (
     <CreateProviderStyled >
       <Form

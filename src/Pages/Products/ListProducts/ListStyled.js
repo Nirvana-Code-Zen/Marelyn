@@ -23,7 +23,7 @@ const ListProduct = styled.div`
   & td{
     border-bottom: 1px solid ${props => props.theme.colors.primary};
     font-size: ${props => props.theme.fonts_sizes.button_text};
-    text-align: justify;
+    text-align: left;
     letter-spacing: 2px;
     padding: .5rem 1.2rem ;
   }
@@ -38,7 +38,11 @@ const ListProduct = styled.div`
    }
   & .edit{
       color: ${props => props.theme.colors.secondary} ;
-      padding-left: 1.5rem;
+      padding-left: .5rem;
+    }
+    & .check {
+      color: black;
+      padding-left: .5rem;
     }
 
     & tr{

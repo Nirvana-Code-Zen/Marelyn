@@ -40,15 +40,16 @@ export const Image = styled.div`
   display: flex;
   flex-direction: column;
   width: 19.5rem;
-  height: 17rem;
+  height: 15rem;
+  left: 6rem;
+  bottom: 3.4rem;
   position: relative;
   box-sizing: border-box;
  
 
   & label{
     position: relative;
-    left:  6.5rem;
-    bottom: 4.4rem;
+    bottom: 1.7rem;
     font-family: ${props => props.theme.fonts.texts_titles};
     letter-spacing: 0.12rem;
     color: ${props => props.theme.colors.texts};
@@ -57,8 +58,7 @@ export const Image = styled.div`
   & span{
     cursor: pointer;
     position: relative;
-    bottom: 3rem;
-    left: 6rem;
+    bottom: 1rem;
   }
    & span:hover{
     color: ${props => props.theme.colors.secondary};
@@ -67,15 +67,18 @@ export const Image = styled.div`
 `
 
 export const UploadImage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 10.5rem;
   border: 1px solid ${props => props.theme.colors.primary};
   border-radius: 0.31rem;
   position: relative;
-  bottom: 3.8rem;
-  left: 6rem;
+  bottom: 1.3rem;
 
-  & span{
-    text-align: center;
+  img {
+    max-width: 100%;
+    max-height: 100%;
   }
 `
 export const BtnCreate = styled.div`
@@ -91,8 +94,8 @@ export const ChargetImage = styled.div`
     height: 4rem;
     width: 7rem;
     position: relative;
-    top: 4.5rem;
-    left: -10rem;
+    top: 3.5rem;
+    left: -10.5rem;
     padding-bottom: 05.rem;
 
     & label{
@@ -114,4 +117,5 @@ export const ChargetImage = styled.div`
       border-radius: 10px;
     }
 `
+
 export default CreateProductStyled

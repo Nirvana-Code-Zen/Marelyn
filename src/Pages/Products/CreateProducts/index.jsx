@@ -4,14 +4,15 @@ import Button from '../../../Components/Button'
 import ErrorMessage from '../../../Components/ErrorMessage'
 
 import PropTypes from 'prop-types'
-import { useContext, useRef, useState } from 'react'
+import { useContext, useRef, useState, useEffect } from 'react'
 import { collectFormData, validateData } from '../../../utils'
 import { createValidatorProduct } from '../../../utils/validationForms'
 import { useLocation } from 'wouter'
+import { v4 as uuidv4 } from 'uuid'
 
 import { FirebaseContext } from '../../../firebase/init'
 import { collection, addDoc } from 'firebase/firestore'
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { ref, uploadBytes } from 'firebase/storage'
 
 const inputLabels = {
   category: 'Categoria'.split(''),
@@ -29,26 +30,32 @@ const CreateProducts = () => {
   const { current: validationForm } = useRef(createValidatorProduct)
 
   const [errorMessage, setErrorMessage] = useState(null)
-  const [selectedImage, setSelectedImage] = useState(null)
-  const [imageUrl, setImageUrl] = useState(null)
+  const [productId, setProductId] = useState('')
+  const [seletedImage, setSeletedImage] = useState(null)
 
   const formRef = useRef(null)
 
   const navigate = useLocation()[1]
 
-  // const generateId = async () => {
-  //   const counterSnaposhot = await firestore.collection('counter').doc('product').get()
-  //   const counter = counterSnaposhot.data().value
-  //   const newCounter = counter + 1
-  //   await firestore.collection('counter').doc('product').update({ value: newCounter })
-  //   return newCounter
-  // }
+  useEffect(() => {
+    generateId()
+  }, [])
+
   const generateId = () => {
-    let id = ''
+    const newId = uuidv4()
+    setProductId(newId)
+  }
+
+  const generateIdImage = () => {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    let randomId = ''
+
     for (let i = 0; i < 8; i++) {
-      id += Math.floor(Math.random() * 10)
+      const randomIndex = Math.floor(Math.random() * characters.length)
+      randomId += characters.charAt(randomIndex)
     }
-    return id
+
+    return randomId
   }
 
   const createProduct = async (product) => {
@@ -68,9 +75,8 @@ const CreateProducts = () => {
     }
 
     try {
-      const newId = await generateId()
       const product = {
-        id: newId,
+        id: productId,
         category: data.category,
         productName: data.productName,
         color: data.color,
@@ -88,13 +94,19 @@ const CreateProducts = () => {
       setErrorMessage('Error creando el producto')
     }
   }
-  const handleUpload = async () => {
-    if (selectedImage) {
-      const storageRef = ref(storage, 'images/' + selectedImage.name)
-      await uploadBytes(storageRef, selectedImage)
-      const downloadURL = await getDownloadURL(storageRef)
-      setImageUrl(downloadURL)
+  const uploadFile = async (file) => {
+    const imageId = generateIdImage(8)
+    const stoprageRef = ref(storage, `galeryProducts/${imageId}`)
+    try {
+      await uploadBytes(stoprageRef, file)
+      setSeletedImage(URL.createObjectURL(file))
+    } catch (error) {
+      console.error('Error uploading image', error)
     }
+
+    uploadBytes(stoprageRef, file).then(snapshot => {
+      console.log(snapshot)
+    })
   }
 
   return (
@@ -165,7 +177,7 @@ const CreateProducts = () => {
             ))}
           </label>
         </GroupForm>
-        <GroupForm className='my-2' right='66.4rem' top='5.8rem'>
+        <GroupForm className='my-2' right='66.4rem' top='6.5rem'>
           <Input type='text'
             name='model'
             alt='model'
@@ -212,18 +224,16 @@ const CreateProducts = () => {
         </Description>
         <Image >
           <label >Imagen</label>
-          {imageUrl
-            ? (
-              <img src={imageUrl} alt='uploaded image'/>
-            )
-            : (
-              <UploadImage/>
-            )}
-          <span onClick={handleUpload}>Editar</span>
+
+          <UploadImage>
+            {seletedImage && <img src={seletedImage} alt="Selected" />}
+          </UploadImage>
+
+          <span >Editar</span>
         </Image>
         <ChargetImage>
           <label htmlFor="fileInput" className='fileButton'>Seleccionar imagen</label>
-          <input id='fileInput' className='fileButton' type="file" onChange={(e) => setSelectedImage(e.target.files[0])} />
+          <input id='fileInput' className='fileButton' type="file" onChange={(e) => uploadFile(e.target.files[0])} />
         </ChargetImage>
         <BtnCreate>
           <Button size='medium' type='submit' onClick={createProductHandle} >Crear</Button>
