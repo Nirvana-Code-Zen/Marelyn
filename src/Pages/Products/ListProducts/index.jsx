@@ -1,63 +1,92 @@
 import ListStyled, { TableProduct } from './ListStyled'
 
-import { useState, useEffect, useContext } from 'react'
-import { collection, query, onSnapshot } from 'firebase/firestore'
-import { FirebaseContext } from '../../../firebase/init'
+// import { useState, useEffect, useContext } from 'react'
+// import { collection, query, onSnapshot } from 'firebase/firestore'
+// import { FirebaseContext } from '../../../firebase/init'
 
 const ListProduct = () => {
-  const [products, setProducts] = useState({})
+  // const [products, setProducts] = useState([])
+  // const PAGE_SIZE = 15
+  // const [lastDocument, setLastDocument] = useState(null)
 
-  const { db: firestore } = useContext(FirebaseContext)
+  // const { db: firestore } = useContext(FirebaseContext)
 
-  const deletedProductsIds = JSON.parse(localStorage.getItem('deletedProducts')) || []
+  // const deletedProductsIds = JSON.parse(localStorage.getItem('deletedProducts')) || []
 
-  useEffect(() => {
-    const docChangues = onSnapshot(query(collection(firestore, 'Products').limit(15)),
-      { includeMetadataChanges: true },
-      (snapshot) => {
-        const productsData = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data()
-        }))
-        const temProduct = {}
+  // const fetchMoreData = () => {
+  //   if (lastDocument) {
+  //     const nextPageQuery = query(
+  //       collection(firestore, 'Products')
+  //         .orderBy('productName')
+  //         .startAfter(lastDocument)
+  //         .limit(PAGE_SIZE)
+  //     )
 
-        productsData.forEach((product) => {
-          if (!deletedProductsIds.includes(product.id)) {
-            if (!temProduct[product.productName]) {
-              temProduct[product.productName] = {
-                category: product.category,
-                productName: product.productName,
-                color: product.color,
-                size: product.size,
-                model: product.model,
-                code: product.code,
-                price: product.price,
-                quantity: 0
-              }
-            }
-            temProduct[product.productName].quantity += parseInt(product.quantity, 10)
-          }
-        })
-        console.log(productsData)
-        Object.values(temProduct).forEach((product) => {
-          product.quantity = Math.max(1, product.quantity)
-        })
+  //     // onSnapshot(nextPageQuery, (snapshot) => {
+  //     //   const newProducts = snapshot.docs.map((doc) => ({
+  //     //     id: doc.id,
+  //     //     ...doc.data()
+  //     //   }))
+  //     //   setProducts((prevProducts) => [...prevProducts, ...newProducts])
 
-        setProducts(temProduct)
-      })
+  //     useEffect(() => {
+  //       const initialQuery = query(collection(firestore, 'Products').orderBy('productName').limit(PAGE_SIZE))
+  //       const unsubscribe = onSnapshot(initialQuery, (snapshot) => {
+  //         const initialProducts = snapshot.docs.map((doc) => ({
+  //       id: doc.id,
+  //       ...doc.data()
+  //     }))
+  //       setProducts(initialProducts)
+  //       setLastDocument(snapshot.docs[snapshot.docs.length - 1])
+  //   })
+  //   return () => unsubscribe();
+  // }, [firestore])
 
-    return () => docChangues()
-  }, [firestore, deletedProductsIds])
+  // useEffect(() => {
+  //   const docChangues = onSnapshot(query(collection(firestore, 'Products').limit(15)),
+  //     (snapshot) => {
+  //       const productsData = snapshot.docs.map((doc) => ({
+  //         id: doc.id,
+  //         ...doc.data()
+  //       }))
+  //       const temProduct = {}
 
-  const deleteItem = (productID) => {
-    const updateDeletedProduct = [...deletedProductsIds, productID]
-    localStorage.setItem('deletedProducts', JSON.stringify(updateDeletedProduct))
+  //       productsData.forEach((product) => {
+  //         if (!deletedProductsIds.includes(product.id)) {
+  //           if (!temProduct[product.productName]) {
+  //             temProduct[product.productName] = {
+  //               category: product.category,
+  //               productName: product.productName,
+  //               color: product.color,
+  //               size: product.size,
+  //               model: product.model,
+  //               code: product.code,
+  //               price: product.price,
+  //               quantity: 0
+  //             }
+  //           }
+  //           temProduct[product.productName].quantity += parseInt(product.quantity, 10)
+  //         }
+  //       })
 
-    const filteredProducts = Object.values(products).filter(
-      (product) => !updateDeletedProduct.includes(product.id)
-    )
-    setProducts(filteredProducts)
-  }
+  //       Object.values(temProduct).forEach((product) => {
+  //         product.quantity = Math.max(1, product.quantity)
+  //       })
+  //       setProducts(Object.values(temProduct))
+  //     })
+
+  //   return () => docChanges()
+  // }, [firestore, deletedProductsIds])
+
+  // const deleteItem = (productID) => {
+  //   const updateDeletedProduct = [...deletedProductsIds, productID]
+  //   localStorage.setItem('deletedProducts', JSON.stringify(updateDeletedProduct))
+
+  //   const updatedProducts = { ...products }
+  //   delete updatedProducts[productID]
+
+  //   setProducts(updatedProducts)
+  // }
 
   return (
     <ListStyled>
@@ -76,7 +105,7 @@ const ListProduct = () => {
           </tr>
         </thead>
         <tbody>
-          {Object.values(products) // Convertir el objeto a una matriz
+          {/* {Object.values(products)
             .sort((a, b) => a.productName.localeCompare(b.productName))
             .map((product) => (
               <tr key={product.productName}>
@@ -94,7 +123,7 @@ const ListProduct = () => {
                   <i className='bx bx-check-square bx-sm check' ></i>
                 </td>
               </tr>
-            ))}
+            ))} */}
         </tbody>
       </TableProduct>
     </ListStyled>
