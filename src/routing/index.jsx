@@ -1,7 +1,13 @@
 import { Route } from 'wouter'
 
+import User from '../Context/User'
+
+
 import Home from '../Pages/Home'
+import SignUp from '../Pages/SingupEmail'
 import SignUpOptions from '../Pages/SignupOptions'
+import Scope from '../routing/Scope.jsx'
+import ProtectedRoute from './PrivateRoute'
 import Dashboard from '../Pages/Dashboard'
 import SignUp from '../Pages/SingupEmail'
 import Scope from '../routing/Scope'
@@ -55,4 +61,6 @@ const Routing = () => {
   )
 }
 
+
+c
 export default Routing

@@ -106,12 +106,18 @@ export const Input = styled.input`
     border-bottom: none;
   }
 
+
   &:focus ~ label .label-char,
   &:valid ~ label .label-char{
+
     transform: translateY(-1.25rem);
     font-size: ${props => props.theme.fonts_sizes.button_text};;
+
+    transform: translateY(-20px);
+    font-size: 16px;
     color: ${props => props.theme.colors.secondary};
   }
+
   
   &:focus ~ .bar:before,
   &:focus ~ .bar:after { 

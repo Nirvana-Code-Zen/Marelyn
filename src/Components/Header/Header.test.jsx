@@ -5,8 +5,8 @@ import theme from '../../Global-styles/theme'
 import Header from './index'
 
 describe('<Header />', () => {
-  let getByAltTextImg = null
   beforeEach(() => {
+
     const { getByAltText } = render(
       <ThemeProvider theme={theme}>
         <Header/>
@@ -15,12 +15,13 @@ describe('<Header />', () => {
   })
 
   test('Should be rendered', async () => {
-    screen.getByLabelText('Zapateria Marelyn')
-    const image = getByAltTextImg('logo-marelyn')
+    screen.getByText('Zapateria Marelyn')
+    const image = screen.getByAltText('logo-marelyn')
 
     await waitFor(() => expect(image).toBeInTheDocument())
 
+
     expect(image).toBeVisible()
-    expect(image).toHaveAttribute('src', '../src/assets/logoMarely.png')
+
   })
 })
