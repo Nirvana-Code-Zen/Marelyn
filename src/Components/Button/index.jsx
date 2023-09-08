@@ -26,8 +26,7 @@ Button.propTypes = {
   size: PropTypes.string,
   height: PropTypes.string,
   color: PropTypes.string,
-  arrow: PropTypes.bool,
-  image: PropTypes.string
+  arrow: PropTypes.bool
 }
 
 export default Button

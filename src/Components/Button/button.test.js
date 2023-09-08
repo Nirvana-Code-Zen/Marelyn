@@ -7,25 +7,28 @@ import theme from '../../Global-styles/theme'
 import Button from './index'
 
 describe('<Button/>', () => {
+  const onClickMock = jest.fn().mockReturnValueOnce('Soy un boton')
+
   beforeEach(() => {
     render(
       <ThemeProvider theme={theme}>
-        <Button onClick={ () => { 'Soy un botton' }}>
+        <Button onClick={ onClickMock }>
             Entrar
         </Button>
       </ThemeProvider>
     )
-    jest.spyOn(console, 'log')
   })
 
   test('Should be rendered', () => {
-    screen.getByTestId('button')
+    screen.getByText('Entrar')
   })
+
   test('Should be submit works', () => {
-    console.log = jest.fn()
-    const button = screen.getByTestId('button')
+    const button = screen.getByText('Entrar')
+
     fireEvent.click(button)
 
-    expect(console.log).toHaveBeenCalledWith('Soy un boton')
+    expect(onClickMock).toHaveBeenCalled()
+    expect(onClickMock).toHaveReturnedWith('Soy un boton')
   })
 })

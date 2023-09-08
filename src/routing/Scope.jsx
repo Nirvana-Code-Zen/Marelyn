@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { Router, useRouter, useLocation } from 'wouter'
+import { Router, Route, useRouter, useLocation, Switch } from 'wouter'
 
 const Scope = props => {
   const router = useRouter()
@@ -10,7 +10,10 @@ const Scope = props => {
 
   return (
     <Router base={nestedBase} key={nestedBase}>
-      {props.children}
+      <Switch>
+        {props.children}
+        <Route component={() => 'Page not found :C'}/>
+      </Switch>
     </Router>
   )
 }
