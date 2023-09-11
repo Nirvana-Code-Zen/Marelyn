@@ -18,8 +18,10 @@
     "firebase": "^9.15.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "shortid": "^2.2.16",
     "standard": "^17.0.0",
-    "wouter": "^2.9.0"
+    "uuid": "^9.0.0",
+    "wouter": "^2.10.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.7",
@@ -45,7 +47,7 @@
     "react-test-renderer": "^18.2.0",
     "standard": "^17.0.0",
     "styled-components": "^5.3.6",
-    "stylelint": "^14.16.0",
+    "stylelint": "^14.16.1",
     "stylelint-config-standard": "^29.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.10.0",

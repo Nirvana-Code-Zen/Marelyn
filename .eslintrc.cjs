@@ -24,6 +24,9 @@ module.exports = {
   ],
   rules: {
     'no-useless-escape': 'off',
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
+    'no-mixed-spaces-and-tabs': 'error',
+    indent: ['error', 2]
+
   }
 }

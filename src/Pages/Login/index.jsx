@@ -7,7 +7,7 @@ import { Link, useLocation } from 'wouter'
 import { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { getAuth, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { getAuth, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
 import { collectFormData, validateData } from '../../utils'
 import { validatorAccessLogin } from '../../utils/validationForms'
 
@@ -16,12 +16,12 @@ const Login = () => {
     email: 'Correo'.split(''),
     password: 'Contraseña'.split('')
   }
-
   const { current: validatorLogin } = useRef(validatorAccessLogin)
 
   const [location, setLocation] = useLocation()
   const formRef = useRef(null)
   const [errorMessage, setErrorMessage] = useState(null)
+  const [, setLoading] = useState(false)
 
   const btnLogin = async event => {
     event.preventDefault()
@@ -31,7 +31,16 @@ const Login = () => {
     if (validation.lengh) {
       return validation.forEach(message => setErrorMessage((prevMessage) => `${prevMessage || ''} * ${message}/n`))
     }
-    setLocation(`${location}dashboard`)
+    setLoading(true)
+    const auth = getAuth()
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password)
+      setLocation(`${location}dashboard`)
+      setLoading(false)
+    } catch (error) {
+      setErrorMessage(error.message)
+      setLoading(false)
+    }
   }
 
   const facebookLogin = async () => {
@@ -45,11 +54,17 @@ const Login = () => {
       const credential = FacebookAuthProvider.credentialFromResult(result)
       const token = credential.accessToken
 
-      setLocation('dashboard')
-
-      return { user, token }
+      const methods = await auth.fetchSignInMethodsForEmail(user.email)
+      if (methods.includes(provider.providerId)) {
+        setLocation('dashboard')
+        return { user, token }
+      } else {
+        setErrorMessage('Este usuario no esta registrado')
+        return null
+      }
     } catch (error) {
       setErrorMessage(error)
+      return null
     }
   }
 
@@ -63,10 +78,17 @@ const Login = () => {
       const credential = GoogleAuthProvider.credentialFromResult(result)
       const token = credential.accessToken
 
-      setLocation('dashboard')
-      return console.log({ user, token })
+      const methods = await auth.fetchSignInMethodsForEmail(user.email)
+      if (methods.includes(provider.providerId)) {
+        setLocation('dashboard')
+        return { user, token }
+      } else {
+        setErrorMessage('Este usuario no esta registrado')
+        return null
+      }
     } catch (error) {
       setErrorMessage(error)
+      return null
     }
   }
 
@@ -88,38 +110,38 @@ const Login = () => {
         )}
         <GroupForm >
           <Input type="text" name="email" required />
-            <span className='bar'></span>
-            <label >
+          <span className='bar'></span>
+          <label >
             {inputLabels.email.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
-            </label>
-            {errorMessage && <ErrorMessage><p>El correo que ingresaste esta mal escrito</p></ErrorMessage>}
+          </label>
+          {errorMessage && <ErrorMessage><p>El correo que ingresaste esta mal escrito</p></ErrorMessage>}
         </GroupForm>
         <GroupForm>
           <Input type="password"name="password" required />
-            <span className='bar'></span>
-            <label >
+          <span className='bar'></span>
+          <label >
             {inputLabels.password.map((char, index) => (
               <FormSpan key={index} char={char} index={index}/>
             ))}
-            </label>
+          </label>
         </GroupForm>
-            <Link href='/restore-password'>
-              <p className='mt-2 mb-2'> Olvidaste tu contraseña? </p>
-            </Link>
-            <div className='container'>
-                <Button onClick={btnLogin} size='medium' >Entrar</Button>
-                <span className='my'>O inicia sesion usando</span>
-            </div>
-            <SocialContent>
-                <div onClick={facebookLogin}>
-                  <img src="src/assets/facebook.png" alt="facebook" />
-                </div>
-                <div onClick={googleLogin} className='div-c'>
-                  <img src="src/assets/gmail.png" alt="gmail" />
-                </div>
-            </SocialContent>
+        <Link href='/restore-password'>
+          <p className='mt-2 mb-2'> Olvidaste tu contraseña? </p>
+        </Link>
+        <div className='container'>
+          <Button onClick={btnLogin} size='medium' >Entrar</Button>
+          <span className='my'>O inicia sesion usando</span>
+        </div>
+        <SocialContent>
+          <div onClick={facebookLogin}>
+            <img src="src/assets/facebook.png" alt="facebook" />
+          </div>
+          <div onClick={googleLogin} className='div-c'>
+            <img src="src/assets/gmail.png" alt="gmail" />
+          </div>
+        </SocialContent>
         <Link href='sign-up'>
           <p>Registrate</p>
         </Link>
@@ -130,11 +152,11 @@ const Login = () => {
 
 const FormSpan = ({ char, index }) => {
   return (
-      <span
-        className={char === ' ' ? 'label-char space_word ' : 'label-char'}
-        style={{ '--index': index }}>
-        {char}
-      </span>
+    <span
+      className={char === ' ' ? 'label-char space_word ' : 'label-char'}
+      style={{ '--index': index }}>
+      {char}
+    </span>
   )
 }
 

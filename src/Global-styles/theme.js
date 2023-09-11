@@ -6,19 +6,24 @@ export default {
     secondary: '#155db1',
     secondary_complement: '#2196f3',
     error: '#D50000',
-    white: '#ffffff'
+    white: '#ffffff',
+    hover_search: '#efb810',
+    texts: '#999999',
+    hover_tabs: '#E3D99F'
   },
   fonts: {
     texts_titles: '"Didact Gothic", sans-serif'
   },
   fonts_sizes: {
-    titles: '50px',
-    subtitles: '40px',
-    small_subtitles: '30px',
-    button_text: '16px',
-    small_texts: '15px',
-    medium_text: '17px',
-    texts: '19px'
+    titles: '30.12rem', /* 50px */
+    subtitles: '2.5rem', /* 40px */
+    medio_titles: '1.87rem', /* 30px */
+    small_subtitles: '1.25rem', /* 20px */
+    texts: '1.18rem', /* 19px */
+    medium_text: '1.06rem', /* 17px */
+    button_text: '1rem', /* `16px */
+    small_texts: '0.93rem', /* 15px */
+    extra_small_texts: '0.87rem'/* 14px */
   },
   width_sizing: {
     wTen: '0.625rem', /* 10px */

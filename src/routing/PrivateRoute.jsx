@@ -1,22 +1,29 @@
 import PropTypes from 'prop-types'
-import { useContext } from 'react'
+import { useEffect } from 'react'
 import { useLocation } from 'wouter'
+import Layeout from '../Components/Layeout'
 
-import { UserContext } from '../Context/User'
-import { protectedRoutes } from './paths'
+const PrivateRoute = ({ children }) => {
+  const isAuthenticated = true
 
-const ProtectedRoute = ({ children }) => {
-  const [location, navigate] = useLocation()
-  const user = useContext(UserContext)
+  // eslint-disable-next-line no-unused-vars
+  const [_, redirection] = useLocation()
 
-  const isProtected = protectedRoutes.some(route => location.includes(route))
-  if (!user.isLogged && isProtected) return navigate('/login')
+  if (isAuthenticated) {
+    return (
+      <Layeout>
+        {children}
+      </Layeout>
+    )
+  }
 
-  return children
+  useEffect(() => redirection('/login'), [])
+
+  return null
 }
 
-ProtectedRoute.propTypes = {
+PrivateRoute.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default ProtectedRoute
+export default PrivateRoute

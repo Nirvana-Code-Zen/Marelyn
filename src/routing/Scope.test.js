@@ -6,9 +6,9 @@ import Scope from './Scope'
 describe('<Scope />', () => {
   test('Should render children node', () => {
     const { getByText } = render(
-          <Scope base="/">
-            <p>Hello, world!</p>
-          </Scope>
+      <Scope base="/">
+        <p>Hello, world!</p>
+      </Scope>
     )
 
     const p = getByText('Hello, world!')
@@ -17,9 +17,9 @@ describe('<Scope />', () => {
 
   test('Should rendered nothing', () => {
     const { container } = render(
-            <Scope base="/foo">
-              <p>Hello, world!</p>
-            </Scope>
+      <Scope base="/foo">
+        <p>Hello, world!</p>
+      </Scope>
     )
 
     expect(container.innerHTML).toBe('')

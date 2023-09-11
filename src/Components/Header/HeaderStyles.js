@@ -4,7 +4,7 @@ export default styled.header`
   position: relative;
   background: linear-gradient(45deg, rgb(168 141 72), rgb(32 33 36));
   width: 100%;
-  height: 100px;
+  height: 6.25rem;
   display: flex;
   align-content: center;
   align-items: center;
@@ -12,13 +12,12 @@ export default styled.header`
   font-family: ${props => props.theme.fonts.texts_titles};
 
   & img {
-    position: absolute;
-    left: 4.5rem;
+    position: ${props => props.position || 'absolute'};
+    left:  ${props => props.left || '8.5rem'};
     height: 100%;
   }
 
   & h1 {
     color: white;
   }
-
 `

@@ -11,11 +11,11 @@ describe('<Button/>', () => {
 
   beforeEach(() => {
     render(
-        <ThemeProvider theme={theme}>
-          <Button onClick={ onClickMock }>
+      <ThemeProvider theme={theme}>
+        <Button onClick={ onClickMock }>
             Entrar
-          </Button>
-        </ThemeProvider>
+        </Button>
+      </ThemeProvider>
     )
   })
 

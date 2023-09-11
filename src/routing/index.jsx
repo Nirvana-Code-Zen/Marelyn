@@ -1,51 +1,58 @@
 import { Route } from 'wouter'
-import User from '../Context/User'
 
 import Home from '../Pages/Home'
-import SignUp from '../Pages/SingupEmail'
 import SignUpOptions from '../Pages/SignupOptions'
-import Scope from '../routing/Scope.jsx'
-import ProtectedRoute from './PrivateRoute'
 import Dashboard from '../Pages/Dashboard'
+import SignUp from '../Pages/SingupEmail'
+import Scope from '../routing/Scope'
+import ProductsLayout from '../Components/Layeout/Products'
+import Reports from '../Pages/Reports'
+import ProviderStyled from '../Components/Layeout/Providers'
+import CreateProvider from '../Pages/Providers/CreateProvider'
+import ListProvider from '../Pages/Providers/ListProvider'
+import PrivateRoute from './PrivateRoute'
+import PublicRoute from './PublicRoute'
+import CategoryProducts from '../Pages/Products/CategoryProducts'
+import CreateProducts from '../Pages/Products/CreateProducts'
+import ListProduct from '../Pages/Products/ListProducts'
 
-const Routing = () => (
-  <>
-    <Route path='/' component={Home} />
-    <Route path="/login" component={Home}/>
-    <Route path="/restore-password" component={Home}/>
-    <Route path="/dashboard" component={Dashboard}/>
-    <Scope base='/sign-up'>
-      <Route path="/" component={SignUpOptions} />
-      <Route path="/email" component={SignUp} />
-    </Scope>
-    <User>
-      <ProtectedRoute>
-        <Scope base='/products'>
-          <Route path="/" component={() => <h1>Products Home</h1>}/>
-          <Route path="/create" component={() => <h1>Products Create</h1>}/>
-          <Route path="/list" />
-          <Route path="/update" />
-          <Route path="/categories" />
-          <Route path="/sales" />
-          <Route path="/:productid/deteils" />
+const Routing = () => {
+  return (
+    <>
+      <PublicRoute>
+        <Route path='/' component={Home} />
+        <Route path="/login" component={Home}/>
+        <Scope base='/sign-up'>
+          <Route path="/" component={SignUpOptions} />
+          <Route path="/email" component={SignUp} />
         </Scope>
-        <Scope base='/reports'>
-          <Route path="/" component={() => <h1>reports Home</h1>}/>
-          <Route path="/sales" />
-          <Route path="/purchases" />
-          <Route path="/incomes" />
+        <Route path="/restore-password" component={Home}/>
+      </PublicRoute>
+      <PrivateRoute>
+        <Route path="/dashboard" component={Dashboard}/>
+        <Scope base='/products/' >
+          <ProductsLayout>
+            <Route path="list" component={ListProduct} />
+            <Route path="create-product" component={CreateProducts}/>
+            <Route path="categories" component={CategoryProducts}/>
+          </ProductsLayout>
         </Scope>
-        <Scope base='/resources'>
-          <Route path="/" component={() => <h1>Resources Home</h1>}/>
-          <Route path="/clients" />
-          <Route path="/providers" />
+        <Scope base='/reports/'>
+          <Route path="sales" component={Reports} />
+          <Route path="purchases" />
+          <Route path="incomes" />
         </Scope>
-        <Scope base='/orders'>
-          <Route path="/" component={() => <h1>Orders Home</h1>}/>
+        <Scope base='/resources/'>
+          <ProviderStyled>
+            <Route path="list-providers" component={ListProvider}/>
+            <Route path="create-provider" component={CreateProvider}/>
+          </ProviderStyled>
+
         </Scope>
-      </ProtectedRoute>
-    </User>
-  </>
-)
+        <Route path="/orders" />
+      </PrivateRoute>
+    </>
+  )
+}
 
 export default Routing
