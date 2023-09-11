@@ -106,19 +106,22 @@ export const Input = styled.input`
     border-bottom: none;
   }
 
-<<<<<<< HEAD
+
   &:focus ~ label .label-char,
   &:valid ~ label .label-char{
+
+    transform: translateY(-1.25rem);
+    font-size: ${props => props.theme.fonts_sizes.button_text};;
+
     transform: translateY(-20px);
     font-size: 16px;
     color: ${props => props.theme.colors.secondary};
   }
-<<<<<<< HEAD
+
   
   &:focus ~ .bar:before,
   &:focus ~ .bar:after { 
     width: 50%;
-
   }
 `
 export const Select = styled.select`
