@@ -49,7 +49,7 @@ exports[`<Form /> Styled Component Should be Form styles ready 1`] = `
   -moz-letter-spacing: 0.125rem;
   -ms-letter-spacing: 0.125rem;
   letter-spacing: 0.125rem;
-  font-size: 15px;
+  font-size: 0.93rem;
   width: 75%;
   text-align: center;
   box-sizing: border-box;
@@ -62,7 +62,7 @@ exports[`<Form /> Styled Component Should be Form styles ready 1`] = `
   -moz-letter-spacing: 0.125rem;
   -ms-letter-spacing: 0.125rem;
   letter-spacing: 0.125rem;
-  font-size: 15px;
+  font-size: 0.93rem;
   text-align: center;
   box-sizing: border-box;
   color: #999999;
@@ -120,7 +120,7 @@ exports[`<Form /> Styled Component Should be FormGroup styles ready 1`] = `
   -ms-letter-spacing: 0.125rem;
   letter-spacing: 0.125rem;
   color: #999;
-  font-size: 19px;
+  font-size: 1.18rem;
   font-weight: normal;
   position: absolute;
   pointer-events: none;
@@ -139,7 +139,7 @@ exports[`<Form /> Styled Component Should be FormGroup styles ready 1`] = `
 
 exports[`<Form /> Styled Component Should be Input styles ready 1`] = `
 .c0 {
-  font-size: 19px;
+  font-size: 1.18rem;
   padding: 0.62rem 0.62rem 0.37rem 0.31rem;
   display: block;
   width: 100%;
@@ -163,6 +163,10 @@ exports[`<Form /> Styled Component Should be Input styles ready 1`] = `
   -webkit-transform: translateY(-1.25rem);
   -ms-transform: translateY(-1.25rem);
   transform: translateY(-1.25rem);
+  font-size: 1rem;
+  -webkit-transform: translateY(-20px);
+  -ms-transform: translateY(-20px);
+  transform: translateY(-20px);
   font-size: 16px;
   color: #155db1;
 }

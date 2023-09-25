@@ -6,12 +6,12 @@ import Home from './index'
 
 describe('<App />', () => {
   test('Should be rendered child components', () => {
-    const { getByLabelText } = render(
+    const { getByText } = render(
       <ThemeProvider theme={theme}>
         <Home />
       </ThemeProvider>
     )
 
-    expect(getByLabelText('Zapateria Marelyn')).toBeInTheDocument()
+    getByText('Zapateria Marelyn')
   })
 })

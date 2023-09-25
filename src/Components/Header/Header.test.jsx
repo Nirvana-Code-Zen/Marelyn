@@ -14,7 +14,6 @@ describe('<Header />', () => {
   })
 
   test('Should be rendered', async () => {
-    screen.getByText('Zapateria Marelyn')
     const image = screen.getByAltText('logo-marelyn')
 
     await waitFor(() => expect(image).toBeInTheDocument())
