@@ -41,7 +41,7 @@ describe('<SignUpOptions />', () => {
 
     expect(google).toHaveBeenCalled()
     expect(mockUseLocation).toHaveBeenCalled()
-    expect(mockUseLocation).toHaveBeenCalledWith('dashboard')
+    expect(mockUseLocation).toHaveBeenCalledWith('/dashboard')
   })
 
   test('Should render Email button ', () => {
