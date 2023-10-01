@@ -15,13 +15,8 @@ describe('<Tabs />', () => {
   })
 
   test('Should be rendered', () => {
-    screen.getByText('Categorias')
-  })
+    const label = screen.getByLabelText('Categorias')
 
-  test('Should be has id Attribute', () => {
-    const tab = screen.getByText('Categorias')
-
-    expect(tab).toHaveBeenCalled()
-    expect(tab).toHaveAttribute('id')
+    expect(label).toBeInTheDocument()
   })
 })

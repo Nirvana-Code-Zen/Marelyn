@@ -1,23 +1,27 @@
-import { render, fireEvent, screen } from '@testing-library/react'
-import '@testing-library/jest-dom'
-import App from '../../App/App'
+import { render, screen, fireEvent } from '@testing-library/react'
+import { ThemeProvider } from 'styled-components'
+import theme from '../../Global-styles/theme'
 
-import { MemoryRouter } from 'react-router-dom'
+import Menu from './index'
 
 describe('<Menu />', () => {
-  test('Click event menu', async () => {
+  beforeEach(() => {
     render(
-      <MemoryRouter initialEntries={['/dashboard']}>
-        <App />
-      </MemoryRouter>
+      <ThemeProvider theme={theme}>
+        <Menu>
+          <></>
+        </Menu>
+      </ThemeProvider>
     )
+  })
 
+  test('Click event menu', async () => {
     const containerMenu = screen.getByTestId('container-menu')
     const btnMenu = screen.getByTestId('side-menu')
 
     fireEvent.click(btnMenu)
 
-    expect(containerMenu).toHaveClass('open', { exact: true })
+    expect(containerMenu).toHaveClass('open')
     expect(btnMenu).toHaveClass('bx bx-menu bx-md open btn-Menu', { exact: true })
   })
 })
