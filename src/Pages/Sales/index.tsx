@@ -2,7 +2,7 @@ import { H1 } from '../../Global-styles/Components/Titles'
 
 import { SalesStyles } from './SalesStyles'
 
-const Sales = () => {
+export const Sales = () => {
   return (
     <>
       <SalesStyles>
@@ -13,5 +13,3 @@ const Sales = () => {
     </>
   )
 }
-
-export default Sales

@@ -2,7 +2,7 @@ import { H4 } from '../../Global-styles/Components/Titles'
 
 import { DashboardStyled, ProductsSection, SalesSection, ReportsSection, OffertSection } from './DashboardStyled'
 
-const Dashboard = () => {
+export const Dashboard = () => {
   return (
     <DashboardStyled className='boxshadow'>
       <ProductsSection className='boxshadow'>
@@ -21,5 +21,3 @@ const Dashboard = () => {
 
   )
 }
-
-export default Dashboard

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { useEffect } from 'react'
 import { useLocation } from 'wouter'
 
-import Layeout from '../Components/Layeout'
+import {Layeout} from '../Components/Layeout'
 
 export const PrivateRoute = ({ children }) => {
   const isAuthenticated = true

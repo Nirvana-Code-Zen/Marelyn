@@ -1,7 +1,7 @@
 import { Route } from 'wouter'
 
 import { ProductsLayout } from '../Components/Layeout/Products'
-import { ProviderStyled } from '../Components/Layeout/Providers'
+import { ProviderStyled } from '../Components/Layeout/Providers/ProviderStyled'
 import { Dashboard } from '../Pages/Dashboard'
 import { Home } from '../Pages/Home'
 import { CategoryProducts } from '../Pages/Products/CategoryProducts'
@@ -11,7 +11,7 @@ import { CreateProvider } from '../Pages/Providers/CreateProvider'
 import { ListProvider } from '../Pages/Providers/ListProvider'
 import { Reports } from '../Pages/Reports'
 import { SignUpOptions } from '../Pages/SignupOptions'
-import { SignUp } from '../Pages/SingupEmail'
+import { SingUp } from '../Pages/SingupEmail'
 import { Scope } from '../routing/Scope'
 
 import { PrivateRoute } from './PrivateRoute'
@@ -26,7 +26,7 @@ export const Routing = () => {
         <Route path="/login" component={Home}/>
         <Scope base='/sign-up'>
           <Route path="/" component={SignUpOptions} />
-          <Route path="/email" component={SignUp} />
+          <Route path="/email" component={SingUp} />
         </Scope>
         <Route path="/restore-password" component={Home}/>
       </PublicRoute>

@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import { useLocation } from 'wouter'
 
-import Tabs from '../../Tabs'
+import {Tabs} from '../../Tabs'
 
 import { ProductStyles, ContainerItems, ProductSection } from './ProductStyles'
 
-const ProductsLayout = ({ children }) => {
+export const ProductsLayout = ({ children }) => {
   const [location, setLocation] = useLocation()
 
   const goToPage = (page) => setLocation(page)
@@ -28,4 +28,3 @@ ProductsLayout.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-export default ProductsLayout
