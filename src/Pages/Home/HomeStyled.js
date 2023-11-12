@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Home = styled.div`
+export const HomeStyled = styled.div`
   height: 100vh;
 
   @media (max-width: 48rem){
@@ -20,5 +20,3 @@ const Home = styled.div`
     }
   }
 `
-
-export default Home
