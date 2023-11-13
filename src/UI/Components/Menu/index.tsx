@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Link } from 'wouter'
 
-import { Header } from '../Header'
+import { ChildrenPropType } from '~UI/shared/types/childrenPropType'
+
 
 import { MenuStyled, OptionMenu, ContainerMenu, HeaderMenu } from './MenuStyled'
 
-export const Menu = ({ children }) => {
+import { Header } from '../Header'
+
+export const Menu = ({ children }: ChildrenPropType) => {
   const [isMenuOpen, setMenuOpen] = useState(false)
 
   const handleClick = () => {
@@ -53,7 +55,3 @@ export const Menu = ({ children }) => {
     </MenuStyled>
   )
 }
-Menu.propTypes = {
-  children: PropTypes.node.isRequired
-}
-

@@ -1,18 +1,16 @@
-import PropTypes from 'prop-types'
-import { useEffect } from 'react'
+import React, { useContext } from 'react'
 import { useLocation } from 'wouter'
+
+import { UserContext } from '~UI/Context/User'
+import { ChildrenPropType } from '~UI/shared/types/childrenPropType'
 
 import {Layeout} from '../Components/Layeout'
 
-export const PrivateRoute = ({ children }) => {
-  const isAuthenticated = true
-
-  // eslint-disable-next-line no-unused-vars
+export const PrivateRoute = ({ children }: ChildrenPropType) => {
+  const { isLogged } = useContext(UserContext)
   const [_, redirection] = useLocation()
 
-  useEffect(() => redirection('/login'), [])
-
-  if (isAuthenticated) {
+  if (isLogged) {
     return (
       <Layeout>
         {children}
@@ -20,9 +18,6 @@ export const PrivateRoute = ({ children }) => {
     )
   }
 
+  redirection('/login')
   return null
-}
-
-PrivateRoute.propTypes = {
-  children: PropTypes.node.isRequired
 }

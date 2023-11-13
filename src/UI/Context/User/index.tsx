@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types'
 import { createContext, useState } from 'react'
+
+import { ChildrenPropType } from '~UI/shared/types/childrenPropType'
 
 export const UserContext = createContext({ isLogged: false })
 
-export const User = ({ children }) => {
+export const UserProvider = ({ children }: ChildrenPropType) => {
   const [user] = useState({ isLogged: false })
 
   return (
@@ -11,8 +12,4 @@ export const User = ({ children }) => {
       {children}
     </UserContext.Provider>
   )
-}
-
-User.propTypes = {
-  children: PropTypes.node.isRequired
 }

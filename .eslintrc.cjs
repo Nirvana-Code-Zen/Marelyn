@@ -33,6 +33,7 @@ module.exports = {
         "import/order": [
           "error",
           {
+            "newlines-between": "always",
             "alphabetize": {
               "order": "asc"
             },
@@ -40,11 +41,34 @@ module.exports = {
               "builtin",
               "external",
               "internal",
-              "parent",
+              "object",
+              "type",
               "sibling",
-              "index"
+              "parent",
+              "index",
             ],
-            "newlines-between": "always"
+            "pathGroups": [
+              { 
+                "pattern": "~UI/**",
+                "group": "internal",
+                "position": "before"
+              },
+              { 
+                "pattern": "~Components/**",
+                "group": "internal",
+                "position": "after"
+              },
+              { 
+                "pattern": "~Pages/**",
+                "group": "internal",
+                "position": "before"
+              },
+              { 
+                "pattern": "~module/*", 
+                "group": "internal",
+                "position": "after"
+              },
+            ]
           }
         ]
     }

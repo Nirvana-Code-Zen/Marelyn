@@ -7,8 +7,10 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@UI': '/src/UI',
-      '@modules': '/src/modules',
+      '~UI': '/src/UI',
+      '~modules': '/src/modules',
+      '~Components': '/src/UI/Components',
+      '~Pages': '/src/UI/Pages',
     },
   },
   server: {
