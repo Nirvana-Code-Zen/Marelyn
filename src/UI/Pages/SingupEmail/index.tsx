@@ -1,5 +1,5 @@
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
-import { collection, addDoc } from 'firebase/firestore'
+import { getAuth, createUserWithEmailAndPassword } from 'src/test/__mocks__/auth'
+import { collection, addDoc } from 'test/__mocks__/firebase/firestore'
 import PropTypes from 'prop-types'
 import { useRef, useState, useContext } from 'react'
 import { useLocation } from 'wouter'

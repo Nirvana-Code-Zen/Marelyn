@@ -1,4 +1,4 @@
-import { collection, addDoc } from 'firebase/firestore'
+import { collection, addDoc } from 'test/__mocks__/firebase/firestore'
 import PropTypes from 'prop-types'
 import { useRef, useContext, useState } from 'react'
 import { useLocation } from 'wouter'

@@ -1,5 +1,5 @@
-import { collection, addDoc } from 'firebase/firestore'
-import { ref, uploadBytes } from 'firebase/storage'
+import { collection, addDoc } from 'test/__mocks__/firebase/firestore'
+import { ref, uploadBytes } from 'test/__mocks__/firebase/storage'
 import PropTypes from 'prop-types'
 import { useContext, useRef, useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'

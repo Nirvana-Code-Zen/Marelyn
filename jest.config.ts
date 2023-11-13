@@ -12,11 +12,14 @@ const config: Config = {
   testEnvironment: "jest-environment-jsdom",
   setupFilesAfterEnv: [
     "@testing-library/jest-dom",
-    "jest-styled-components",
-    "<rootDir>/setupTest.js"
+    "jest-styled-components"
   ],
   moduleNameMapper: {
-    "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
+    "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules",
+    "^@modules/(.*)$": "<rootDir>/src/modules/$1",
+    "^~UI/(.*)$": "<rootDir>/src/UI/$1",
+    "^~Components/(.*)$": "<rootDir>/src/UI/Components$1",
+    "^~Pages/(.*)$": "<rootDir>/src/UI/Pages$1"
   },
   moduleFileExtensions: [
     "js",

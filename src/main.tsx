@@ -1,6 +1,6 @@
+import { App } from '@UI/App'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { App } from '@UI/App'
 
 import './root.css'
 

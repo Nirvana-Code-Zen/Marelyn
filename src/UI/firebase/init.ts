@@ -1,7 +1,7 @@
-import { getAnalytics } from 'firebase/analytics'
-import { initializeApp } from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
-import { getStorage } from 'firebase/storage'
+import { getAnalytics } from 'test/__mocks__/firebase/analytics'
+import { initializeApp } from 'test/__mocks__/firebase/app'
+import { getFirestore } from 'test/__mocks__/firebase/firestore'
+import { getStorage } from 'test/__mocks__/firebase/storage'
 import { createContext } from 'react'
 
 import { FIREBASE_SETTING } from '../env'

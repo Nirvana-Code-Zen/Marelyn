@@ -1,4 +1,4 @@
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs } from 'test/__mocks__/firebase/firestore'
 import { useContext, useEffect, useState } from 'react'
 
 import { FirebaseContext } from '../../../firebase/init'

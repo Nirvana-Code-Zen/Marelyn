@@ -1,5 +1,5 @@
 
-import { getAuth, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'src/test/__mocks__/auth'
 import PropTypes from 'prop-types'
 import { useRef, useState } from 'react'
 import { Link, useLocation } from 'wouter'

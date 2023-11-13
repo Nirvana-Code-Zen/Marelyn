@@ -1,5 +1,5 @@
-import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from 'firebase/auth'
-import { collection, addDoc } from 'firebase/firestore'
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from 'src/test/__mocks__/auth'
+import { collection, addDoc } from 'test/__mocks__/firebase/firestore'
 import { useContext, useRef, useState } from 'react'
 import { useLocation } from 'wouter'
 
