@@ -1,13 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { App } from '@UI/App'
 
-import { App } from './App'
-import { GlobalStyles, Spacing } from './Global-styles'
+import './root.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <GlobalStyles />
-    <Spacing/>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 )

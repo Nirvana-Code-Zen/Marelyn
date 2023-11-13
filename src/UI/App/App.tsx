@@ -6,7 +6,7 @@ import { Firebase, initFirebase } from '../firebase/init'
 import { Routing } from '../routing'
 
 
-export const App = () => {
+export function App () {
   const [db] = useState(initFirebase())
 
   return (
