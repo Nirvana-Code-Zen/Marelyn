@@ -27,7 +27,6 @@ module.exports = {
         'no-useless-escape': 'off',
         'no-mixed-spaces-and-tabs': 'error',
         "indent": ['error', 2],
-        "no-console": "error",
         "no-useless-escape": "off",
         "prefer-promise-reject-errors": "off",
         "import/no-default-export": "error",
