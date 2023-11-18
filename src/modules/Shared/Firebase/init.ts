@@ -2,11 +2,24 @@ import { getAnalytics } from 'firebase/analytics'
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'
-import { createContext } from 'react'
 
-import { FIREBASE_SETTING } from '../env'
+type FirebaseSetting = {
+  API_KEY: string
+  AUTH_DOMAIN: string
+  PROJECT_ID: string
+  STOREAGE_BUCKET: string
+  MESSAGIN_SENDER_ID: string
+  APP_ID: string
+  MEASUREMENT_ID: string
+  STORAGE_BUCKET: string
+}
 
-export const initFirebase = () => {
+export type FirebaseInstance = {
+  db: unknown | null,
+  storage: unknown | null
+}
+
+export const initFirebase = (FIREBASE_SETTING: FirebaseSetting): FirebaseInstance => {
   const firebaseConfig = {
     apiKey: FIREBASE_SETTING.API_KEY,
     authDomain: FIREBASE_SETTING.AUTH_DOMAIN,
@@ -25,7 +38,3 @@ export const initFirebase = () => {
 
   return { db, storage }
 }
-
-export const FirebaseContext = createContext()
-
-export const Firebase = FirebaseContext.Provider

@@ -5,8 +5,8 @@ import { useLocation } from 'wouter'
 
 import { Button } from '../../../Components/Button'
 import { ErrorMessage } from '../../../Components/ErrorMessage'
+import { FirebaseContext } from '../../../Context/Firebase'
 import { Form, GroupForm, Input } from '../../../Global-styles/Components/Forms'
-import { FirebaseContext } from '../../../firebase/init'
 import { collectFormData, validateData } from '../../../utils'
 import { createValidatorProvider } from '../../../utils/validationForms'
 
