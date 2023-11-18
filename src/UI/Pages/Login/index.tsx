@@ -1,5 +1,3 @@
-
-import { getAuth, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'src/test/__mocks__/auth'
 import PropTypes from 'prop-types'
 import { useRef, useState } from 'react'
 import { Link, useLocation } from 'wouter'
@@ -25,72 +23,72 @@ export const Login = () => {
   const [, setLoading] = useState(false)
 
   const btnLogin = async event => {
-    event.preventDefault()
-    const data = collectFormData(formRef.current)
-    const validation = Object.values(validateData(data, validatorLogin))
+    //  event.preventDefault()
+    //  const data = collectFormData(formRef.current)
+    //  const validation = Object.values(validateData(data, validatorLogin))
 
-    if (validation.lengh) {
-      return validation.forEach(message => setErrorMessage((prevMessage) => `${prevMessage || ''} * ${message}/n`))
-    }
-    setLoading(true)
-    const auth = getAuth()
-    try {
-      await signInWithEmailAndPassword(auth, data.email, data.password)
-      setLocation(`${location}dashboard`)
-      setLoading(false)
-    } catch (error) {
-      setErrorMessage(error.message)
-      setLoading(false)
-    }
+    //  if (validation.lengh) {
+    //    return validation.forEach(message => setErrorMessage((prevMessage) => `${prevMessage || ''} * ${message}/n`))
+    //  }
+    //  setLoading(true)
+    //  const auth = {}
+    //  try {
+    //    await signInWithEmailAndPassword(auth, data.email, data.password)
+    //    setLocation(`${location}dashboard`)
+    //    setLoading(false)
+    //  } catch (error) {
+    //    setErrorMessage(error.message)
+    //    setLoading(false)
+    //  }
   }
 
   const facebookLogin = async () => {
-    try {
-      const provider = new FacebookAuthProvider()
+  //  try {
+  //    const provider = new FacebookAuthProvider()
 
-      const auth = getAuth()
+    //    const auth = {}
 
-      const result = await signInWithPopup(auth, provider)
-      const user = result.user
-      const credential = FacebookAuthProvider.credentialFromResult(result)
-      const token = credential.accessToken
+    //    const result = await signInWithPopup(auth, provider)
+    //    const user = result.user
+    //    const credential = FacebookAuthProvider.credentialFromResult(result)
+    //    const token = credential.accessToken
 
-      const methods = await auth.fetchSignInMethodsForEmail(user.email)
-      if (methods.includes(provider.providerId)) {
-        setLocation('dashboard')
-        return { user, token }
-      } else {
-        setErrorMessage('Este usuario no esta registrado')
-        return null
-      }
-    } catch (error) {
-      setErrorMessage(error)
-      return null
-    }
+  //    const methods = await auth.fetchSignInMethodsForEmail(user.email)
+  //    if (methods.includes(provider.providerId)) {
+  //      setLocation('dashboard')
+  //      return { user, token }
+  //    } else {
+  //      setErrorMessage('Este usuario no esta registrado')
+  //      return null
+  //    }
+  //  } catch (error) {
+  //    setErrorMessage(error)
+  //    return null
+  //  }
   }
 
   const googleLogin = async () => {
-    try {
-      const auth = getAuth()
-      const provider = new GoogleAuthProvider()
+    //try {
+    //  const auth = {}
+    //  const provider = new GoogleAuthProvider()
 
-      const result = await signInWithPopup(auth, provider)
-      const user = result.user
-      const credential = GoogleAuthProvider.credentialFromResult(result)
-      const token = credential.accessToken
+    //  const result = await signInWithPopup(auth, provider)
+    //  const user = result.user
+    //  const credential = GoogleAuthProvider.credentialFromResult(result)
+    //  const token = credential.accessToken
 
-      const methods = await auth.fetchSignInMethodsForEmail(user.email)
-      if (methods.includes(provider.providerId)) {
-        setLocation('dashboard')
-        return { user, token }
-      } else {
-        setErrorMessage('Este usuario no esta registrado')
-        return null
-      }
-    } catch (error) {
-      setErrorMessage(error)
-      return null
-    }
+    //  const methods = await auth.fetchSignInMethodsForEmail(user.email)
+    //  if (methods.includes(provider.providerId)) {
+    //    setLocation('dashboard')
+    //    return { user, token }
+    //  } else {
+    //    setErrorMessage('Este usuario no esta registrado')
+    //    return null
+    //  }
+    //} catch (error) {
+    //  setErrorMessage(error)
+    //  return null
+    //}
   }
 
   return (

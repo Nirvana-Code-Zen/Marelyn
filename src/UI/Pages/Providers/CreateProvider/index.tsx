@@ -1,12 +1,12 @@
-import { collection, addDoc } from 'test/__mocks__/firebase/firestore'
+import { collection, addDoc } from 'firebase/firestore'
 import PropTypes from 'prop-types'
 import { useRef, useContext, useState } from 'react'
 import { useLocation } from 'wouter'
 
 import { Button } from '../../../Components/Button'
 import { ErrorMessage } from '../../../Components/ErrorMessage'
+import { FirebaseContext } from '../../../Context/Firebase'
 import { Form, GroupForm, Input } from '../../../Global-styles/Components/Forms'
-import { FirebaseContext } from '../../../firebase/init'
 import { collectFormData, validateData } from '../../../utils'
 import { createValidatorProvider } from '../../../utils/validationForms'
 

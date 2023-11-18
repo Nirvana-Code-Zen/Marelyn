@@ -1,5 +1,5 @@
-import { collection, addDoc } from 'test/__mocks__/firebase/firestore'
-import { ref, uploadBytes } from 'test/__mocks__/firebase/storage'
+import { collection, addDoc } from 'firebase/firestore'
+import { ref, uploadBytes } from 'firebase/storage'
 import PropTypes from 'prop-types'
 import { useContext, useRef, useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
@@ -7,8 +7,8 @@ import { useLocation } from 'wouter'
 
 import { Button } from '../../../Components/Button'
 import { ErrorMessage } from '../../../Components/ErrorMessage'
+import { FirebaseContext } from '../../../Context/Firebase'
 import { Form, GroupForm, Input } from '../../../Global-styles/Components/Forms'
-import { FirebaseContext } from '../../../firebase/init'
 import { collectFormData, validateData } from '../../../utils'
 import { createValidatorProduct } from '../../../utils/validationForms'
 

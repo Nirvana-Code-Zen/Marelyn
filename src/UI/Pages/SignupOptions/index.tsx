@@ -1,12 +1,11 @@
-import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from 'src/test/__mocks__/auth'
-import { collection, addDoc } from 'test/__mocks__/firebase/firestore'
+import { collection, addDoc } from 'firebase/firestore'
 import { useContext, useRef, useState } from 'react'
 import { useLocation } from 'wouter'
 
 import {Button} from '../../Components/Button'
 import {ErrorMessage} from '../../Components/ErrorMessage'
 import {Header} from '../../Components/Header'
-import { FirebaseContext } from '../../firebase/init'
+import { FirebaseContext } from '../../Context/Firebase'
 
 import { SignUpOptionsStyled, ButtonContainer, SignUpHeader, SignUpTitle } from './indexStyled'
 
@@ -25,19 +24,19 @@ export const SignUpOptions = () => {
   }
 
   const signInProvider = async (signInMethod) => {
-    const ProviderOption = providerMethod[signInMethod]
+    //const ProviderOption = providerMethod[signInMethod]
 
-    try {
-      const provider = new ProviderOption()
-      const auth = getAuth()
-      const { user } = await signInWithPopup(auth, provider)
+    //try {
+    //  const provider = new ProviderOption()
+    //  const auth = getAuth()
+    //  const { user } = await signInWithPopup(auth, provider)
 
-      await saveUserData(user)
+    //  await saveUserData(user)
 
-      setLocation('/dashboard')
-    } catch (error) {
-      setErrorMessage(error)
-    }
+    //  setLocation('/dashboard')
+    //} catch (error) {
+    //  setErrorMessage(error)
+    //}
   }
 
   const saveUserData = async (user) =>

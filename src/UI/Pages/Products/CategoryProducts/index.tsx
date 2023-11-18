@@ -1,7 +1,7 @@
-import { collection, getDocs } from 'test/__mocks__/firebase/firestore'
+import { collection, getDocs } from 'firebase/firestore'
 import { useContext, useEffect, useState } from 'react'
 
-import { FirebaseContext } from '../../../firebase/init'
+import { FirebaseContext } from '../../../Context/Firebase'
 
 import { CategoryProductStyled, ContainerCategory, H3 } from './categoryProducStyled'
 

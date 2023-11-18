@@ -1,19 +1,16 @@
-import { useState } from 'react'
+import { FirebaseProvider } from '@UI/Context/Firebase'
+import { theme } from '@UI/Global-styles'
+import { Routing } from '@UI/routing'
 import { ThemeProvider } from 'styled-components'
 
-import { theme } from '../Global-styles'
-import { Firebase, initFirebase } from '../firebase/init'
-import { Routing } from '../routing'
 
 
 export function App () {
-  const [db] = useState(initFirebase())
-
   return (
     <ThemeProvider theme={theme}>
-      <Firebase value={db}>
+      <FirebaseProvider>
         <Routing />
-      </Firebase>
+      </FirebaseProvider>
     </ThemeProvider>
   )
 }

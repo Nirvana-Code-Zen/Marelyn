@@ -1,8 +1,8 @@
 
-import { collection, query, onSnapshot } from 'test/__mocks__/firebase/firestore'
+import { collection, query, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState, useContext } from 'react'
 
-import { FirebaseContext } from '../../../firebase/init'
+import { FirebaseContext } from '../../../Context/Firebase'
 
 import { ListProviderStyled, TableProvider } from './ListProvider'
 

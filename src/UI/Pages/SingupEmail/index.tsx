@@ -1,5 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword } from 'src/test/__mocks__/auth'
-import { collection, addDoc } from 'test/__mocks__/firebase/firestore'
+import { collection, addDoc } from 'firebase/firestore'
 import PropTypes from 'prop-types'
 import { useRef, useState, useContext } from 'react'
 import { useLocation } from 'wouter'
@@ -7,8 +6,8 @@ import { useLocation } from 'wouter'
 import {Button} from '../../Components/Button'
 import {ErrorMessage} from '../../Components/ErrorMessage'
 import {Header} from '../../Components/Header'
+import { FirebaseContext } from '../../Context/Firebase'
 import { Form, GroupForm, Input, Select } from '../../Global-styles/Components/Forms'
-import { FirebaseContext } from '../../firebase/init'
 import { collectFormData, validateData } from '../../utils'
 import { createUserValidator } from '../../utils/validationForms'
 
@@ -24,9 +23,9 @@ export const SingUp = () => {
   const navigate = useLocation()[1]
 
   const createUser = async (email, password) => {
-    const auth = getAuth()
+    const auth = {}
     try {
-      await createUserWithEmailAndPassword(auth, email, password)
+      await Promise.resolve()
     } catch (err) {
       const { customData: { _tokenResponse: { error } } } = err
       throw new Error(error.message.split('_').join(' ').toLowerCase())
