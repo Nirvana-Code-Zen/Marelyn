@@ -23,9 +23,10 @@
     "noFallthroughCasesInSwitch": true,
 
     "paths": {
-      "@UI/*": ["src/UI/*"],
-      "@modules/*": ["src/modules/*"],
-      "*": ["*", "src/__mocks__/*"]
+      "~Components/*": ["./src/UI/Components/*"],
+      "~Pages/*": ["./src/UI/Pages/*"],
+      "~UI/*": ["./src/UI/*"],
+      "~modules/*": ["./src/modules/*"]
     }
   },
   // "include": ["src", "__mocks__", "firebase"],

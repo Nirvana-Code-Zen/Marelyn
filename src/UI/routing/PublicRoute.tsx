@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types'
-import { useEffect } from 'react'
+import { useContext } from 'react'
 import { Switch, useLocation } from 'wouter'
 
-export const PublicRoute = ({ children }) => {
-  const isAuthenticated = true
-  // eslint-disable-next-line no-unused-vars
-  const [_, redirection] = useLocation()
-  
-  useEffect(() => redirection('/dashboard'), [])
+import { UserContext } from '~UI/Context/User'
+import { ChildrenPropType } from '~UI/shared/types/childrenPropType'
 
-  if (!isAuthenticated) {
+export const PublicRoute = ({ children }: ChildrenPropType) => {
+  const { isLogged } = useContext(UserContext)
+  const [_, redirection] = useLocation()
+
+  if (!isLogged) {
     return (
       <Switch>
         {children}
@@ -17,7 +17,8 @@ export const PublicRoute = ({ children }) => {
     )
   }
 
-
+  redirection('/dashboard')
+  
   return null
 }
 

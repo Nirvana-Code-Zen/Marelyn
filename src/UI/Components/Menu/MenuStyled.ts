@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
-export const MenuStyled = styled.div`
+type MenuProps = {
+  expandSideNav: boolean;
+}
+
+export const MenuStyled = styled.div<MenuProps>`
     display: grid;
-    grid-template: 6.25rem calc(100vh - 6.25rem) / ${props => !props.expandSideNav ? '5.96rem 1fr' : '14.37rem 1fr'};
+    grid-template: 6.25rem calc(100vh - 6.25rem) / ${(props) => !props.expandSideNav ? '5.96rem 1fr' : '14.37rem 1fr'};
  
  & i{
   color: white;

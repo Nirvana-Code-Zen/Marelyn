@@ -1,8 +1,10 @@
-import { FirebaseProvider } from '@UI/Context/Firebase'
-import { theme } from '@UI/Global-styles'
-import { Routing } from '@UI/routing'
+
+import { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 
+import { theme } from '~UI/Global-styles'
+import { Firebase, initFirebase } from '~UI/firebase/init'
+import { Routing } from '~UI/routing'
 
 
 export function App () {

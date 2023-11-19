@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
+import { ChildrenPropType } from '~UI/shared/types/childrenPropType'
 
-import {Menu} from '../Menu'
+import { Menu } from '../Menu'
 
-export const Layeout = ({ children }) => {
+export const Layeout = ({ children }: ChildrenPropType) => {
   return (
     <>
       <Menu>
@@ -10,8 +10,4 @@ export const Layeout = ({ children }) => {
       </Menu>
     </>
   )
-}
-
-Layeout.propTypes = {
-  children: PropTypes.node.isRequired
 }
