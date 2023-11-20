@@ -1,6 +1,7 @@
 import type { AuthProviders, accountType } from "./repository"
 
 export type User = {
+    uid: string
     userName: string
     name: string
     email: string
@@ -9,8 +10,9 @@ export type User = {
     authMethod: AuthProviders.Facebook
 }
 
-export function User({ userName, name, email, profilePhoto, authMethod, accountType }: User) {
+export function User({ uid, userName, name, email, profilePhoto, authMethod, accountType }: User) {
   return {
+    uid,
     userName,
     name,
     email,

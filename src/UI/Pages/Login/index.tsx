@@ -6,8 +6,12 @@ import { AuthContext } from '~UI/Context/Auth'
 export const Login = () => {
   const auth = useContext(AuthContext)
 
-  const login = () => {
-    auth.signInWithFacebook()
+  const login = async () => {
+    try {
+      await auth.signInWithFacebook()
+    }catch(err) {
+      console.log('some error', err)
+    }
   }
 
   return (

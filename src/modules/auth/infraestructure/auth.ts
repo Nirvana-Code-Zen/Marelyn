@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDoc, getDocs, query, where } from "firebase/firestore"
+import { doc, getDoc, setDoc } from "firebase/firestore"
 
 import { signIn as signInWithFirebase } from "./firebaseAuth"
 
@@ -12,22 +12,17 @@ export function Auth(authMethod: Method, db: unknown): AuthRepository {
     signIn: () => signIn(authMethod),
     signOut,
     saveUser: (user: User) => saveUser(user, db),
-    searchUser: (email: string) => searchUser(email, db)
+    searchUser: (uid: string) => searchUser(uid, db)
   }
 }
 
 const signIn = async (authMethod: Method): Promise<userAuthenticated | userNotAuthenticated> => {
   const response = await signInWithFirebase(authMethod)
-
-  if ('accessToken' in response) {
-    localStorage.setItem('accessToken', response.accessToken)
-  }
-
   return response
 }
 
 const saveUser = async (user: User, db: any): Promise<void> => {
-  await addDoc(collection(db, 'Users'), {
+  await setDoc(doc(db, 'Users', user.uid), {
     account_type: user.accountType,
     username: user.userName,
     name: user.name,
@@ -37,21 +32,13 @@ const saveUser = async (user: User, db: any): Promise<void> => {
   })
 }
 
-const searchUser = async (email: string, db: any): Promise<User | null> => {
-  const q = query(collection(db, 'Users'), where('email', '==', email))
-  const snapshot = await getDocs(q)
-  const user: User[] = []
+const searchUser = async (uid: string, db: any): Promise<User | null> => {
+  const docRef = doc(db, 'Users', uid)
+  const snapshot = await getDoc(docRef)
 
-  snapshot.forEach(doc => {
-    const userDoc = doc.data() as User
-    user.push(userDoc)
-  })
+  if (!snapshot.exists()) return null
 
-  if (!user.length) {
-    return null
-  }
-
-  return user[0]
+  return snapshot.data() as User
 }
 
 const signOut = () => {}

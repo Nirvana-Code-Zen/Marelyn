@@ -8,6 +8,9 @@ import { providerType, userAuthenticated, userNotAuthenticated } from '~modules/
 export const signIn = async (provider: providerType): Promise<userAuthenticated | userNotAuthenticated> => {
   const Provider = AuthProviderFactory(provider)
   const providerInstance = new Provider()
+  providerInstance.setCustomParameters({
+    display: 'popup'
+  })
 
   try {
 

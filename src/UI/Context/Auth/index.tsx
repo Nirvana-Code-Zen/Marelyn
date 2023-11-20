@@ -3,11 +3,11 @@ import {ChildrenPropType} from "~UI/shared/types/childrenPropType"
 import {AuthFacebook} from "~modules/auth/application/signIn/facebbok"
 
 import { AuthProviders, AuthRepository } from "~modules/auth/domain/repository"
-import {Auth} from "~modules/auth/infraestructure/auth"
-import {FirebaseContext} from "../Firebase"
+import { Auth } from "~modules/auth/infraestructure/auth"
+import { FirebaseContext } from "../Firebase"
 
 export interface AuthContextState {
-  signInWithFacebook: () => void
+  signInWithFacebook: () => Promise<void>
   logOut: () => void
 }
 
@@ -19,8 +19,8 @@ export const AuthProvider = ({ children }: ChildrenPropType) => {
 
   const { signIn, signOut } = AuthFacebook(repository)
 
-  function signInWithFacebook() {
-    signIn()
+  async function signInWithFacebook() {
+    await signIn()
   }
 
   function logOut() {
