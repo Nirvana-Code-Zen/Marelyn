@@ -1,21 +1,34 @@
 import { User } from "~modules/auth/domain/User"
-import { AuthRepository } from "~modules/auth/domain/repository"
+import { AuthProviders, AuthRepository, accountType } from "~modules/auth/domain/repository"
 
 export function AuthFacebook(repository: AuthRepository) {
 
   const signIn = async() => {
     const response = await repository.signIn()
 
-    if (response?.errorCode) {
+    if ('errorCode' in response) {
       throw response
     }
 
-    const user = User({ ...response.user })
+    const userAuth = response.user as {
+      displayName: string
+      email: string
+      photoURL: string
+    }
+
+    const user = User({ 
+      userName: userAuth.displayName,
+      name: userAuth.displayName,
+      email: userAuth.email,
+      profilePhoto: userAuth.photoURL,
+      accountType: accountType.client,
+      authMethod: AuthProviders.Facebook
+    })
+
     const accessToken = response.accessToken
 
     await repository.saveUser(user)
-    return { user, accessToken}
-
+    return { user, accessToken }
   }
 
   const signOut = () => {

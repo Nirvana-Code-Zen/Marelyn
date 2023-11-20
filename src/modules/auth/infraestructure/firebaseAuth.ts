@@ -5,14 +5,13 @@ import { AuthProviderFactory, auth } from './AuthProviderFactory'
 
 import { providerType, userAuthenticated, userNotAuthenticated } from '~modules/auth/domain/repository'
 
-
 export const signIn = async (provider: providerType): Promise<userAuthenticated | userNotAuthenticated> => {
   const Provider = AuthProviderFactory(provider)
   const providerInstance = new Provider()
 
   try {
 
-    const result = await signInWithPopup(auth, providerInstance)
+    const result = await signInWithPopup(auth(), providerInstance)
     const user = result.user
 
     const credentials = Provider.credentialFromResult(result)

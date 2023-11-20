@@ -20,17 +20,19 @@ import { ProviderStyled } from '~Components/Layeout/Providers/ProviderStyled'
 
 import { PrivateRoute } from './PrivateRoute'
 import { PublicRoute } from './PublicRoute'
+import { AuthProvider } from '~UI/Context/Auth'
 
 export const Routing = () => {
   return (
     <UserProvider>
       <PublicRoute>
-        <Route path="/login" component={Home}/>
-        <Scope base='/sign-up'>
-          <Route path="/" component={SignUpOptions} />
-          <Route path="/email" component={SingUp} />
-        </Scope>
-        <Route path="/restore-password" component={Home}/>
+        <AuthProvider>
+          <Route path="/login" component={Home}/>
+          <Scope base='/sign-up'>
+            <Route path="/" component={SignUpOptions} />
+            <Route path="/email" component={SingUp} />
+          </Scope>
+        </AuthProvider>
       </PublicRoute>
       <PrivateRoute>
         <Route path="/dashboard" component={Dashboard}/>

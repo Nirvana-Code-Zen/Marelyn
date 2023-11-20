@@ -7,7 +7,7 @@ export interface AuthRepository {
 }
 
 export type userAuthenticated = {
-  accessToken: string | undefined
+  accessToken: string
   user: unknown
 }
 
@@ -16,11 +16,15 @@ export type userNotAuthenticated = {
   errorMessage: string
   email: string
   credential: unknown
-
 }
 
 export enum AuthProviders {
-    Facebook = 'Facebook',
+    Facebook = 'facebook.com',
+}
+
+export enum accountType {
+  client = 'client',
+  admin = 'admin'
 }
 
 export type providerType = AuthProviders.Facebook
