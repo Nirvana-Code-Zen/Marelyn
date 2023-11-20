@@ -4,6 +4,7 @@ export interface AuthRepository {
     signIn(): Promise<userAuthenticated | userNotAuthenticated>
     signOut(): void;
     saveUser(user: User): Promise<void>
+    searchUser(email: string): Promise<User | null>
 }
 
 export type userAuthenticated = {

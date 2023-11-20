@@ -16,6 +16,8 @@ export function AuthFacebook(repository: AuthRepository) {
       photoURL: string
     }
 
+    const accessToken = response.accessToken
+
     const user = User({ 
       userName: userAuth.displayName,
       name: userAuth.displayName,
@@ -25,7 +27,11 @@ export function AuthFacebook(repository: AuthRepository) {
       authMethod: AuthProviders.Facebook
     })
 
-    const accessToken = response.accessToken
+    const userAlreadyExist = await repository.searchUser(user.email)
+
+    if (userAlreadyExist) {
+      return { user, accessToken }
+    }
 
     await repository.saveUser(user)
     return { user, accessToken }

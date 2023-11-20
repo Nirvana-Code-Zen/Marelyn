@@ -15,7 +15,7 @@ export const signIn = async (provider: providerType): Promise<userAuthenticated 
     const user = result.user
 
     const credentials = Provider.credentialFromResult(result)
-    const accessToken = credentials?.accessToken
+    const accessToken = credentials?.accessToken || ''
     return { accessToken, user }
   } catch(err: unknown) {
     const error = err as FirebaseError

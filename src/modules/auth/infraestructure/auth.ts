@@ -1,4 +1,4 @@
-import {addDoc, collection} from "firebase/firestore"
+import { addDoc, collection, doc, getDoc, getDocs, query, where } from "firebase/firestore"
 
 import { signIn as signInWithFirebase } from "./firebaseAuth"
 
@@ -11,7 +11,8 @@ export function Auth(authMethod: Method, db: unknown): AuthRepository {
   return {
     signIn: () => signIn(authMethod),
     signOut,
-    saveUser: (user: User) => saveUser(user, db)
+    saveUser: (user: User) => saveUser(user, db),
+    searchUser: (email: string) => searchUser(email, db)
   }
 }
 
@@ -34,6 +35,23 @@ const saveUser = async (user: User, db: any): Promise<void> => {
     profile_photo: user.profilePhoto,
     authMethod: user.authMethod
   })
+}
+
+const searchUser = async (email: string, db: any): Promise<User | null> => {
+  const q = query(collection(db, 'Users'), where('email', '==', email))
+  const snapshot = await getDocs(q)
+  const user: User[] = []
+
+  snapshot.forEach(doc => {
+    const userDoc = doc.data() as User
+    user.push(userDoc)
+  })
+
+  if (!user.length) {
+    return null
+  }
+
+  return user[0]
 }
 
 const signOut = () => {}
