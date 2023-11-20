@@ -1,9 +1,7 @@
-
-import { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import { theme } from '~UI/Global-styles'
-import { Firebase, initFirebase } from '~UI/firebase/init'
+import { FirebaseProvider } from '~UI/Context/Firebase'
+import { theme } from '~UI/Global-styles/theme'
 import { Routing } from '~UI/routing'
 
 

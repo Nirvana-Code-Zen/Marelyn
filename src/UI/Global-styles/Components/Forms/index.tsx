@@ -1,8 +1,20 @@
 import styled from 'styled-components'
 
+type StyledModified = {
+  justify?: string
+  margin?: string
+  top?: string
+  wrap?: string
+  direction?: string
+  width?: string
+  padding?: string
+  gap?: string
+  height?: string
+}
+
 export const Form = styled.form`
     display: flex;
-    justify-content: ${props => props?.styledModified?.justify || 'center'};
+    justify-content: ${props => props.?justify || 'center'};
     margin: ${props => props?.styledModified?.margin || 'auto'};
     margin-top: ${props => props?.styledModified?.top || '0'} ;
     flex-wrap: ${props => props?.styledModified?.wrap || 'wrap'};
@@ -34,7 +46,7 @@ export const Form = styled.form`
     text-align: center;
     box-sizing: border-box;
     color: #999999;
-    position: ${props => props.position};
+    position: ${props => props?.position};
     bottom: ${props => props.bottom};
     
   }
