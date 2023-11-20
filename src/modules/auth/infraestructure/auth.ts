@@ -1,4 +1,4 @@
-import { doc, getDoc, setDoc } from "firebase/firestore"
+import { Firestore, doc, getDoc, setDoc } from "firebase/firestore"
 
 import { signIn as signInWithFirebase } from "./firebaseAuth"
 
@@ -21,7 +21,7 @@ const signIn = async (authMethod: Method): Promise<userAuthenticated | userNotAu
   return response
 }
 
-const saveUser = async (user: User, db: any): Promise<void> => {
+const saveUser = async (user: User, db: Firestore): Promise<void> => {
   await setDoc(doc(db, 'Users', user.uid), {
     account_type: user.accountType,
     username: user.userName,
@@ -32,7 +32,7 @@ const saveUser = async (user: User, db: any): Promise<void> => {
   })
 }
 
-const searchUser = async (uid: string, db: any): Promise<User | null> => {
+const searchUser = async (uid: string, db: Firestore): Promise<User | null> => {
   const docRef = doc(db, 'Users', uid)
   const snapshot = await getDoc(docRef)
 

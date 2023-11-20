@@ -1,10 +1,12 @@
-import React, { createContext, useContext, useRef } from "react"
-import {ChildrenPropType} from "~UI/shared/types/childrenPropType"
-import {AuthFacebook} from "~modules/auth/application/signIn/facebbok"
+import { createContext, useContext } from "react"
 
+import { ChildrenPropType } from "~UI/shared/types/childrenPropType"
+
+import { FirebaseContext } from "../Firebase"
+
+import { AuthFacebook } from "~modules/auth/application/signIn/facebbok"
 import { AuthProviders, AuthRepository } from "~modules/auth/domain/repository"
 import { Auth } from "~modules/auth/infraestructure/auth"
-import { FirebaseContext } from "../Firebase"
 
 export interface AuthContextState {
   signInWithFacebook: () => Promise<void>

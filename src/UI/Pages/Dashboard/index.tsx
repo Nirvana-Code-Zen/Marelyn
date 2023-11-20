@@ -1,6 +1,7 @@
+import { DashboardStyled, ProductsSection, SalesSection, ReportsSection, OffertSection } from './DashboardStyled'
+
 import { H4 } from '../../Global-styles/Components/Titles'
 
-import { DashboardStyled, ProductsSection, SalesSection, ReportsSection, OffertSection } from './DashboardStyled'
 
 export const Dashboard = () => {
   return (

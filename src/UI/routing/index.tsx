@@ -1,5 +1,6 @@
 import { Route } from 'wouter'
 
+import { AuthProvider } from '~UI/Context/Auth'
 import { UserProvider } from '~UI/Context/User'
 import { Scope } from '~UI/routing/Scope'
 
@@ -20,7 +21,6 @@ import { ProviderStyled } from '~Components/Layeout/Providers/ProviderStyled'
 
 import { PrivateRoute } from './PrivateRoute'
 import { PublicRoute } from './PublicRoute'
-import { AuthProvider } from '~UI/Context/Auth'
 
 export const Routing = () => {
   return (

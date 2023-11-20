@@ -1,6 +1,8 @@
-import {useContext} from 'react'
-import { LoginStyled, ContainerBannerStyled, ContainerFormLoginStyled } from './LoginStyled'
+import { useContext } from 'react'
+
 import { AuthContext } from '~UI/Context/Auth'
+
+import { LoginStyled, ContainerBannerStyled, ContainerFormLoginStyled } from './LoginStyled'
 
 
 export const Login = () => {
@@ -10,7 +12,7 @@ export const Login = () => {
     try {
       await auth.signInWithFacebook()
     }catch(err) {
-      console.log('some error', err)
+      // handle error message
     }
   }
 
@@ -20,7 +22,7 @@ export const Login = () => {
         <img src="src/UI/assets/Bota.jpeg" alt="banner" className='banner' />
       </ContainerBannerStyled>
       <ContainerFormLoginStyled>
-      <button onClick={login}>Login with Facebook</button>
+        <button onClick={login}>Login with Facebook</button>
         
       </ContainerFormLoginStyled>
     </LoginStyled>

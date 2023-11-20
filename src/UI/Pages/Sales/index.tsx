@@ -1,6 +1,7 @@
+import { SalesStyles } from './SalesStyles'
+
 import { H1 } from '../../Global-styles/Components/Titles'
 
-import { SalesStyles } from './SalesStyles'
 
 export const Sales = () => {
   return (

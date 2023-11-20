@@ -1,29 +1,24 @@
-import { collection, addDoc } from 'firebase/firestore'
-import { useContext, useRef, useState } from 'react'
+import { useState } from 'react'
 import { useLocation } from 'wouter'
-
-import {Button} from '../../Components/Button'
-import {ErrorMessage} from '../../Components/ErrorMessage'
-import {Header} from '../../Components/Header'
-import { FirebaseContext } from '../../Context/Firebase'
 
 import { SignUpOptionsStyled, ButtonContainer, SignUpHeader, SignUpTitle } from './indexStyled'
 
+import { Button } from '../../Components/Button'
+import { ErrorMessage } from '../../Components/ErrorMessage'
+import { Header } from '../../Components/Header'
+
+
 export const SignUpOptions = () => {
-  const firestore = useContext(FirebaseContext)
-  const [errorMessage, setErrorMessage] = useState(null)
+  const [errorMessage] = useState(null)
 
   const [location, setLocation] = useLocation()
-  const { current: providerMethod } = useRef({
-    facebook: FacebookAuthProvider,
-    google: GoogleAuthProvider
-  })
+  
 
   const goToSignUp = () => {
     setLocation(`${location}email`)
   }
 
-  const signInProvider = async (signInMethod) => {
+  const signInProvider = async () => {
     //const ProviderOption = providerMethod[signInMethod]
 
     //try {
@@ -39,20 +34,20 @@ export const SignUpOptions = () => {
     //}
   }
 
-  const saveUserData = async (user) =>
-    await addDoc(collection(firestore, 'Users'), {
-      account_type: 'cliente',
-      name: user.displayName,
-      username: user.displayName,
-      email: user.email
-    })
+  //const saveUserData = async (user) =>
+  //  await addDoc(collection(firestore, 'Users'), {
+  //    account_type: 'cliente',
+  //    name: user.displayName,
+  //    username: user.displayName,
+  //    email: user.email
+  //  })
 
   const signInWithGoogle = async () => {
-    signInProvider('google')
+    signInProvider()
   }
 
   const signInWithFacebook = () => {
-    signInProvider('facebook')
+    signInProvider()
   }
 
   return (

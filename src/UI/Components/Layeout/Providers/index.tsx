@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types'
 import { useLocation } from 'wouter'
 
+import { ProviderStyled, ItemProvider, ProviderSection } from './ProviderStyled'
+
 import { Tabs } from '../../Tabs'
 
-import { ProviderStyled, ItemProvider, ProviderSection } from './ProviderStyled'
 
 
 export const Providers = ({ children }) => {
