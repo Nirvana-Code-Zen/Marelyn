@@ -7,7 +7,7 @@ import { AuthProviders, AuthRepository, userAuthenticated, userNotAuthenticated 
 
 type Method = AuthProviders.Facebook
 
-export function Auth(authMethod: Method, db: unknown): AuthRepository {
+export function Auth(authMethod: Method, db: Firestore): AuthRepository {
   return {
     signIn: () => signIn(authMethod),
     signOut,

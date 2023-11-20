@@ -1,3 +1,4 @@
+import { Firestore } from "firebase/firestore"
 import { createContext, useContext } from "react"
 
 import { ChildrenPropType } from "~UI/shared/types/childrenPropType"
@@ -17,7 +18,7 @@ export const AuthContext = createContext({} as AuthContextState)
 
 export const AuthProvider = ({ children }: ChildrenPropType) => {
   const { db } = useContext(FirebaseContext)
-  const repository: AuthRepository = Auth(AuthProviders.Facebook, db)
+  const repository: AuthRepository = Auth(AuthProviders.Facebook, db as Firestore)
 
   const { signIn, signOut } = AuthFacebook(repository)
 
