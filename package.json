@@ -77,7 +77,7 @@
     ]
   },
   "lint-staged": {
-    "*.{js,jsx}": "yarn run lint",
+    "*.{ts,tsx,js,jsx}": "yarn run lint",
     "*.css": "yarn run lint:css --fix"
   }
 }
