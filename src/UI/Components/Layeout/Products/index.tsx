@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types'
 import { useLocation } from 'wouter'
 
-import {Tabs} from '../../Tabs'
-
 import { ProductStyles, ContainerItems, ProductSection } from './ProductStyles'
+
+import { Tabs } from '../../Tabs'
+
 
 export const ProductsLayout = ({ children }) => {
   const [location, setLocation] = useLocation()

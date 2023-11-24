@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { useRef, useContext, useState } from 'react'
 import { useLocation } from 'wouter'
 
+import { CreateProviderStyled, BtnCreateProvider } from './CreateProviderStyled'
+
 import { Button } from '../../../Components/Button'
 import { ErrorMessage } from '../../../Components/ErrorMessage'
 import { FirebaseContext } from '../../../Context/Firebase'
@@ -10,7 +12,6 @@ import { Form, GroupForm, Input } from '../../../Global-styles/Components/Forms'
 import { collectFormData, validateData } from '../../../utils'
 import { createValidatorProvider } from '../../../utils/validationForms'
 
-import { CreateProviderStyled, BtnCreateProvider } from './CreateProviderStyled'
 
 const inputLabels = {
   completeName: 'Nombre completo'.split(''),

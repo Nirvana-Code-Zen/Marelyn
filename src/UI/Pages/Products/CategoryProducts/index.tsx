@@ -1,9 +1,10 @@
 import { collection, getDocs } from 'firebase/firestore'
 import { useContext, useEffect, useState } from 'react'
 
+import { CategoryProductStyled, ContainerCategory, H3 } from './categoryProducStyled'
+
 import { FirebaseContext } from '../../../Context/Firebase'
 
-import { CategoryProductStyled, ContainerCategory, H3 } from './categoryProducStyled'
 
 export const CategoryProducts = () => {
   const [categories, setCategories] = useState([])

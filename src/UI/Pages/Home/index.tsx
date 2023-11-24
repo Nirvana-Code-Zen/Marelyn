@@ -1,6 +1,7 @@
-import {Login} from '../Login'
+import { HomeStyled } from './HomeStyled'
 
-import {HomeStyled} from './HomeStyled'
+import { Login } from '../Login'
+
 
 export const Home = () => (
   <HomeStyled size='cell-phone'>

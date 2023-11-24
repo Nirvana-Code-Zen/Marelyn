@@ -10,6 +10,8 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     plugins: ['import', 'react-refresh'],
     rules: {
+        'semi': ['error', 'never'],
+        'object-curly-spacing': ['error', 'always'],
         'react-refresh/only-export-components': [
           'warn',
           { "allowConstantExport": true },
@@ -22,6 +24,7 @@ module.exports = {
             "caughtErrorsIgnorePattern": "^_"
           }
         ],
+        "quotes": ["error", "single", { "avoidEscape": true }],
         "no-console": ["error", { allow: ["error"] }],
         "react-hooks/exhaustive-deps": "off",
         'no-useless-escape': 'off',

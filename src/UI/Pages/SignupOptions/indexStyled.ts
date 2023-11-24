@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import {H1} from '../../Global-styles/Components/Titles'
+import { H1 } from '../../Global-styles/Components/Titles'
 
 export const SignUpOptionsStyled = styled.div`
   display: flex;

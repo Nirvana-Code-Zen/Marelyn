@@ -38,3 +38,4 @@ export const initFirebase = (FIREBASE_SETTING: FirebaseSetting): FirebaseInstanc
 
   return { db, storage }
 }
+
