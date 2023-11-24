@@ -1,8 +1,8 @@
-import React, { createContext, useRef } from "react"
+import React, { createContext, useRef } from 'react'
 
-import { FIREBASE_SETTING } from "~UI/env"
+import { FIREBASE_SETTING } from '~UI/env'
 
-import { FirebaseInstance, initFirebase } from "~modules/Shared/Firebase"
+import { FirebaseInstance, initFirebase } from '~modules/Shared/infraestructure/Firebase'
 
 export const FirebaseContext = createContext<FirebaseInstance>({ db: null, storage: null })
 

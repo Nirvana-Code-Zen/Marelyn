@@ -24,6 +24,7 @@ module.exports = {
             "caughtErrorsIgnorePattern": "^_"
           }
         ],
+        "quotes": ["error", "single", { "avoidEscape": true }],
         "no-console": ["error", { allow: ["error"] }],
         "react-hooks/exhaustive-deps": "off",
         'no-useless-escape': 'off',
