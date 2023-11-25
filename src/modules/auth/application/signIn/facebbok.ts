@@ -1,5 +1,5 @@
-import { User } from "~modules/auth/domain/User"
-import { AuthProviders, AuthRepository, accountType } from "~modules/auth/domain/repository"
+import { User } from '~modules/auth/domain/User'
+import { AuthProviders, AuthRepository, accountType } from '~modules/auth/domain/repository'
 
 export function AuthFacebook(repository: AuthRepository) {
 
@@ -39,17 +39,12 @@ export function AuthFacebook(repository: AuthRepository) {
     return { user, accessToken }
   }
 
-  const signOut = () => {
-    repository.signOut()
-  }
-
   const signUp = () => {
     repository.signIn()
   }
 
   return {
     signIn,
-    signOut,
     signUp
   }
 }

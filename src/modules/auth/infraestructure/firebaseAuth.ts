@@ -30,3 +30,5 @@ export const signIn = async (provider: providerType): Promise<userAuthenticated 
     return { errorCode, errorMessage, email, credential }
   }
 }
+
+

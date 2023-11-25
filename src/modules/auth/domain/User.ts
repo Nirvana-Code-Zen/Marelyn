@@ -1,4 +1,4 @@
-import type { AuthProviders, accountType } from "./repository"
+import type { AuthProviders, accountType } from './repository'
 
 export type User = {
     uid: string

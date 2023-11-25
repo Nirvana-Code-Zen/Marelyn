@@ -1,18 +1,25 @@
+import { signOut } from 'firebase/auth'
 import { Firestore, doc, getDoc, setDoc } from 'firebase/firestore'
 
+import { auth } from './AuthProviderFactory'
 import { signIn as signInWithFirebase } from './firebaseAuth'
 
 import { type User } from '~modules/auth/domain/User'
-import { AuthProviders, AuthRepository, userAuthenticated, userNotAuthenticated } from '~modules/auth/domain/repository'
+import { AuthProviders, AuthRepository, SignOutRepository, userAuthenticated, userNotAuthenticated } from '~modules/auth/domain/repository'
 
 type Method = AuthProviders.Facebook
 
 export function Auth(authMethod: Method, db: Firestore): AuthRepository {
   return {
     signIn: () => signIn(authMethod),
-    signOut,
     saveUser: (user: User) => saveUser(user, db),
     searchUser: (uid: string) => searchUser(uid, db)
+  }
+}
+
+export function AuthSignOut(): SignOutRepository {
+  return {
+    signOut: () => logOut()
   }
 }
 
@@ -41,4 +48,8 @@ const searchUser = async (uid: string, db: Firestore): Promise<User | null> => {
   return snapshot.data() as User
 }
 
-const signOut = () => {}
+const logOut = (): void => {
+  signOut(auth())
+    .then(() => {})
+    .catch((err: unknown) => console.error(err))
+}

@@ -2,9 +2,12 @@ import { type User } from './User'
 
 export interface AuthRepository {
     signIn(): Promise<userAuthenticated | userNotAuthenticated>
-    signOut(): void;
     saveUser(user: User): Promise<void>
     searchUser(uid: string): Promise<User | null>
+}
+
+export interface SignOutRepository {
+  signOut(): void;
 }
 
 export type userAuthenticated = {
