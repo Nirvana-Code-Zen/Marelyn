@@ -27,6 +27,7 @@ export const Login = () => {
       <ContainerFormLoginStyled>
         <button onClick={login} data-authmethod={AuthProviders.Facebook}>Login with Facebook</button>
         <button onClick={login} data-authmethod={AuthProviders.Google}>Login with Google</button>
+        <button onClick={login} data-authmethod={AuthProviders.Email}>Login with email</button>
       </ContainerFormLoginStyled>
     </LoginStyled>
   )
