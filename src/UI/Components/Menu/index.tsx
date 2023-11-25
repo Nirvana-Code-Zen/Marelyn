@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'wouter'
 
+import { UserContext } from '~UI/Context/User'
 import { ChildrenPropType } from '~UI/shared/types/childrenPropType'
 
 
@@ -10,6 +11,7 @@ import { Header } from '../Header'
 
 export const Menu = ({ children }: ChildrenPropType) => {
   const [isMenuOpen, setMenuOpen] = useState(false)
+  const { logOut } = useContext(UserContext)
 
   const handleClick = () => {
     setMenuOpen(!isMenuOpen)
@@ -22,6 +24,9 @@ export const Menu = ({ children }: ChildrenPropType) => {
       </HeaderMenu>
       <ContainerMenu className={isMenuOpen ? 'open' : ''} data-testid="container-menu">
         <i className={`bx bx-menu bx-md ${isMenuOpen ? 'open' : ''} btn-Menu`} data-testid="side-menu" onClick={handleClick} />
+        <button onClick={logOut}>
+          logout
+        </button>
         <Link href='/dashboard'>
           <OptionMenu >
             <i className='bx bx-home-alt bx-sm' ></i>

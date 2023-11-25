@@ -2,9 +2,10 @@
 import { collection, query, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState, useContext } from 'react'
 
+import { ListProviderStyled, TableProvider } from './ListProvider'
+
 import { FirebaseContext } from '../../../Context/Firebase'
 
-import { ListProviderStyled, TableProvider } from './ListProvider'
 
 export const ListProvider = () => {
   const [provider, setProvider] = useState([])

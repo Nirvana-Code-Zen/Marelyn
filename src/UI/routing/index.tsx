@@ -1,5 +1,6 @@
 import { Route } from 'wouter'
 
+import { AuthProvider } from '~UI/Context/Auth'
 import { UserProvider } from '~UI/Context/User'
 import { Scope } from '~UI/routing/Scope'
 
@@ -25,12 +26,13 @@ export const Routing = () => {
   return (
     <UserProvider>
       <PublicRoute>
-        <Route path="/login" component={Home}/>
-        <Scope base='/sign-up'>
-          <Route path="/" component={SignUpOptions} />
-          <Route path="/email" component={SingUp} />
-        </Scope>
-        <Route path="/restore-password" component={Home}/>
+        <AuthProvider>
+          <Route path="/login" component={Home}/>
+          <Scope base='/sign-up'>
+            <Route path="/" component={SignUpOptions} />
+            <Route path="/email" component={SingUp} />
+          </Scope>
+        </AuthProvider>
       </PublicRoute>
       <PrivateRoute>
         <Route path="/dashboard" component={Dashboard}/>

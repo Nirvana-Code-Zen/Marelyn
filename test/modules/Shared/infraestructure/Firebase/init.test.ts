@@ -1,7 +1,8 @@
-import { initFirebase } from '@modules/Shared/Firebase/init'
 import { getAnalytics } from 'firebase/analytics'
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
+
+import { initFirebase } from "~modules/Shared/infraestructure/Firebase"
 
 const initializeAppResponse = {
   connextion: true

@@ -5,6 +5,8 @@ import { useContext, useRef, useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { useLocation } from 'wouter'
 
+import { CreateProductStyled, BtnCreate, ChargetImage, Description, Image, UploadImage } from './CreateStyled'
+
 import { Button } from '../../../Components/Button'
 import { ErrorMessage } from '../../../Components/ErrorMessage'
 import { FirebaseContext } from '../../../Context/Firebase'
@@ -13,7 +15,6 @@ import { collectFormData, validateData } from '../../../utils'
 import { createValidatorProduct } from '../../../utils/validationForms'
 
 
-import { CreateProductStyled, BtnCreate, ChargetImage, Description, Image, UploadImage } from './CreateStyled'
 
 const inputLabels = {
   category: 'Categoria'.split(''),

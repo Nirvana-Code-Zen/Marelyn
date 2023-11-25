@@ -1,21 +1,19 @@
-import { collection, addDoc } from 'firebase/firestore'
 import PropTypes from 'prop-types'
-import { useRef, useState, useContext } from 'react'
+import { useRef, useState } from 'react'
 import { useLocation } from 'wouter'
 
-import {Button} from '../../Components/Button'
-import {ErrorMessage} from '../../Components/ErrorMessage'
-import {Header} from '../../Components/Header'
-import { FirebaseContext } from '../../Context/Firebase'
+import { BtnContainer } from './SignupStyled'
+
+import { Button } from '../../Components/Button'
+import { ErrorMessage } from '../../Components/ErrorMessage'
+import { Header } from '../../Components/Header'
 import { Form, GroupForm, Input, Select } from '../../Global-styles/Components/Forms'
 import { collectFormData, validateData } from '../../utils'
 import { createUserValidator } from '../../utils/validationForms'
 
 
-import {BtnContainer} from './SignupStyled'
 
 export const SingUp = () => {
-  const firestore = useContext(FirebaseContext)
   const { current: validationFormat } = useRef(createUserValidator)
 
   const formRef = useRef(null)
@@ -25,22 +23,15 @@ export const SingUp = () => {
   const createUser = async (email, password) => {
     const auth = {}
     try {
-      await Promise.resolve()
+      await Promise.resolve({ email, password, auth })
     } catch (err) {
       const { customData: { _tokenResponse: { error } } } = err
       throw new Error(error.message.split('_').join(' ').toLowerCase())
     }
   }
 
-  const saveUserData = async (user) =>
-    await addDoc(collection(firestore.db, 'Users'), {
-      account_type: 'cliente',
-      username: user.usuario,
-      name: user.nombre,
-      last_name: user.apellido_paterno,
-      mid_name: user.apellido_materno,
-      email: user.email
-    })
+  const saveUserData = async (user) => Promise.resolve(user)
+   
 
   const createUserHandle = async evt => {
     evt.preventDefault()
