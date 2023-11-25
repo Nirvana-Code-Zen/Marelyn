@@ -1,9 +1,9 @@
-import { Firestore, doc, getDoc, setDoc } from "firebase/firestore"
+import { Firestore, doc, getDoc, setDoc } from 'firebase/firestore'
 
-import { signIn as signInWithFirebase } from "./firebaseAuth"
+import { signIn as signInWithFirebase } from './firebaseAuth'
 
-import { type User } from "~modules/auth/domain/User"
-import { AuthProviders, AuthRepository, userAuthenticated, userNotAuthenticated } from "~modules/auth/domain/repository"
+import { type User } from '~modules/auth/domain/User'
+import { AuthProviders, AuthRepository, userAuthenticated, userNotAuthenticated } from '~modules/auth/domain/repository'
 
 type Method = AuthProviders.Facebook
 

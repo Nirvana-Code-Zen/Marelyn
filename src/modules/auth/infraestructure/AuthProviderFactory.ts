@@ -14,4 +14,10 @@ export function AuthProviderFactory(provideType: providerType): Provider {
   return provider[provideType]
 }
 
+export const onAuthStateChanged = (cb: (user: unknown) => void ) =>
+  getAuth().onAuthStateChanged((user: unknown) => {
+    cb(user)
+  })
+
+
 export const auth = getAuth
