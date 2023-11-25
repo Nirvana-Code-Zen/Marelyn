@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { Link } from 'wouter'
 
-import { AuthContext } from '~UI/Context/Auth'
+import { UserContext } from '~UI/Context/User'
 import { ChildrenPropType } from '~UI/shared/types/childrenPropType'
 
 
@@ -11,7 +11,7 @@ import { Header } from '../Header'
 
 export const Menu = ({ children }: ChildrenPropType) => {
   const [isMenuOpen, setMenuOpen] = useState(false)
-  const { logOut } = useContext(AuthContext)
+  const { logOut } = useContext(UserContext)
 
   const handleClick = () => {
     setMenuOpen(!isMenuOpen)
