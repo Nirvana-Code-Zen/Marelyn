@@ -5,13 +5,11 @@ import { auth } from './AuthProviderFactory'
 import { signIn as signInWithFirebase } from './firebaseAuth'
 
 import { type User } from '~modules/auth/domain/User'
-import { AuthProviders, AuthRepository, SignOutRepository, userAuthenticated, userNotAuthenticated } from '~modules/auth/domain/repository'
+import { AuthMethodProvider, AuthRepository, SignOutRepository, userAuthenticated, userNotAuthenticated } from '~modules/auth/domain/repository'
 
-type Method = AuthProviders.Facebook
-
-export function Auth(authMethod: Method, db: Firestore): AuthRepository {
+export function Auth( db: Firestore): AuthRepository {
   return {
-    signIn: () => signIn(authMethod),
+    signIn: (authMethod: AuthMethodProvider) => signIn(authMethod),
     saveUser: (user: User) => saveUser(user, db),
     searchUser: (uid: string) => searchUser(uid, db)
   }
@@ -23,7 +21,7 @@ export function AuthSignOut(): SignOutRepository {
   }
 }
 
-const signIn = async (authMethod: Method): Promise<userAuthenticated | userNotAuthenticated> => {
+const signIn = async (authMethod: AuthMethodProvider): Promise<userAuthenticated | userNotAuthenticated> => {
   const response = await signInWithFirebase(authMethod)
   return response
 }

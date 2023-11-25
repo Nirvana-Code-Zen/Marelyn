@@ -1,10 +1,10 @@
 import { User } from '~modules/auth/domain/User'
-import { AuthProviders, AuthRepository, accountType } from '~modules/auth/domain/repository'
+import { AuthMethodProvider, AuthProviders, AuthRepository, accountType } from '~modules/auth/domain/repository'
 
-export function AuthFacebook(repository: AuthRepository) {
+export function AuthSignIn(repository: AuthRepository) {
 
-  const signIn = async() => {
-    const response = await repository.signIn()
+  const signIn = async(signInMethod: AuthMethodProvider) => {
+    const response = await repository.signIn(signInMethod)
 
     if ('errorCode' in response) {
       throw response
@@ -39,12 +39,7 @@ export function AuthFacebook(repository: AuthRepository) {
     return { user, accessToken }
   }
 
-  const signUp = () => {
-    repository.signIn()
-  }
-
   return {
-    signIn,
-    signUp
+    signIn
   }
 }

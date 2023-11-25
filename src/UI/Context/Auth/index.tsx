@@ -6,13 +6,13 @@ import { ChildrenPropType } from '~UI/shared/types/childrenPropType'
 
 import { FirebaseContext } from '../Firebase'
 
-import { AuthFacebook } from '~modules/auth/application/signIn/facebbok'
-import { AuthProviders, AuthRepository } from '~modules/auth/domain/repository'
+import { AuthSignIn } from '~modules/auth/application/signIn/signin'
+import { AuthMethodProvider, AuthRepository } from '~modules/auth/domain/repository'
 import { onAuthStateChanged } from '~modules/auth/infraestructure/AuthProviderFactory'
 import { Auth } from '~modules/auth/infraestructure/auth'
 
 export interface AuthContextState {
-  signInWithFacebook: () => Promise<void>
+  signInWith: (signInMethod: AuthMethodProvider) => Promise<void>
   logOut: () => void
 }
 
@@ -21,9 +21,9 @@ export const AuthContext = createContext({} as AuthContextState)
 export const AuthProvider = ({ children }: ChildrenPropType) => {
   const [_, setLocation] = useLocation()
   const { db } = useContext(FirebaseContext)
-  const repository: AuthRepository = Auth(AuthProviders.Facebook, db as Firestore)
+  const repository: AuthRepository = Auth(db as Firestore)
 
-  const { signIn } = AuthFacebook(repository)
+  const { signIn } = AuthSignIn(repository)
 
   const sendToLoginIfNotAuthenticated = (user: unknown) => {
     if (!user) return setLocation('/login')
@@ -34,15 +34,15 @@ export const AuthProvider = ({ children }: ChildrenPropType) => {
     onAuthStateChanged(sendToLoginIfNotAuthenticated)
   }, [])
 
-  async function signInWithFacebook() {
-    await signIn()
+  async function signInWith(signInMethod: AuthMethodProvider) {
+    await signIn(signInMethod)
   }
 
   function logOut() {
   }
 
   return (
-    <AuthContext.Provider value={{ signInWithFacebook, logOut }}>
+    <AuthContext.Provider value={{ signInWith, logOut }}>
       {children}
     </AuthContext.Provider>
   )

@@ -1,14 +1,16 @@
-import { getAuth, FacebookAuthProvider } from 'firebase/auth'
+import { getAuth, FacebookAuthProvider, GoogleAuthProvider, EmailAuthProvider } from 'firebase/auth'
 
-import { providerType } from '~modules/auth/domain/repository'
+import { AuthMethodProvider } from '~modules/auth/domain/repository'
 
-type Provider = typeof FacebookAuthProvider
+type Provider = typeof FacebookAuthProvider | typeof GoogleAuthProvider | typeof EmailAuthProvider
 
-type providerFactory = Record<providerType, Provider>
+type providerFactory = Record<AuthMethodProvider, Provider>
 
-export function AuthProviderFactory(provideType: providerType): Provider {
+export function AuthProviderFactory(provideType: AuthMethodProvider): Provider {
   const provider: providerFactory = {
-    [FacebookAuthProvider.FACEBOOK_SIGN_IN_METHOD]: FacebookAuthProvider
+    [FacebookAuthProvider.FACEBOOK_SIGN_IN_METHOD]: FacebookAuthProvider,
+    [GoogleAuthProvider.GOOGLE_SIGN_IN_METHOD]: GoogleAuthProvider,
+    [EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD]: EmailAuthProvider,
   }
 
   return provider[provideType]

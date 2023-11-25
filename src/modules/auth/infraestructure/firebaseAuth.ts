@@ -3,9 +3,9 @@ import { signInWithPopup } from 'firebase/auth'
 
 import { AuthProviderFactory, auth } from './AuthProviderFactory'
 
-import { providerType, userAuthenticated, userNotAuthenticated } from '~modules/auth/domain/repository'
+import { AuthMethodProvider, userAuthenticated, userNotAuthenticated } from '~modules/auth/domain/repository'
 
-export const signIn = async (provider: providerType): Promise<userAuthenticated | userNotAuthenticated> => {
+export const signIn = async (provider: AuthMethodProvider): Promise<userAuthenticated | userNotAuthenticated> => {
   const Provider = AuthProviderFactory(provider)
   const providerInstance = new Provider()
   providerInstance.setCustomParameters({

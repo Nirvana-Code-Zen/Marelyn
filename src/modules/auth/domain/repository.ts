@@ -1,7 +1,7 @@
 import { type User } from './User'
 
 export interface AuthRepository {
-    signIn(): Promise<userAuthenticated | userNotAuthenticated>
+    signIn(authMethod: AuthProviders): Promise<userAuthenticated | userNotAuthenticated>
     saveUser(user: User): Promise<void>
     searchUser(uid: string): Promise<User | null>
 }
@@ -24,6 +24,8 @@ export type userNotAuthenticated = {
 
 export enum AuthProviders {
     Facebook = 'facebook.com',
+    Google = 'google.com',
+    Email = 'emailLink'
 }
 
 export enum accountType {
@@ -31,4 +33,5 @@ export enum accountType {
   admin = 'admin'
 }
 
-export type providerType = AuthProviders.Facebook
+export type AuthMethodProvider = AuthProviders.Facebook | AuthProviders.Google | AuthProviders.Email
+
