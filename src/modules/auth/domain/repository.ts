@@ -25,7 +25,8 @@ export type userNotAuthenticated = {
 export enum AuthProviders {
     Facebook = 'facebook.com',
     Google = 'google.com',
-    Email = 'emailLink'
+    Email = 'emailLink',
+    Phone = 'phone'
 }
 
 export enum accountType {
@@ -33,5 +34,5 @@ export enum accountType {
   admin = 'admin'
 }
 
-export type AuthMethodProvider = AuthProviders.Facebook | AuthProviders.Google | AuthProviders.Email
+export type AuthMethodProvider = AuthProviders
 

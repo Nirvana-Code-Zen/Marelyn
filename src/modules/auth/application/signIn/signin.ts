@@ -26,7 +26,7 @@ export function AuthSignIn(repository: AuthRepository) {
       email: userAuth.email,
       profilePhoto: userAuth.photoURL,
       accountType: accountType.client,
-      authMethod: AuthProviders.Facebook
+      authMethod: signInMethod as AuthProviders
     })
 
     const userAlreadyExist = await repository.searchUser(user.uid)
