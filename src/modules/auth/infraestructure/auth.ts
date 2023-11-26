@@ -12,6 +12,10 @@ import {
   userNotAuthenticated 
 } from '~modules/auth/domain/repository'
 
+type options = {
+  cb: (options: unknown) => unknown,
+  data: string
+}
 
 export function Auth( db: Firestore): AuthRepository {
   const auth = getAuth()
@@ -19,7 +23,7 @@ export function Auth( db: Firestore): AuthRepository {
     signIn: (authMethod: AuthMethodProvider) => signIn(authMethod, auth),
     saveUser: (user: User) => saveUser(user, db),
     searchUser: (uid: string) => searchUser(uid, db),
-    signInWithData: (authMethod: AuthMethodProvider, _data: string) => signIn(authMethod, auth),
+    signInWithData: (authMethod: AuthMethodProvider, opts: options) => signIn(authMethod, auth, opts),
   }
 }
 
@@ -30,8 +34,10 @@ export function AuthSignOut(): SignOutRepository {
   }
 }
 
-const signIn = async (authMethod: AuthMethodProvider, auth: Auth): Promise<userAuthenticated | userNotAuthenticated> => {
-  const response = await signInWithFirebase(authMethod, auth)
+
+
+const signIn = async (authMethod: AuthMethodProvider, auth: Auth, opts?: options): Promise<userAuthenticated | userNotAuthenticated> => {
+  const response = await signInWithFirebase(authMethod, auth, opts)
   return response
 }
 

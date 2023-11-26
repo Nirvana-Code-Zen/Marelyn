@@ -13,21 +13,24 @@ import { AuthProviderFactory, SocialMediaAuthProvider } from './AuthProviderFact
 
 import { AuthMethodProvider, userAuthenticated, userNotAuthenticated } from '~modules/auth/domain/repository'
 
-type callbackType = (options: unknown) => unknown
+type options = {
+  cb: (options: unknown) => unknown,
+  data: string
+}
 
-export const signIn = async (provider: AuthMethodProvider, auth: Auth, cb?: callbackType ): Promise<userAuthenticated | userNotAuthenticated> => {
+export const signIn = async (provider: AuthMethodProvider, auth: Auth, opts?: options ): Promise<userAuthenticated | userNotAuthenticated> => {
   const { authProvider, authInstance } = AuthProviderFactory(provider, auth)
 
   if (isEmailAuthProviderInstance(authInstance) && isEmailAuthProvider(authProvider)) {
-    if (!cb) throw new Error('Callback function is required')
+    if (!opts) throw new Error('Callback function is required')
 
-    return await signInWithEmail(authInstance, authProvider, cb)
+    return await signInWithEmail(authInstance, authProvider, opts)
   }
 
   if (isPhoneAuthProviderInstance(authInstance) && isPhoneAuthProvider(authProvider)) {
-    if (!cb) throw new Error('Callback function is required')
+    if (!opts) throw new Error('Callback function is required')
 
-    return await signInWithPhone(authInstance, authProvider, auth, cb)
+    return await signInWithPhone(authInstance, authProvider, auth, opts)
   }
 
   if (isSocialMediaAuthProviderInstance(authInstance) && isSocialMediaAuthProvider(authProvider)) {
@@ -38,18 +41,18 @@ export const signIn = async (provider: AuthMethodProvider, auth: Auth, cb?: call
 }
 
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-function signInWithEmail(_authInstance: EmailAuthProvider, _authProvider:  typeof EmailAuthProvider, _cb: callbackType): Promise<userAuthenticated | userNotAuthenticated> {
+function signInWithEmail(_authInstance: EmailAuthProvider, _authProvider:  typeof EmailAuthProvider, _opts: options): Promise<userAuthenticated | userNotAuthenticated> {
   throw new Error('Signin email not implemented yet')
 }
 
-async function signInWithPhone(authProvider: PhoneAuthProvider, Provider: typeof PhoneAuthProvider, auth: Auth, cb: callbackType): Promise<userAuthenticated | userNotAuthenticated> {
+async function signInWithPhone(authProvider: PhoneAuthProvider, Provider: typeof PhoneAuthProvider, auth: Auth, opts: options): Promise<userAuthenticated | userNotAuthenticated> {
   try {
     const verifyer = new RecaptchaVerifier(auth, 'sign-in-button', {
       'size': 'invisible',
     })
 
-    const verificationId = await authProvider.verifyPhoneNumber('+553319874195', verifyer)
-    const credential = await cb({ verificationId, setVerificationCode: Provider.credential })
+    const verificationId = await authProvider.verifyPhoneNumber(opts.data, verifyer)
+    const credential = await opts.cb({ verificationId, setVerificationCode: Provider.credential })
 
     console.error(credential, 'credential')
 

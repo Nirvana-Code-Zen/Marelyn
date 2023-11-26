@@ -1,8 +1,12 @@
 import { type User } from './User'
 
+type options = {
+  cb: (options: unknown) => unknown,
+  data: string
+}
 export interface AuthRepository {
     signIn(authMethod: AuthProviders): Promise<userAuthenticated | userNotAuthenticated>
-    signInWithData(authMethod: AuthProviders, data: string): Promise<userAuthenticated | userNotAuthenticated>
+    signInWithData(authMethod: AuthProviders, opts: options): Promise<userAuthenticated | userNotAuthenticated>
     saveUser(user: User): Promise<void>
     searchUser(uid: string): Promise<User | null>
 }
