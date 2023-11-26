@@ -14,6 +14,7 @@ import { Auth } from '~modules/auth/infraestructure/auth'
 export interface AuthContextState {
   signInWith: (signInMethod: AuthMethodProvider) => Promise<void>
   logOut: () => void
+  signInWithData: (signinmethod: AuthMethodProvider, data: string) => void
 }
 
 export const AuthContext = createContext({} as AuthContextState)
@@ -23,7 +24,7 @@ export const AuthProvider = ({ children }: ChildrenPropType) => {
   const { db } = useContext(FirebaseContext)
   const repository: AuthRepository = Auth(db as Firestore)
 
-  const { signIn } = AuthSignIn(repository)
+  const { signIn, signInWithPhoneOrEmail } = AuthSignIn(repository)
 
   const sendToLoginIfNotAuthenticated = (user: unknown) => {
     if (!user) return setLocation('/login')
@@ -38,11 +39,15 @@ export const AuthProvider = ({ children }: ChildrenPropType) => {
     await signIn(signInMethod)
   }
 
+  async function signInWithData(signInMethod: AuthMethodProvider, data: string) {
+    await signInWithPhoneOrEmail(signInMethod, data)
+  }
+
   function logOut() {
   }
 
   return (
-    <AuthContext.Provider value={{ signInWith, logOut }}>
+    <AuthContext.Provider value={{ signInWith, logOut, signInWithData }}>
       {children}
     </AuthContext.Provider>
   )

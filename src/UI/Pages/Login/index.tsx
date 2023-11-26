@@ -101,7 +101,7 @@ export const Login = () => {
         <button onClick={login} data-authmethod={AuthProviders.Facebook}>Login with Facebook</button>
         <button onClick={login} data-authmethod={AuthProviders.Google}>Login with Google</button>
         <button onClick={login} data-authmethod={AuthProviders.Email}>Login with email</button>
-        <button onClick={login} data-authmethod={AuthProviders.Phone}>Login with Phone</button>
+        <button onClick={login} data-authmethod={AuthProviders.Phone} id='sign-in-button'>Login with Phone</button>
       </ContainerFormLoginStyled>
     </LoginStyled>
   )

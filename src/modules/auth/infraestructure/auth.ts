@@ -18,7 +18,8 @@ export function Auth( db: Firestore): AuthRepository {
   return {
     signIn: (authMethod: AuthMethodProvider) => signIn(authMethod, auth),
     saveUser: (user: User) => saveUser(user, db),
-    searchUser: (uid: string) => searchUser(uid, db)
+    searchUser: (uid: string) => searchUser(uid, db),
+    signInWithData: (authMethod: AuthMethodProvider, _data: string) => signIn(authMethod, auth),
   }
 }
 
