@@ -84,7 +84,7 @@ function isEmailAuthProviderInstance(authinstance: unknown): authinstance is Ema
 }
 
 function isPhoneAuthProviderInstance(authinstance: unknown): authinstance is PhoneAuthProvider {
-  return authinstance instanceof PhoneAuthProvider
+  return authinstance === PhoneAuthProvider
 }
 
 function isSocialMediaAuthProviderInstance(authinstance: unknown): authinstance is FacebookAuthProvider | GoogleAuthProvider {
