@@ -12,6 +12,8 @@ import { AuthMethodProvider, AuthProviders } from '~modules/auth/domain/reposito
 
 export const Login = () => {
   const auth = useContext(AuthContext)
+
+  const [verificationCode] = ['']
   
   const inputLabels ={
     user: 'Usuario'.split(''),
@@ -26,6 +28,23 @@ export const Login = () => {
       console.error(res)
     }catch(err) {
       // handle error message
+    }
+  }
+
+  const loginWithPhone = async (evt: MouseEvent<HTMLButtonElement>) => {
+    try {
+      const { currentTarget } = evt
+      const authMethod = currentTarget.getAttribute('data-authmethod') as AuthMethodProvider
+      auth.signInWithData(authMethod,
+        {
+          data: '+553319874195',
+          cb: opts => {
+            (opts.verificationId && opts.setVerificationCode) && opts.setVerificationCode(opts.verificationId, verificationCode)
+          }
+        })
+    }catch(err) {
+      // handle error message
+      console.error(err)
     }
   }
 
@@ -101,7 +120,7 @@ export const Login = () => {
         <button onClick={login} data-authmethod={AuthProviders.Facebook}>Login with Facebook</button>
         <button onClick={login} data-authmethod={AuthProviders.Google}>Login with Google</button>
         <button onClick={login} data-authmethod={AuthProviders.Email}>Login with email</button>
-        <button onClick={login} data-authmethod={AuthProviders.Phone} id='sign-in-button'>Login with Phone</button>
+        <button onClick={loginWithPhone} data-authmethod={AuthProviders.Phone} id='sign-in-button'>Login with Phone</button>
       </ContainerFormLoginStyled>
     </LoginStyled>
   )

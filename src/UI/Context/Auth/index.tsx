@@ -11,10 +11,14 @@ import { AuthMethodProvider, AuthRepository } from '~modules/auth/domain/reposit
 import { onAuthStateChanged } from '~modules/auth/infraestructure/AuthProviderFactory'
 import { Auth } from '~modules/auth/infraestructure/auth'
 
+type SignInWithDataOptions = {
+    data: string
+    cb: (opts: unknown) => unknown
+  }
 export interface AuthContextState {
   signInWith: (signInMethod: AuthMethodProvider) => Promise<void>
   logOut: () => void
-  signInWithData: (signinmethod: AuthMethodProvider, data: string) => void
+  signInWithData: (signinmethod: AuthMethodProvider, opts: SignInWithDataOptions ) => void
 }
 
 export const AuthContext = createContext({} as AuthContextState)
@@ -39,8 +43,9 @@ export const AuthProvider = ({ children }: ChildrenPropType) => {
     await signIn(signInMethod)
   }
 
-  async function signInWithData(signInMethod: AuthMethodProvider, data: string) {
-    await signInWithPhoneOrEmail(signInMethod, data)
+  
+  async function signInWithData(signInMethod: AuthMethodProvider, options: SignInWithDataOptions) {
+    await signInWithPhoneOrEmail(signInMethod, options)
   }
 
   function logOut() {

@@ -44,8 +44,12 @@ export function AuthSignIn(repository: AuthRepository) {
     return await save(response, signInMethod)
   }
 
-  const signInWithPhoneOrEmail = async (signInMethod: AuthMethodProvider, data: string) => {
-    const response = await repository.signInWithData(signInMethod, data)
+  type options = {
+    cb: (options: unknown) => unknown,
+    data: string
+  }
+  const signInWithPhoneOrEmail = async (signInMethod: AuthMethodProvider, opts: options) => {
+    const response = await repository.signInWithData(signInMethod, opts)
     if ('errorCode' in response) {
       throw response
     }
