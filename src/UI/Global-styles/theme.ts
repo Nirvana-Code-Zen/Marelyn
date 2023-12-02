@@ -9,6 +9,7 @@ export const theme = {
     white: '#ffffff',
     hover_search: '#efb810',
     texts: '#999999',
+    texts_secondary: '#0B0A59',
     hover_tabs: '#E3D99F'
   },
   fonts: {

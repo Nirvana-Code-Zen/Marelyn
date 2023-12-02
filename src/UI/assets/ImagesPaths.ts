@@ -1,0 +1,5 @@
+export const FacebookImage: string  = 'src/UI/assets/facebook.png'
+export const GmailImage: string  = 'src/UI/assets/gmail.png'
+export const BotaBannerImage: string = 'src/UI/assets/Bota.jpeg'
+export const Logo: string = 'src/UI/assets/logoMarely.png'
+export const Email: string = 'src/UI/assets/email.png'

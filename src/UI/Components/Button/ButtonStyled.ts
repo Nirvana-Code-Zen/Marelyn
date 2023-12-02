@@ -1,5 +1,13 @@
 import styled from 'styled-components'
 
+type ButtomProps = {
+  size?: string,
+  height?: string,
+  background?: string,
+  width?: string
+}
+
+
 const buttonSize = {
   small: '5rem',
   medium: '9.3rem',
@@ -9,13 +17,13 @@ const buttonSize = {
   fit: '100%'
 }
 
-export const ButtonStyled = styled.button`
+export const ButtonStyled = styled.button<ButtomProps>`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: .62rem 1.75rem;
-  width: ${props => buttonSize[props.size] || buttonSize.fit};
+  width: ${props => props.buttonSize };
   height: ${props => props.height} ;
   border-radius: 0.93rem;
   border: 1px solid transparent;

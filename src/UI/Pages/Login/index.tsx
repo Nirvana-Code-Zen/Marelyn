@@ -1,14 +1,22 @@
 import { MouseEvent,  useContext } from 'react'
 
 import { AuthContext } from '~UI/Context/Auth'
+import { Form, GroupForm, Input } from '~UI/Global-styles/Components/Forms'
+import { BotaBannerImage, Email, FacebookImage, GmailImage, Logo } from '~UI/assets/ImagesPaths'
 
-import { LoginStyled, ContainerBannerStyled, ContainerFormLoginStyled } from './LoginStyled'
+import { LoginStyled, ContainerBannerStyled, ContainerFormLoginStyled, SocialContentStyled, ContainerLogo, ContainerNewtwork, Footer } from './LoginStyled'
 
 import { AuthMethodProvider, AuthProviders } from '~modules/auth/domain/repository'
+import { Button } from '~Components/Button'
 
 export const Login = () => {
   const auth = useContext(AuthContext)
   
+  const inputLabels ={
+    user: 'Usuario'.split(''),
+    phone: 'Télefono'.split(''),
+    email: 'Correo'.split('')
+  }
   const login = async (evt: MouseEvent<HTMLButtonElement>) => {
     try {
       const { currentTarget } = evt
@@ -22,15 +30,73 @@ export const Login = () => {
   return (
     <LoginStyled>
       <ContainerBannerStyled>
-        <img src="src/UI/assets/Bota.jpeg" alt="banner" className='banner' />
+        <figure className='image-banner'>
+          <img src={BotaBannerImage} alt="banner" className='banner' />
+        </figure>
       </ContainerBannerStyled>
       <ContainerFormLoginStyled>
-        <button onClick={login} data-authmethod={AuthProviders.Facebook}>Login with Facebook</button>
-        <button onClick={login} data-authmethod={AuthProviders.Google}>Login with Google</button>
-        <button onClick={login} data-authmethod={AuthProviders.Email}>Login with email</button>
+        <ContainerLogo>
+          <figure className='image-logo'>
+            <img src={Logo} alt="logo-Marelyn " />
+          </figure>
+        </ContainerLogo>
+
+        <Form styledModifield={{ justify: 'center', direction: 'column' }}>
+          <GroupForm>
+          <span className='bar'>Usuario</span>
+            <Input 
+            width="80%" 
+            name='user'
+            type='text'
+            margin_left="10px" 
+            required
+            />
+          </GroupForm>
+          <GroupForm>
+            <span className='bar'>Télefono</span>
+          <Input 
+            width="80%" 
+            name='phone'
+            margin_left="10px" 
+            type='number'
+            />
+          </GroupForm>
+          <label htmlFor="change-loging-method">Usar correo</label>
+
+          <Button
+          background='#d4a413'
+          size='large'
+          >Iniciar sesion</Button>
+
+          <label htmlFor="">O inicia sesion usando </label>
+        </Form>
+    <Footer>
+    <SocialContentStyled>
+          <ContainerNewtwork
+          onClick={login}
+          data-authmethod={AuthProviders.Facebook}
+          >
+            <img src={FacebookImage} alt="facebook" />
+          </ContainerNewtwork>
+          <ContainerNewtwork
+          onClick={login}
+          data-authmethod={AuthProviders.Google}
+          >
+            <img src={GmailImage} alt="facebook" />
+          </ContainerNewtwork>
+          <ContainerNewtwork
+          onClick={login}
+          data-authmethod={AuthProviders.Email}>
+            <img src={Email} alt="facebook" />
+          </ContainerNewtwork>
+        
+        </SocialContentStyled>
+        <label htmlFor="">Registrate</label>
+        
+    </Footer>
+        
       </ContainerFormLoginStyled>
     </LoginStyled>
   )
 }
-
 
