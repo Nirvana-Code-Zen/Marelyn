@@ -1,5 +1,6 @@
 import { User } from '~modules/auth/domain/User'
 import { AuthMethodProvider, AuthProviders, AuthRepository, accountType, userAuthenticated } from '~modules/auth/domain/repository'
+import { options } from '~modules/auth/domain/repository'
 
 export function AuthSignIn(repository: AuthRepository) {
 
@@ -44,10 +45,6 @@ export function AuthSignIn(repository: AuthRepository) {
     return await save(response, signInMethod)
   }
 
-  type options = {
-    cb: (options: unknown) => unknown,
-    data: string
-  }
   const signInWithPhoneOrEmail = async (signInMethod: AuthMethodProvider, opts: options) => {
     const response = await repository.signInWithData(signInMethod, opts)
     if ('errorCode' in response) {

@@ -8,13 +8,12 @@ import { FirebaseContext } from '../Firebase'
 
 import { AuthSignIn } from '~modules/auth/application/signIn/signin'
 import { AuthMethodProvider, AuthRepository } from '~modules/auth/domain/repository'
+import { options } from '~modules/auth/domain/repository'
 import { onAuthStateChanged } from '~modules/auth/infraestructure/AuthProviderFactory'
 import { Auth } from '~modules/auth/infraestructure/auth'
 
-type SignInWithDataOptions = {
-    data: string
-    cb: (opts: unknown) => unknown
-  }
+type SignInWithDataOptions = options
+
 export interface AuthContextState {
   signInWith: (signInMethod: AuthMethodProvider) => Promise<void>
   logOut: () => void
@@ -44,8 +43,8 @@ export const AuthProvider = ({ children }: ChildrenPropType) => {
   }
 
   
-  async function signInWithData(signInMethod: AuthMethodProvider, options: SignInWithDataOptions) {
-    await signInWithPhoneOrEmail(signInMethod, options)
+  async function signInWithData(signInMethod: AuthMethodProvider, signInOptions: SignInWithDataOptions) {
+    await signInWithPhoneOrEmail(signInMethod, signInOptions)
   }
 
   function logOut() {

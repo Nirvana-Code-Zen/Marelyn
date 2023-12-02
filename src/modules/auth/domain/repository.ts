@@ -1,9 +1,15 @@
 import { type User } from './User'
 
-type options = {
-  cb: (options: unknown) => unknown,
+export type Opts = {
+  verificationId: string;
+  setVerificationCode: (verificationId: string, verificationCode: string) => unknown;
+}
+
+export type options = {
+  cb: (options: Opts) => Promise<unknown>,
   data: string
 }
+
 export interface AuthRepository {
     signIn(authMethod: AuthProviders): Promise<userAuthenticated | userNotAuthenticated>
     signInWithData(authMethod: AuthProviders, opts: options): Promise<userAuthenticated | userNotAuthenticated>

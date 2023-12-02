@@ -6,17 +6,14 @@ import {
   GoogleAuthProvider,
   EmailAuthProvider, 
   RecaptchaVerifier, 
-  Auth 
+  Auth, 
+  signInWithCredential,
+  AuthCredential
 } from 'firebase/auth'
 
 import { AuthProviderFactory, SocialMediaAuthProvider } from './AuthProviderFactory'
 
-import { AuthMethodProvider, userAuthenticated, userNotAuthenticated } from '~modules/auth/domain/repository'
-
-type options = {
-  cb: (options: unknown) => unknown,
-  data: string
-}
+import { AuthMethodProvider, options, userAuthenticated, userNotAuthenticated } from '~modules/auth/domain/repository'
 
 export const signIn = async (provider: AuthMethodProvider, auth: Auth, opts?: options ): Promise<userAuthenticated | userNotAuthenticated> => {
   const { authProvider, authInstance } = AuthProviderFactory(provider, auth)
@@ -52,13 +49,13 @@ async function signInWithPhone(authProvider: PhoneAuthProvider, Provider: typeof
     })
 
     const verificationId = await authProvider.verifyPhoneNumber(opts.data, verifyer)
-    const credential = await opts.cb({ verificationId, setVerificationCode: Provider.credential })
+    const credential: AuthCredential = await opts.cb({ verificationId, setVerificationCode: Provider.credential }) as AuthCredential
 
-    console.error(credential, 'credential')
+    const userCredential = await signInWithCredential(auth, credential)
 
-    throw new Error('Not implemented yet')
+    return { user: userCredential, accessToken: '' }
+
   }catch(err: unknown) {
-    console.error(err, 'Error message in sighin phone')
     const error = err as FirebaseError
     const errorCode = error.code
     const errorMessage = error.message
