@@ -23,7 +23,7 @@ export const ButtonStyled = styled.button<ButtomProps>`
   justify-content: center;
   align-items: center;
   padding: .62rem 1.75rem;
-  width: ${props => props.buttonSize };
+  width: ${props => buttonSize[props.size]};
   height: ${props => props.height} ;
   border-radius: 0.93rem;
   border: 1px solid transparent;
@@ -85,3 +85,4 @@ export const ButtonStyled = styled.button<ButtomProps>`
     border-width: 0 0.12rem 0.12rem 0;
   }
 `
+

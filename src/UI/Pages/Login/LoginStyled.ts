@@ -42,12 +42,15 @@ export const ContainerLogo = styled.div`
   }
 `
 
+export const ContainerMainForm = styled.div`
+  height: 50vh;
+  padding-top: 3rem;
+`
 export const ContainerFormLoginStyled = styled.div`
   width:40vw ;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
 `
 
 
@@ -69,7 +72,7 @@ export const ContainerNewtwork = styled.button`
   border: none;
   cursor: pointer;
   & img{
-    width: 1.5rem;
+    width: 2rem;
   }
 `
 
@@ -78,8 +81,9 @@ export const Footer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding-top: 3rem;
 
   & label {
-    padding-top: 1rem;
+    padding-top: 1.5rem;
   }
 `
