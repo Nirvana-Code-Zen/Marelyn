@@ -7,12 +7,13 @@ import { ChildrenPropType } from '~UI/shared/types/childrenPropType'
 import { FirebaseContext } from '../Firebase'
 
 import { AuthSignIn } from '~modules/auth/application/signIn/signin'
-import { AuthMethodProvider, AuthRepository } from '~modules/auth/domain/repository'
+import { AuthMethodProvider, AuthProviders, AuthRepository } from '~modules/auth/domain/repository'
 import { onAuthStateChanged } from '~modules/auth/infraestructure/AuthProviderFactory'
 import { Auth } from '~modules/auth/infraestructure/auth'
 
 export interface AuthContextState {
   signInWith: (signInMethod: AuthMethodProvider) => Promise<void>
+  signInWithPassword: (email: string, password: string) => Promise<void>
   logOut: () => void
 }
 
@@ -38,11 +39,15 @@ export const AuthProvider = ({ children }: ChildrenPropType) => {
     await signIn(signInMethod)
   }
 
+  async function signInWithPassword(email: string, password: string) {
+    await signIn(AuthProviders.Email, { email, password })
+  }
+
   function logOut() {
   }
 
   return (
-    <AuthContext.Provider value={{ signInWith, logOut }}>
+    <AuthContext.Provider value={{ signInWith, logOut, signInWithPassword }}>
       {children}
     </AuthContext.Provider>
   )

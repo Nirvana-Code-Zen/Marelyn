@@ -9,7 +9,7 @@ import { AuthMethodProvider, AuthRepository, SignOutRepository, userAuthenticate
 
 export function Auth( db: Firestore): AuthRepository {
   return {
-    signIn: (authMethod: AuthMethodProvider) => signIn(authMethod),
+    signIn: (authMethod: AuthMethodProvider, opts: {email?: string, password?:string}) => signIn(authMethod, opts),
     saveUser: (user: User) => saveUser(user, db),
     searchUser: (uid: string) => searchUser(uid, db)
   }
@@ -21,8 +21,8 @@ export function AuthSignOut(): SignOutRepository {
   }
 }
 
-const signIn = async (authMethod: AuthMethodProvider): Promise<userAuthenticated | userNotAuthenticated> => {
-  const response = await signInWithFirebase(authMethod)
+const signIn = async (authMethod: AuthMethodProvider, opts: {email?:string, password?: string}): Promise<userAuthenticated | userNotAuthenticated> => {
+  const response = await signInWithFirebase(authMethod, opts)
   return response
 }
 

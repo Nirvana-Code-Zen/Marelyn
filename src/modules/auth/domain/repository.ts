@@ -1,7 +1,7 @@
 import { type User } from './User'
 
 export interface AuthRepository {
-    signIn(authMethod: AuthProviders): Promise<userAuthenticated | userNotAuthenticated>
+    signIn(authMethod: AuthProviders, { email, password }: {email?: string, password?: string}): Promise<userAuthenticated | userNotAuthenticated>
     saveUser(user: User): Promise<void>
     searchUser(uid: string): Promise<User | null>
 }

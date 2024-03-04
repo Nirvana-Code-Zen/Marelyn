@@ -3,8 +3,8 @@ import { AuthMethodProvider, AuthProviders, AuthRepository, accountType } from '
 
 export function AuthSignIn(repository: AuthRepository) {
 
-  const signIn = async(signInMethod: AuthMethodProvider) => {
-    const response = await repository.signIn(signInMethod)
+  const signIn = async(signInMethod: AuthMethodProvider, { email, password }: {email?: string, password?: string}) => {
+    const response = await repository.signIn(signInMethod, { email, password })
 
     if ('errorCode' in response) {
       throw response

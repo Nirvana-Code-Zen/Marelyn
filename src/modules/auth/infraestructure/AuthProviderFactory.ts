@@ -5,11 +5,11 @@ import { Strategy } from './strategies/Strategy'
 
 import { AuthMethodProvider } from '~modules/auth/domain/repository'
 
-export function AuthProviderFactory(provideType: AuthMethodProvider, email?: string, password?: string): Strategy {
+export function AuthProviderFactory(provideType: AuthMethodProvider, opts: {email?:string, password?: string}): Strategy {
   const provider = {
     [FacebookAuthProvider.FACEBOOK_SIGN_IN_METHOD]: Facebook(),
     [GoogleAuthProvider.GOOGLE_SIGN_IN_METHOD]: Google(),
-    [EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD]: Email(email || '', password || ''),
+    [EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD]: Email(opts.email || '', opts.password || ''),
   }
 
   return provider[provideType]
