@@ -1,7 +1,18 @@
 import { type User } from './User'
 
+export type Opts = {
+  verificationId: string;
+  setVerificationCode: (verificationId: string, verificationCode: string) => unknown;
+}
+
+export type options = {
+  cb: (options: Opts) => Promise<unknown>,
+  data: string
+}
+
 export interface AuthRepository {
     signIn(authMethod: AuthProviders): Promise<userAuthenticated | userNotAuthenticated>
+    signInWithData(authMethod: AuthProviders, opts: options): Promise<userAuthenticated | userNotAuthenticated>
     saveUser(user: User): Promise<void>
     searchUser(uid: string): Promise<User | null>
 }
@@ -25,7 +36,8 @@ export type userNotAuthenticated = {
 export enum AuthProviders {
     Facebook = 'facebook.com',
     Google = 'google.com',
-    Email = 'emailLink'
+    Email = 'emailLink',
+    Phone = 'phone'
 }
 
 export enum accountType {
@@ -33,5 +45,5 @@ export enum accountType {
   admin = 'admin'
 }
 
-export type AuthMethodProvider = AuthProviders.Facebook | AuthProviders.Google | AuthProviders.Email
+export type AuthMethodProvider = AuthProviders
 

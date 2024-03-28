@@ -24,7 +24,6 @@ export const Login = () => {
       const { currentTarget } = evt
       const authMethod = currentTarget.getAttribute('data-authmethod') as AuthMethodProvider
       await auth.signInWith(authMethod)
-      // window.location.href = '/dashboard' 
     }catch(err) {
       // handle error message
     }

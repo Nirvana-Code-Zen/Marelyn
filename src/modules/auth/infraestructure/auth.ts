@@ -1,28 +1,43 @@
-import { signOut } from 'firebase/auth'
+import { Auth, getAuth, signOut } from 'firebase/auth'
 import { Firestore, doc, getDoc, setDoc } from 'firebase/firestore'
 
-import { auth } from './AuthProviderFactory'
 import { signIn as signInWithFirebase } from './firebaseAuth'
 
 import { type User } from '~modules/auth/domain/User'
-import { AuthMethodProvider, AuthRepository, SignOutRepository, userAuthenticated, userNotAuthenticated } from '~modules/auth/domain/repository'
+import { 
+  AuthMethodProvider, 
+  AuthRepository, 
+  SignOutRepository, 
+  userAuthenticated, 
+  userNotAuthenticated 
+} from '~modules/auth/domain/repository'
+
+type options = {
+  cb: (options: unknown) => unknown,
+  data: string
+}
 
 export function Auth( db: Firestore): AuthRepository {
+  const auth = getAuth()
   return {
-    signIn: (authMethod: AuthMethodProvider) => signIn(authMethod),
+    signIn: (authMethod: AuthMethodProvider) => signIn(authMethod, auth),
     saveUser: (user: User) => saveUser(user, db),
-    searchUser: (uid: string) => searchUser(uid, db)
+    searchUser: (uid: string) => searchUser(uid, db),
+    signInWithData: (authMethod: AuthMethodProvider, opts: options) => signIn(authMethod, auth, opts),
   }
 }
 
 export function AuthSignOut(): SignOutRepository {
+  const auth = getAuth()
   return {
-    signOut: () => logOut()
+    signOut: () => logOut(auth)
   }
 }
 
-const signIn = async (authMethod: AuthMethodProvider): Promise<userAuthenticated | userNotAuthenticated> => {
-  const response = await signInWithFirebase(authMethod)
+
+
+const signIn = async (authMethod: AuthMethodProvider, auth: Auth, opts?: options): Promise<userAuthenticated | userNotAuthenticated> => {
+  const response = await signInWithFirebase(authMethod, auth, opts)
   return response
 }
 
@@ -46,8 +61,8 @@ const searchUser = async (uid: string, db: Firestore): Promise<User | null> => {
   return snapshot.data() as User
 }
 
-const logOut = (): void => {
-  signOut(auth())
+const logOut = (auth: Auth): void => {
+  signOut(auth)
     .then(() => {})
     .catch((err: unknown) => console.error(err))
 }
