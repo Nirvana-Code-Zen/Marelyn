@@ -5,6 +5,7 @@ import { Form, GroupForm, Input } from '~UI/Global-styles/Components/Forms'
 import { BotaBannerImage, Email, FacebookImage, GmailImage, Logo } from '~UI/assets/ImagesPaths'
 
 import { Button } from '~Components/Button'
+import { ButtomSizes } from '~Components/Button/types'
 
 import { LoginStyled, ContainerBannerStyled, ContainerFormLoginStyled, SocialContentStyled, ContainerLogo, ContainerNewtwork, Footer, ContainerMainForm } from './LoginStyled'
 
@@ -23,11 +24,14 @@ export const Login = () => {
       const { currentTarget } = evt
       const authMethod = currentTarget.getAttribute('data-authmethod') as AuthMethodProvider
       await auth.signInWith(authMethod)
+      // window.location.href = '/dashboard' 
     }catch(err) {
       // handle error message
     }
   }
 
+
+  
   return (
     <LoginStyled>
       <ContainerBannerStyled>
@@ -64,7 +68,7 @@ export const Login = () => {
             </GroupForm>
             <label htmlFor="change-loging-method">Usar correo</label>
 
-            <Button background='#d4a413' size='large'>
+            <Button background='#d4a413' size={ButtomSizes.LARGE}>
             Iniciar sesion
             </Button>
 

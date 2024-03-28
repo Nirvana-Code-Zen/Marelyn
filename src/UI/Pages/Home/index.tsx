@@ -4,7 +4,7 @@ import { Login } from '../Login'
 
 
 export const Home = () => (
-  <HomeStyled size='cell-phone'>
+  <HomeStyled>
     <Login />
   </HomeStyled>
 )

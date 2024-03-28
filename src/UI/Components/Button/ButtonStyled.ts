@@ -1,20 +1,16 @@
 import styled from 'styled-components'
 
-type ButtomProps = {
-  size?: string,
-  height?: string,
-  background?: string,
-  width?: string
-}
+import { ButtomProps, ButtomSizes } from './types'
 
-
-const buttonSize = {
-  small: '5rem',
-  medium: '9.3rem',
-  intermediate: '11.5rem',
-  large: '13.75rem',
-  extraLarge: '15.65rem',
-  fit: '100%'
+const buttonSize: {
+  [key in ButtomSizes ]: string 
+} = {
+  [ButtomSizes.SMALL]: '5rem',
+  [ButtomSizes.MEDIUM]: '9.3rem',
+  [ButtomSizes.INTERMEDIATE]: '11.5rem',
+  [ButtomSizes.LARGE]: '13.75rem',
+  [ButtomSizes.XL]: '15.65rem',
+  [ButtomSizes.FIT]: '100%'
 }
 
 export const ButtonStyled = styled.button<ButtomProps>`
@@ -23,7 +19,7 @@ export const ButtonStyled = styled.button<ButtomProps>`
   justify-content: center;
   align-items: center;
   padding: .62rem 1.75rem;
-  width: ${props => buttonSize[props.size]};
+  width: ${props => (buttonSize[props.size || ButtomSizes.MEDIUM])};
   height: ${props => props.height} ;
   border-radius: 0.93rem;
   border: 1px solid transparent;

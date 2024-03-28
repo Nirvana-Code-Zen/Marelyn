@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { useLocation } from 'wouter'
 
 import { UserContext } from '~UI/Context/User'

@@ -1,4 +1,44 @@
-export const theme = {
+interface Theme {
+  colors: {
+    primary: string;
+    primary_complement: string;
+    primary_second_complement: string;
+    secondary: string;
+    secondary_complement: string;
+    error: string;
+    white: string;
+    hover_search: string;
+    texts: string;
+    texts_secondary: string;
+    hover_tabs: string;
+  };
+  fonts: {
+    texts_titles: string;
+  };
+  fonts_sizes: {
+    titles: string;
+    subtitles: string;
+    medio_titles: string;
+    small_subtitles: string;
+    texts: string;
+    medium_text: string;
+    button_text: string;
+    small_texts: string;
+    extra_small_texts: string;
+  };
+  width_sizing: {
+    [key: string]: string; 
+  };
+  width_porcentages: {
+    [key: string]: string;
+};
+width_creen:{
+  [key:string]: string;
+}
+}
+
+
+export const theme: Theme = {
   colors: {
     primary: '#d4a413',
     primary_complement: '#efb810',
@@ -61,3 +101,4 @@ export const theme = {
     minW0: '0px'
   }
 }
+

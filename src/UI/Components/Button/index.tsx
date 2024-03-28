@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types'
 
 import { ButtonStyled } from './ButtonStyled'
+import { ButtomSizes } from './types'
 
 type PropsButtom = {
   onClick?: ()=> void,
   children: React.ReactNode,
   background?: string,
-  size?: string,
+  size?: ButtomSizes,
   height?: string,
   color?: string,
   arrow?: boolean,
@@ -16,7 +17,8 @@ type PropsButtom = {
 
 export const Button : React.FC<PropsButtom> = ({ onClick , children, background, size, height, color, arrow }) => {
   return (
-    <ButtonStyled type='button'
+    <ButtonStyled 
+      type='button'
       onClick={onClick}
       background={background}
       size={size}
